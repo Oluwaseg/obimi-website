@@ -23,6 +23,19 @@
     "save": "Speichern",
     "donate": "Spenden"
   },
+  "Hero": {
+    "badge": "Unterstützung für SEND-Familien",
+    "title": "Unterstützung für Eltern",
+    "titleHighlight": "Kinder erziehen",
+    "titleSuffix": "mit SEND",
+    "description": "Die Navigation durch Bildung-, Gesundheits- und Betreuungssysteme kann überwältigend sein. Obimi gibt Ihnen die Anleitung, Ressourcen und Gemeinschaft, die Sie brauchen, um Ihr Kind selbstbewusst zu unterstützen.",
+    "ctaPrimary": "Hilfe holen",
+    "ctaSecondary": "Gemeinschaft beitreten",
+    "trustText": "Eltern bereits beigetreten",
+    "trustNumber": "500+",
+    "cardTitle": "Fachliche Beratung",
+    "cardSubtitle": "Von SEND-Fachleuten"
+  },
   "Footer": {
     "rights": "Alle Rechte vorbehalten.",
     "privacy": "Datenschutz",

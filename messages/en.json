@@ -23,6 +23,19 @@
     "save": "Save",
     "donate": "Donate"
   },
+  "Hero": {
+    "badge": "Empowering SEND Families",
+    "title": "Support for Parents",
+    "titleHighlight": "Raising Children",
+    "titleSuffix": "with SEND",
+    "description": "Navigating education, health, and care systems can feel overwhelming. Obimi gives you the guidance, resources, and community you need to support your child with confidence.",
+    "ctaPrimary": "Get Support",
+    "ctaSecondary": "Join Community",
+    "trustText": "parents already joined",
+    "trustNumber": "500+",
+    "cardTitle": "Expert Guidance",
+    "cardSubtitle": "From SEND professionals"
+  },
   "Footer": {
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy",

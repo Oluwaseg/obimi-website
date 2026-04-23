@@ -1,4 +1,5 @@
 import { ArrowRight, Heart, Sparkles, Users } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 /**
  * Obimi Hero Section Component
@@ -12,6 +13,8 @@ import { ArrowRight, Heart, Sparkles, Users } from 'lucide-react';
  */
 
 export function Hero() {
+  const t = useTranslations('Hero');
+
   return (
     <section className='relative min-h-[90vh] flex items-center overflow-hidden bg-background py-20 px-6 md:px-12 lg:px-24'>
       {/* Background Decorative Elements */}
@@ -23,13 +26,13 @@ export function Hero() {
         <div className='lg:col-span-7 space-y-8'>
           <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/30 border border-secondary/50 text-secondary-foreground text-sm font-medium animate-in fade-in slide-in-from-left-4 duration-700'>
             <Sparkles className='w-4 h-4 text-primary' />
-            <span>Empowering SEND Families</span>
+            <span>{t('badge')}</span>
           </div>
 
           <h1 className='text-5xl md:text-6xl lg:text-7xl font-heading font-bold leading-[1.1] text-foreground tracking-tight'>
-            Support for Parents <br />
+            {t('title')} <br />
             <span className='text-primary relative'>
-              Raising Children
+              {t('titleHighlight')}
               <svg
                 className='absolute -bottom-2 left-0 w-full h-3 text-accent/60'
                 viewBox='0 0 100 10'
@@ -44,27 +47,23 @@ export function Hero() {
                 />
               </svg>
             </span>
-            <span className='block'>with SEND</span>
+            <span className='block'>{t('titleSuffix')}</span>
           </h1>
 
           <p className='text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed font-sans'>
-            Navigating education, health, and care systems can feel
-            overwhelming.
-            <span className='font-semibold text-foreground'> Obimi</span> gives
-            you the guidance, resources, and community you need to support your
-            child with confidence.
+            {t('description')}
           </p>
 
           <div className='flex flex-col sm:flex-row gap-4 pt-4'>
-            <button className='group relative px-8 py-4 bg-primary text-primary-foreground rounded-2xl font-heading font-bold text-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-2 overflow-hidden'>
-              <span className='relative z-10'>Get Support</span>
+            <button className='group relative px-8 py-4 bg-primary text-primary-foreground font-heading font-bold text-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-1 flex items-center justify-center gap-2 overflow-hidden rounded-full hover:shadow-md transition-all'>
+              <span className='relative z-10'>{t('ctaPrimary')}</span>
               <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10' />
               <div className='absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300' />
             </button>
 
-            <button className='px-8 py-4 bg-transparent border-2 border-primary/20 text-primary hover:bg-primary/5 rounded-2xl font-heading font-bold text-lg transition-all flex items-center justify-center gap-2'>
+            <button className='px-8 py-4 bg-transparent border-2 border-primary/20 text-primary hover:bg-primary/5 font-heading font-bold text-lg flex items-center justify-center gap-2 rounded-full hover:shadow-md transition-all'>
               <Users className='w-5 h-5' />
-              <span>Join Community</span>
+              <span>{t('ctaSecondary')}</span>
             </button>
           </div>
 
@@ -84,8 +83,10 @@ export function Hero() {
               ))}
             </div>
             <p className='text-sm text-muted-foreground font-sans'>
-              <span className='font-bold text-foreground'>500+</span> parents
-              already joined
+              <span className='font-bold text-foreground'>
+                {t('trustNumber')}
+              </span>{' '}
+              {t('trustText')}
             </p>
           </div>
         </div>
@@ -125,10 +126,10 @@ export function Hero() {
                 <Users className='w-6 h-6 text-primary' />
               </div>
               <span className='text-2xl font-heading font-bold'>
-                Expert Guidance
+                {t('cardTitle')}
               </span>
               <span className='text-xs opacity-80 font-sans'>
-                From SEND professionals
+                {t('cardSubtitle')}
               </span>
             </div>
           </div>
