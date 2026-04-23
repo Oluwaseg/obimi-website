@@ -93,17 +93,17 @@ export function Navbar() {
       }`}
     >
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex items-center justify-between h-16'>
+        <div className='flex items-center justify-between h-14'>
           {/* Logo */}
           <Link href='/' className='flex-shrink-0 flex items-center'>
             <div className='relative w-auto'>
               <Image
                 src={isScrolled ? IMAGES.PRIMARY_LOGO : IMAGES.SECONDARY_LOGO}
                 alt='Obimi'
-                height={isScrolled ? 32 : 40}
-                width={isScrolled ? 64 : 160}
+                width={160}
+                height={40}
                 priority
-                className='w-auto h-auto transition-all duration-300'
+                className={`w-auto max-h-48 transition-all duration-300 ${isScrolled ? 'h-14' : 'h-14'}`}
               />
             </div>
           </Link>

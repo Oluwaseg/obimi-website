@@ -1,5 +1,6 @@
 import { Footer } from '@/components/common/footer';
 import { Navbar } from '@/components/common/navbar';
+import { Hero } from '@/components/hero';
 import { useTranslations } from 'next-intl';
 
 export default function Home() {
@@ -8,47 +9,7 @@ export default function Home() {
   return (
     <main className='min-h-screen bg-white'>
       <Navbar />
-
-      {/* Hero Section */}
-      <section className='pt-40 pb-24 px-4 sm:px-6 lg:px-8'>
-        <div className='max-w-6xl mx-auto'>
-          <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <div className='space-y-6'>
-              <div className='space-y-4'>
-                <h1 className='text-5xl lg:text-6xl font-bold text-gray-900 leading-tight'>
-                  Empowering Parents and Caregivers
-                </h1>
-                <p className='text-lg text-gray-600 leading-relaxed'>
-                  Navigating the SEND journey doesn&apos;t have to be
-                  overwhelming. Expert guidance, community support, and
-                  practical resources—all in one place.
-                </p>
-              </div>
-
-              <div className='flex flex-col sm:flex-row gap-4 pt-4'>
-                <button className='px-8 py-3.5 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200'>
-                  Start Exploring
-                </button>
-                <button className='px-8 py-3.5 border-2 border-purple-600 text-purple-600 font-semibold rounded-lg hover:bg-purple-50 transition-all duration-200'>
-                  {t('learnMore')}
-                </button>
-              </div>
-            </div>
-
-            {/* Hero Visual */}
-            <div className='hidden lg:block'>
-              <div className='relative h-96 bg-gradient-to-br from-purple-100 via-purple-50 to-yellow-50 rounded-2xl flex items-center justify-center'>
-                <div className='text-center space-y-2'>
-                  <div className='text-6xl'>🤝</div>
-                  <p className='text-purple-700 font-semibold'>
-                    Community Driven
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* Services Section */}
       <section className='py-24 px-4 sm:px-6 lg:px-8 bg-gray-50'>
