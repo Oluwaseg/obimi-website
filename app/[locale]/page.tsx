@@ -1,7 +1,10 @@
 import { Footer } from '@/components/common/footer';
 import { Navbar } from '@/components/common/navbar';
+import { useTranslations } from 'next-intl';
 
 export default function Home() {
+  const t = useTranslations('Common');
+
   return (
     <main className='min-h-screen bg-white'>
       <Navbar />
@@ -27,7 +30,7 @@ export default function Home() {
                   Start Exploring
                 </button>
                 <button className='px-8 py-3.5 border-2 border-purple-600 text-purple-600 font-semibold rounded-lg hover:bg-purple-50 transition-all duration-200'>
-                  Learn More
+                  {t('learnMore')}
                 </button>
               </div>
             </div>
@@ -118,7 +121,7 @@ export default function Home() {
             support
           </p>
           <button className='px-8 py-4 bg-white text-purple-600 font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200 inline-block'>
-            Get Started Today
+            {t('getStarted')}
           </button>
         </div>
       </section>

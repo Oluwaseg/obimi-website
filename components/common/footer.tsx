@@ -1,8 +1,8 @@
 'use client';
 
 import { IMAGES } from '@/constants';
-import { FOOTER_SECTIONS, SOCIAL_LINKS } from '@/lib/config/navigation';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
@@ -15,7 +15,55 @@ const SOCIAL_ICON_MAP: Record<string, React.ReactNode> = {
 };
 
 export function Footer() {
+  const t = useTranslations('Navigation');
+  const footerT = useTranslations('Footer');
   const currentYear = new Date().getFullYear();
+
+  const footerSections = [
+    {
+      title: t('aboutUs'),
+      links: [
+        { label: t('mission'), href: '/about' },
+        { label: t('vision'), href: '/vision' },
+        { label: t('ourTeam'), href: '/team' },
+        { label: t('press'), href: '/press' },
+      ],
+    },
+    {
+      title: t('ourServices'),
+      links: [{ label: t('ourServices'), href: '/services' }],
+    },
+    {
+      title: t('shop'),
+      links: [
+        { label: t('tShirts'), href: '/shop/t-shirts' },
+        { label: t('toteBags'), href: '/shop/tote-bags' },
+      ],
+    },
+    {
+      title: t('getInvolved'),
+      links: [
+        { label: t('fundraising'), href: '/get-involved' },
+        { label: t('donate'), href: '/donate' },
+        { label: t('contact'), href: '/contact' },
+      ],
+    },
+  ];
+
+  const socialLinks = [
+    { label: 'Facebook', href: 'https://facebook.com/obimi', icon: 'facebook' },
+    { label: 'Twitter', href: 'https://twitter.com/obimi', icon: 'twitter' },
+    {
+      label: 'LinkedIn',
+      href: 'https://linkedin.com/company/obimi',
+      icon: 'linkedin',
+    },
+    {
+      label: 'Instagram',
+      href: 'https://instagram.com/obimi',
+      icon: 'instagram',
+    },
+  ];
 
   return (
     <footer className='bg-brand-deep text-muted-foreground border-t border-border'>
@@ -62,7 +110,7 @@ export function Footer() {
           </div>
 
           {/* Footer Links Sections */}
-          {FOOTER_SECTIONS.map((section) => (
+          {footerSections.map((section) => (
             <div key={section.title} className='space-y-4'>
               <h3 className='text-sm font-semibold text-foreground uppercase tracking-wide'>
                 {section.title}
@@ -91,7 +139,7 @@ export function Footer() {
           {/* Copyright */}
           <div className='text-sm text-muted-foreground'>
             <p>
-              &copy; {currentYear} Obimi. All rights reserved. | Made with{' '}
+              &copy; {currentYear} Obimi. {footerT('rights')} | Made with{' '}
               <span className='text-primary'>♥</span> for families
             </p>
           </div>
@@ -102,7 +150,7 @@ export function Footer() {
               Follow Us
             </span>
             <div className='flex gap-3'>
-              {SOCIAL_LINKS.map((social) => (
+              {socialLinks.map((social) => (
                 <a
                   key={social.href}
                   href={social.href}

@@ -1,18 +1,76 @@
 'use client';
 
 import { IMAGES } from '@/constants';
-import { NAV_ITEMS } from '@/lib/config/navigation';
-import { ChevronDown, Globe, Menu, Moon, X } from 'lucide-react';
+import { routing } from '@/i18n/routing';
+import { ChevronDown, Menu, Moon, X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export function Navbar() {
+  const t = useTranslations('Navigation');
+  const commonT = useTranslations('Common');
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(
     null
   );
+  const [isLangOpen, setIsLangOpen] = useState(false);
+
+  // Get current locale from pathname
+  const currentLocale = pathname.split('/')[1] || routing.defaultLocale;
+
+  const switchLocale = (newLocale: string) => {
+    // Get the current path without locale prefix
+    const segments = pathname.split('/').filter(Boolean);
+    const currentPath = '/' + (segments.slice(1).join('/') || '');
+
+    // Build new path - always include locale to avoid redirect issues
+    let newPath: string;
+    if (currentPath === '/') {
+      // On root path - always include locale explicitly
+      newPath = `/${newLocale}`;
+    } else {
+      // On other pages
+      newPath = `/${newLocale}${currentPath}`;
+    }
+
+    // Use window.location for reliable navigation
+    window.location.href = newPath;
+    setIsLangOpen(false);
+  };
+
+  const navItems = [
+    { label: t('home'), href: '/' },
+    {
+      label: t('aboutUs'),
+      items: [
+        { label: t('mission'), href: '/about' },
+        { label: t('vision'), href: '/vision' },
+        { label: t('ourTeam'), href: '/team' },
+        { label: t('press'), href: '/press' },
+      ],
+    },
+    { label: t('ourServices'), href: '/services' },
+    {
+      label: t('shop'),
+      items: [
+        { label: t('tShirts'), href: '/shop/t-shirts' },
+        { label: t('toteBags'), href: '/shop/tote-bags' },
+      ],
+    },
+    {
+      label: t('getInvolved'),
+      items: [
+        { label: t('fundraising'), href: '/get-involved' },
+        { label: t('donate'), href: '/donate' },
+      ],
+    },
+    { label: t('contact'), href: '/contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +109,7 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className='hidden lg:flex items-center gap-0.5'>
-            {NAV_ITEMS.map((item) => (
+            {navItems.map((item) => (
               <div key={item.label} className='relative group'>
                 {item.items ? (
                   <>
@@ -92,7 +150,7 @@ export function Navbar() {
               href='/donate'
               className='hidden sm:inline-flex px-6 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white text-xs font-semibold uppercase tracking-wide rounded-full hover:shadow-md hover:scale-105 transition-all duration-200'
             >
-              Donate
+              {commonT('donate')}
             </Link>
 
             {/* Divider */}
@@ -106,13 +164,36 @@ export function Navbar() {
               <Moon className='w-4 h-4' />
             </button>
 
-            {/* Translation Icon */}
-            <button
-              className='hidden lg:inline-flex p-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200'
-              title='Change language'
-            >
-              <Globe className='w-4 h-4' />
-            </button>
+            {/* Language Switcher */}
+            <div className='relative'>
+              <button
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                className='hidden lg:inline-flex p-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200'
+                title='Change language'
+              >
+                <span className='text-xs font-semibold uppercase'>
+                  {currentLocale}
+                </span>
+              </button>
+
+              {isLangOpen && (
+                <div className='absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-xl border border-gray-100 py-1 z-50'>
+                  {routing.locales.map((locale) => (
+                    <button
+                      key={locale}
+                      onClick={() => switchLocale(locale)}
+                      className={`w-full px-4 py-2 text-left text-xs font-medium hover:bg-purple-50 transition-colors ${
+                        currentLocale === locale
+                          ? 'text-purple-600 bg-purple-50'
+                          : 'text-gray-700'
+                      }`}
+                    >
+                      {locale === 'en' ? 'English' : 'Deutsch'}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -127,7 +208,7 @@ export function Navbar() {
         {/* Mobile Navigation */}
         {isMobileOpen && (
           <div className='lg:hidden border-t border-gray-200 mt-3 pt-3 pb-4 space-y-1.5'>
-            {NAV_ITEMS.map((item) => (
+            {navItems.map((item) => (
               <div key={item.label}>
                 {item.items ? (
                   <div className='space-y-1'>
@@ -180,16 +261,25 @@ export function Navbar() {
                 className='block px-4 py-2 text-center text-xs font-semibold uppercase tracking-wide bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-full hover:shadow-md transition-all'
                 onClick={() => setIsMobileOpen(false)}
               >
-                Donate
+                {commonT('donate')}
               </Link>
               <div className='flex gap-2'>
                 <button className='flex-1 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center gap-2'>
                   <Moon className='w-4 h-4' />
                   Dark
                 </button>
-                <button className='flex-1 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center gap-2'>
-                  <Globe className='w-4 h-4' />
-                  Language
+                <button
+                  onClick={() => {
+                    const newLocale = currentLocale === 'en' ? 'de' : 'en';
+                    switchLocale(newLocale);
+                    setIsMobileOpen(false);
+                  }}
+                  className='flex-1 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center gap-2'
+                >
+                  <span className='w-4 h-4 flex items-center justify-center text-xs font-bold'>
+                    {currentLocale.toUpperCase()}
+                  </span>
+                  {currentLocale === 'en' ? 'Deutsch' : 'English'}
                 </button>
               </div>
             </div>

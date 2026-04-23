@@ -1,0 +1,33 @@
+{
+  "Navigation": {
+    "home": "Startseite",
+    "aboutUs": "Über uns",
+    "mission": "Mission",
+    "vision": "Vision",
+    "ourTeam": "Unser Team",
+    "press": "Presse",
+    "ourServices": "Unsere Leistungen",
+    "shop": "Shop",
+    "tShirts": "T-Shirts",
+    "toteBags": "Taschen",
+    "getInvolved": "Mitmachen",
+    "fundraising": "Spendenaktionen",
+    "donate": "Spenden",
+    "contact": "Kontakt"
+  },
+  "Common": {
+    "learnMore": "Mehr erfahren",
+    "getStarted": "Loslegen",
+    "submit": "Absenden",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "donate": "Spenden"
+  },
+  "Footer": {
+    "rights": "Alle Rechte vorbehalten.",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "quickLinks": "Schnellzugriff",
+    "legal": "Rechtliches"
+  }
+}
