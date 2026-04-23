@@ -10,38 +10,38 @@ import {
   Sparkles,
   Users,
 } from 'lucide-react';
-const communityOffers = [
-  {
-    title: 'A Safe, Private Space',
-    description:
-      'Our moderated members-only forum gives you a place to ask questions, share experiences, and speak freely in a supportive environment.',
-    icon: <ShieldCheck className='w-8 h-8 text-primary' />,
-    bg: 'bg-primary/5',
-  },
-  {
-    title: 'Virtual Meetups',
-    description:
-      'Join our relaxed online coffee mornings and connect with other parents from the comfort of your home.',
-    icon: <Coffee className='w-8 h-8 text-accent-foreground' />,
-    bg: 'bg-accent/10',
-  },
-  {
-    title: 'In-Person Meetups',
-    description:
-      'Meet other parents and caregivers face-to-face, build real connections, and grow your support network.',
-    icon: <MapPin className='w-8 h-8 text-secondary-foreground' />,
-    bg: 'bg-secondary/20',
-  },
-  {
-    title: 'Shared Knowledge',
-    description:
-      'Learn from real experiences — from practical tips to everyday advice that makes your journey easier.',
-    icon: <Lightbulb className='w-8 h-8 text-brand-deep' />,
-    bg: 'bg-brand-deep/5',
-  },
-];
+import { useTranslations } from 'next-intl';
 
 const CommunityPage = () => {
+  const t = useTranslations('CommunityPage');
+
+  const communityOffers = [
+    {
+      title: t('offer1Title'),
+      description: t('offer1Description'),
+      icon: <ShieldCheck className='w-8 h-8 text-primary' />,
+      bg: 'bg-primary/5',
+    },
+    {
+      title: t('offer2Title'),
+      description: t('offer2Description'),
+      icon: <Coffee className='w-8 h-8 text-accent-foreground' />,
+      bg: 'bg-accent/10',
+    },
+    {
+      title: t('offer3Title'),
+      description: t('offer3Description'),
+      icon: <MapPin className='w-8 h-8 text-secondary-foreground' />,
+      bg: 'bg-secondary/20',
+    },
+    {
+      title: t('offer4Title'),
+      description: t('offer4Description'),
+      icon: <Lightbulb className='w-8 h-8 text-brand-deep' />,
+      bg: 'bg-brand-deep/5',
+    },
+  ];
+
   return (
     <div className='bg-background min-h-screen'>
       <Navbar />
@@ -56,24 +56,22 @@ const CommunityPage = () => {
           <div className='space-y-8'>
             <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
               <Users className='w-4 h-4' />
-              <span>Our Community</span>
+              <span>{t('badge')}</span>
             </div>
             <h1 className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'>
-              Find Your People. <br />
-              <span className='text-primary italic'>You Belong Here.</span>
+              {t('titlePrefix')} <br />
+              <span className='text-primary italic'>{t('titleHighlight')}</span>
             </h1>
             <p className='text-xl md:text-2xl text-muted-foreground font-sans leading-relaxed max-w-xl'>
-              The SEND journey can feel isolating, but you don’t have to go
-              through it alone. At Obimi, you’re part of a supportive community
-              that understands, listens, and cares.
+              {t('description')}
             </p>
             <div className='flex flex-col sm:flex-row gap-4 pt-4'>
               <button className='group px-10 py-5 bg-primary text-primary-foreground rounded-full font-heading font-bold text-xl shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-3'>
-                <span>Join Now</span>
+                <span>{t('ctaPrimary')}</span>
                 <ArrowRight className='w-6 h-6 group-hover:translate-x-1 transition-transform' />
               </button>
               <button className='px-10 py-5 bg-white border-2 border-primary/20 text-primary hover:bg-primary/5 rounded-full font-heading font-bold text-xl transition-all flex items-center justify-center gap-3'>
-                <span>Get Support</span>
+                <span>{t('ctaSecondary')}</span>
               </button>
             </div>
           </div>
@@ -125,7 +123,7 @@ const CommunityPage = () => {
         <div className='container mx-auto'>
           <div className='text-center max-w-3xl mx-auto mb-20 space-y-4'>
             <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
-              What Our Community Offers
+              {t('offersTitle')}
             </h2>
           </div>
 
@@ -158,10 +156,10 @@ const CommunityPage = () => {
       <section className='py-20 px-6 md:px-12 lg:px-24 bg-accent/10 relative overflow-hidden'>
         <div className='container mx-auto text-center space-y-8 relative z-10'>
           <h2 className='text-3xl md:text-4xl font-heading font-bold text-foreground'>
-            You don’t have to figure everything out alone.
+            {t('midCtaTitle')}
           </h2>
           <button className='group px-12 py-6 bg-primary text-primary-foreground rounded-full font-heading font-bold text-2xl shadow-2xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-2 flex items-center gap-3 mx-auto'>
-            <span>Join the Community</span>
+            <span>{t('midCtaButton')}</span>
             <ArrowRight className='w-6 h-6 group-hover:translate-x-1 transition-transform' />
           </button>
         </div>
@@ -186,11 +184,10 @@ const CommunityPage = () => {
               <Sparkles className='w-8 h-8 text-primary' />
             </div>
             <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
-              A Space Built on Understanding
+              {t('depthTitle')}
             </h2>
             <p className='text-xl text-muted-foreground font-sans leading-relaxed'>
-              Our community is built on empathy, respect, and shared experience
-              — a place where every parent feels seen, heard, and supported.
+              {t('depthDescription')}
             </p>
           </div>
         </div>
@@ -203,14 +200,14 @@ const CommunityPage = () => {
             <Heart className='w-12 h-12 text-accent fill-accent/20' />
           </div>
           <h2 className='text-4xl md:text-6xl font-heading font-bold leading-tight'>
-            Join a Community That Gets It
+            {t('finalCtaTitle')}
           </h2>
           <div className='flex flex-col sm:flex-row gap-6 justify-center pt-8'>
             <button className='px-12 py-6 bg-accent text-accent-foreground rounded-full font-heading font-bold text-2xl shadow-2xl hover:shadow-accent/40 transition-all hover:-translate-y-2'>
-              Join Now
+              {t('finalCtaPrimary')}
             </button>
             <button className='px-12 py-6 bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 rounded-full font-heading font-bold text-2xl transition-all hover:-translate-y-2'>
-              Get Support
+              {t('finalCtaSecondary')}
             </button>
           </div>
         </div>

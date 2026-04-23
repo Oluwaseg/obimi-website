@@ -36,13 +36,6 @@ export function Footer() {
       title: t('shop'),
       links: [{ label: t('shop'), href: '/shop' }],
     },
-    {
-      title: t('getInvolved'),
-      links: [
-        { label: t('donate'), href: '/donate' },
-        { label: t('contact'), href: '/contact' },
-      ],
-    },
   ];
 
   const socialLinks = [
