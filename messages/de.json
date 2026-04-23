@@ -177,48 +177,7 @@
     "impact5Description": "Verbindung mit unterversorgten Gemeinschaften weltweit."
   },
   "Footer": {
-    "rights": "Alle Rechte vorbehalten.",
-    "privacy": "Datenschutz",
-    "terms": "Nutzungsbedingungen",
-    "quickLinks": "Schnellzugriff",
-    "legal": "Rechtliches"
-  }
-}
-    "ctaBoxButton": "Experten kontaktieren",
-    "article1Title": "Jährliche Überprüfungen von EHCPs: Was Eltern wissen müssen",
-    "article1Excerpt": "Ein umfassender Leitfaden zur Vorbereitung auf und Navigation durch den jährlichen Überprüfungsprozess für den EHCP Ihres Kindes.",
-    "article1Category": "Bildung",
-    "article1ReadTime": "8 Min. Lesezeit",
-    "article2Title": "Bildungs-, Gesundheits- und Betreuungspläne (EHCPs): Ein Schritt-für-Schritt-Leitfaden",
-    "article2Excerpt": "Alles, was Sie über den EHCP-Prozess wissen müssen, von der ersten Antragstellung bis zum endgültigen Plan.",
-    "article2Category": "Anleitung",
-    "article2ReadTime": "12 Min. Lesezeit",
-    "article3Title": "Das SEN-Unterstützungssystem verstehen",
-    "article3Excerpt": "Navigation durch die komplexe Welt der sonderpädagogischen Unterstützung in Schulen und Kommunen.",
-    "article3Category": "Unterstützung",
-    "article3ReadTime": "6 Min. Lesezeit"
-  },
-  "Community": {
-    "badge": "Werden Sie Teil unserer Familie",
-    "title": "Sie müssen das nicht",
-    "titleHighlight": "Alleine bewältigen",
-    "description": "Die Erziehung eines Kindes mit SEND bringt einzigartige Herausforderungen mit sich - aber Sie müssen sie nicht allein bewältigen. Schließen Sie sich einer Gemeinschaft von Eltern an, die einander verstehen, teilen und bei jedem Schritt unterstützen.",
-    "ctaPrimary": "Gemeinschaft beitreten",
-    "ctaSecondary": "Unterstützung holen"
-  },
-  "MediaSection": {
-    "title": "Unsere Medien",
-    "description": "Einblicke in unsere Gemeinschaft und die Wirkung, die wir gemeinsam erzielen.",
-    "photoGallery": "Fotogalerie",
-    "videoStories": "Videogeschichten",
-    "video1Title": "Gemeinschaftliche Wirkung",
-    "video1Description": "Sehen Sie unser neuestes Update zur gemeinschaftlichen Wirkung.",
-    "video2Title": "Eltern-Feedback",
-    "video2Description": "Sehen Sie unser neuestes Update zum Eltern-Feedback.",
-    "video3Title": "Fachliche Beratung",
-    "video3Description": "Sehen Sie unser neuestes Update zur fachlichen Beratung."
-  },
-  "Footer": {
+    "subText": "Stärkung von Eltern und Betreuungspersonen durch fachkundige Beratung, gemeinschaftliche Unterstützung und praktische Ressourcen.",
     "rights": "Alle Rechte vorbehalten.",
     "privacy": "Datenschutz",
     "terms": "Nutzungsbedingungen",

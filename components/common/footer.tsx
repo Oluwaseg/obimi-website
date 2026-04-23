@@ -80,8 +80,7 @@ export function Footer() {
               className='w-auto h-auto'
             />
             <p className='text-sm text-muted-foreground leading-relaxed'>
-              Empowering parents and caregivers through expert guidance,
-              community support, and practical resources.
+              {footerT('subText')}
             </p>
             <div className='space-y-2 pt-4'>
               <div className='flex items-center gap-2 text-sm text-muted-foreground'>
