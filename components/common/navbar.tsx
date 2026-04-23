@@ -25,21 +25,14 @@ export function Navbar() {
   const currentLocale = pathname.split('/')[1] || routing.defaultLocale;
 
   const switchLocale = (newLocale: string) => {
-    // Get the current path without locale prefix
     const segments = pathname.split('/').filter(Boolean);
     const currentPath = '/' + (segments.slice(1).join('/') || '');
-
-    // Build new path - always include locale to avoid redirect issues
     let newPath: string;
     if (currentPath === '/') {
-      // On root path - always include locale explicitly
       newPath = `/${newLocale}`;
     } else {
-      // On other pages
       newPath = `/${newLocale}${currentPath}`;
     }
-
-    // Use window.location for reliable navigation
     window.location.href = newPath;
     setIsLangOpen(false);
   };
@@ -49,29 +42,29 @@ export function Navbar() {
     {
       label: t('aboutUs'),
       items: [
-        { label: t('about'), href: '/about' },
         { label: t('support'), href: '/support' },
         { label: t('mission'), href: '/mission' },
-        { label: t('vision'), href: '/vision' },
         { label: t('ourTeam'), href: '/team' },
         { label: t('press'), href: '/press' },
+        { label: t('faq'), href: '/faq' },
       ],
     },
     { label: t('ourServices'), href: '/services' },
     {
       label: t('shop'),
-      items: [
-        { label: t('tShirts'), href: '/shop/t-shirts' },
-        { label: t('toteBags'), href: '/shop/tote-bags' },
-      ],
+      href: '/shop',
     },
     {
-      label: t('getInvolved'),
-      items: [
-        { label: t('fundraising'), href: '/get-involved' },
-        { label: t('donate'), href: '/donate' },
-      ],
+      label: t('community'),
+      href: '/community',
     },
+    // {
+    //   label: t('getInvolved'),
+    //   items: [
+    //     { label: t('fundraising'), href: '/get-involved' },
+    //     { label: t('donate'), href: '/donate' },
+    //   ],
+    // },
     { label: t('contact'), href: '/contact' },
   ];
 

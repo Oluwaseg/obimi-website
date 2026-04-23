@@ -24,7 +24,6 @@ export function Footer() {
       title: t('aboutUs'),
       links: [
         { label: t('mission'), href: '/about' },
-        { label: t('vision'), href: '/vision' },
         { label: t('ourTeam'), href: '/team' },
         { label: t('press'), href: '/press' },
       ],
@@ -35,15 +34,11 @@ export function Footer() {
     },
     {
       title: t('shop'),
-      links: [
-        { label: t('tShirts'), href: '/shop/t-shirts' },
-        { label: t('toteBags'), href: '/shop/tote-bags' },
-      ],
+      links: [{ label: t('shop'), href: '/shop' }],
     },
     {
       title: t('getInvolved'),
       links: [
-        { label: t('fundraising'), href: '/get-involved' },
         { label: t('donate'), href: '/donate' },
         { label: t('contact'), href: '/contact' },
       ],
