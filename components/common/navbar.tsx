@@ -2,12 +2,13 @@
 
 import { IMAGES } from '@/constants';
 import { routing } from '@/i18n/routing';
-import { ChevronDown, Menu, Moon, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { Switch } from './switch';
 
 export function Navbar() {
   const t = useTranslations('Navigation');
@@ -157,12 +158,7 @@ export function Navbar() {
             <div className='hidden lg:block w-px h-5 bg-gray-200'></div>
 
             {/* Theme Toggle Icon */}
-            <button
-              className='hidden lg:inline-flex p-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200'
-              title='Toggle dark mode'
-            >
-              <Moon className='w-4 h-4' />
-            </button>
+            <Switch />
 
             {/* Language Switcher */}
             <div className='relative'>
@@ -264,10 +260,7 @@ export function Navbar() {
                 {commonT('donate')}
               </Link>
               <div className='flex gap-2'>
-                <button className='flex-1 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center gap-2'>
-                  <Moon className='w-4 h-4' />
-                  Dark
-                </button>
+                <Switch />
                 <button
                   onClick={() => {
                     const newLocale = currentLocale === 'en' ? 'de' : 'en';
