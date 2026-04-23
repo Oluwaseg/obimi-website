@@ -105,7 +105,7 @@ export function Navbar() {
                 width={160}
                 height={40}
                 priority
-                className={`w-auto max-h-48 transition-all duration-300 ${isScrolled ? 'h-14' : 'h-14'}`}
+                className={`w-auto max-h-48 transition-all duration-300 ${isScrolled ? 'h-12' : 'h-14'}`}
               />
             </div>
           </Link>

@@ -143,7 +143,7 @@ const MissionPage = () => {
             <p className='text-xl md:text-2xl text-white/80 font-sans leading-relaxed'>
               {t('visionDescription')}
             </p>
-            <button className='group px-10 py-5 bg-accent text-accent-foreground rounded-2xl font-heading font-bold text-xl shadow-xl hover:shadow-accent/20 transition-all hover:-translate-y-1 flex items-center gap-3'>
+            <button className='group px-10 py-5 bg-accent text-accent-foreground rounded-full font-heading font-bold text-xl shadow-xl hover:shadow-accent/20 transition-all hover:-translate-y-1 flex items-center gap-3'>
               <span>{t('cta')}</span>
               <ArrowRight className='w-6 h-6 group-hover:translate-x-1 transition-transform' />
             </button>
