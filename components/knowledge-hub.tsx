@@ -5,6 +5,7 @@ import {
   Clock,
   Sparkles,
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 /**
  * Knowledge Hub Preview Section
@@ -16,34 +17,33 @@ import {
  * - Focus on "Expertise" and "Clarity".
  */
 
-const articles = [
-  {
-    title: 'Annual Reviews of EHCPs: What Parents Need to Know',
-    excerpt:
-      "A comprehensive guide to preparing for and navigating the annual review process for your child's EHCP.",
-    category: 'Education',
-    readTime: '8 min read',
-    color: 'bg-primary/10 text-primary',
-  },
-  {
-    title: 'Education, Health and Care Plans (EHCPs): A Step-by-Step Guide',
-    excerpt:
-      'Everything you need to know about the EHCP process, from initial application to final plan.',
-    category: 'Guidance',
-    readTime: '12 min read',
-    color: 'bg-accent/20 text-accent-foreground',
-  },
-  {
-    title: 'Understanding the SEN Support System',
-    excerpt:
-      'Navigating the complex world of Special Educational Needs support in schools and local authorities.',
-    category: 'Support',
-    readTime: '6 min read',
-    color: 'bg-secondary/30 text-secondary-foreground',
-  },
-];
-
 const KnowledgeHub = () => {
+  const t = useTranslations('KnowledgeHub');
+
+  const articles = [
+    {
+      title: t('article1Title'),
+      excerpt: t('article1Excerpt'),
+      category: t('article1Category'),
+      readTime: t('article1ReadTime'),
+      color: 'bg-primary/10 text-primary',
+    },
+    {
+      title: t('article2Title'),
+      excerpt: t('article2Excerpt'),
+      category: t('article2Category'),
+      readTime: t('article2ReadTime'),
+      color: 'bg-accent/20 text-accent-foreground',
+    },
+    {
+      title: t('article3Title'),
+      excerpt: t('article3Excerpt'),
+      category: t('article3Category'),
+      readTime: t('article3ReadTime'),
+      color: 'bg-secondary/30 text-secondary-foreground',
+    },
+  ];
+
   return (
     <section className='py-24 px-6 md:px-12 lg:px-24 bg-muted/20 relative overflow-hidden'>
       <div className='container mx-auto relative z-10'>
@@ -52,19 +52,18 @@ const KnowledgeHub = () => {
           <div className='max-w-2xl space-y-4'>
             <div className='inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
               <BookOpen className='w-4 h-4' />
-              <span>Knowledge Hub</span>
+              <span>{t('badge')}</span>
             </div>
             <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
-              Resources & Guidance
+              {t('title')}
             </h2>
             <p className='text-xl text-muted-foreground font-sans'>
-              Explore practical guides and insights to help you navigate your
-              journey.
+              {t('description')}
             </p>
           </div>
 
           <button className='group flex items-center gap-2 text-lg font-heading font-bold text-primary hover:text-primary/80 transition-colors'>
-            <span>View All Resources</span>
+            <span>{t('cta')}</span>
             <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
           </button>
         </div>
@@ -103,7 +102,7 @@ const KnowledgeHub = () => {
 
               <div className='mt-8 pt-6 border-t border-border/50 relative z-10'>
                 <button className='flex items-center gap-2 text-sm font-bold font-heading text-foreground group-hover:text-primary transition-colors'>
-                  Read Full Article
+                  {t('readArticle')}
                   <ChevronRight className='w-4 h-4 group-hover:translate-x-1 transition-transform' />
                 </button>
               </div>
@@ -114,20 +113,20 @@ const KnowledgeHub = () => {
         {/* Bottom Decorative Element */}
         <div className='mt-20 p-8 rounded-[3rem] bg-primary/5 border border-primary/10 flex flex-col md:flex-row items-center justify-between gap-8'>
           <div className='flex items-center gap-4'>
-            <div className='w-12 h-12 rounded-2xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20'>
+            <div className='w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/20'>
               <Sparkles className='w-6 h-6 text-white' />
             </div>
             <div>
               <h4 className='text-xl font-heading font-bold text-foreground'>
-                Need specific advice?
+                {t('ctaBoxTitle')}
               </h4>
               <p className='text-muted-foreground font-sans'>
-                Our experts are here to help you with personalized guidance.
+                {t('ctaBoxDescription')}
               </p>
             </div>
           </div>
-          <button className='px-8 py-4 bg-primary text-primary-foreground rounded-2xl font-heading font-bold text-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all hover:-translate-y-1'>
-            Contact an Expert
+          <button className='px-8 py-4 bg-primary text-primary-foreground rounded-full font-heading font-bold text-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all hover:-translate-y-1'>
+            {t('ctaBoxButton')}
           </button>
         </div>
       </div>

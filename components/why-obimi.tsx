@@ -1,4 +1,5 @@
 import { ArrowRight, Heart, LayoutGrid, Lightbulb, Users } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 /**
  * Why Obimi Section
@@ -10,48 +11,42 @@ import { ArrowRight, Heart, LayoutGrid, Lightbulb, Users } from 'lucide-react';
  * - Intentional video placement that feels integrated, not decorative.
  */
 
-const values = [
-  {
-    title: 'By SEND Parents & Caregivers',
-    description:
-      'Built from real experience, so you get support that truly understands your challenges.',
-    icon: <Heart className='w-6 h-6 text-primary' />,
-  },
-  {
-    title: 'Clear, Actionable Guidance',
-    description:
-      'We break down complex systems into simple steps you can actually follow.',
-    icon: <Lightbulb className='w-6 h-6 text-accent-foreground' />,
-  },
-  {
-    title: 'All-in-One Support',
-    description:
-      'From education to health to social care, everything you need is in one place.',
-    icon: <LayoutGrid className='w-6 h-6 text-secondary-foreground' />,
-  },
-  {
-    title: 'A Community That Cares',
-    description:
-      'Connect with others who understand your journey and support you every step of the way.',
-    icon: <Users className='w-6 h-6 text-brand-deep' />,
-  },
-];
-
 const WhyObimi = () => {
+  const t = useTranslations('WhyObimi');
+
+  const values = [
+    {
+      title: t('value1Title'),
+      description: t('value1Description'),
+      icon: <Heart className='w-6 h-6 text-primary' />,
+    },
+    {
+      title: t('value2Title'),
+      description: t('value2Description'),
+      icon: <Lightbulb className='w-6 h-6 text-accent-foreground' />,
+    },
+    {
+      title: t('value3Title'),
+      description: t('value3Description'),
+      icon: <LayoutGrid className='w-6 h-6 text-secondary-foreground' />,
+    },
+    {
+      title: t('value4Title'),
+      description: t('value4Description'),
+      icon: <Users className='w-6 h-6 text-brand-deep' />,
+    },
+  ];
+
   return (
     <section className='py-24 px-6 md:px-12 lg:px-24 bg-muted/30 relative overflow-hidden'>
       <div className='container mx-auto relative z-10'>
         {/* Section Header */}
         <div className='max-w-3xl mb-20 space-y-6'>
           <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
-            Why Obimi
+            {t('title')}
           </h2>
           <p className='text-xl text-muted-foreground font-sans leading-relaxed'>
-            Obimi was created by people who understand the journey firsthand. We
-            combine{' '}
-            <span className='text-primary font-bold'>lived experience</span>{' '}
-            with practical support to help you navigate every step with clarity
-            and confidence.
+            {t('description')}
           </p>
         </div>
 
@@ -72,14 +67,13 @@ const WhyObimi = () => {
               <div className='absolute bottom-6 left-6 bg-primary/90 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 shadow-lg'>
                 <div className='w-2 h-2 rounded-full bg-red-500 animate-pulse' />
                 <span className='text-xs font-bold font-heading text-brand-deep uppercase tracking-wider'>
-                  Watch Our Story
+                  {t('videoBadge')}
                 </span>
               </div>
             </div>
 
             <p className='text-sm text-muted-foreground font-heading italic pl-4 border-l-2 border-primary/30'>
-              Hear from our founder and community about how Obimi is making a
-              difference.
+              {t('videoDescription')}
             </p>
           </div>
 
@@ -109,12 +103,12 @@ const WhyObimi = () => {
             {/* CTA Buttons */}
             <div className='flex flex-col sm:flex-row gap-4 pt-4'>
               <button className='px-8 py-4 bg-primary text-primary-foreground rounded-full font-heading font-bold text-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2'>
-                <span>Learn More About Us</span>
+                <span>{t('ctaPrimary')}</span>
                 <ArrowRight className='w-5 h-5' />
               </button>
 
               <button className='px-8 py-4 bg-transparent border-2 border-primary/20 text-primary hover:bg-primary/5 rounded-full font-heading font-bold text-lg transition-all flex items-center justify-center gap-2'>
-                <span>Join Our Community</span>
+                <span>{t('ctaSecondary')}</span>
               </button>
             </div>
           </div>

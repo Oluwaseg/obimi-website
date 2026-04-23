@@ -1,4 +1,5 @@
 import { ArrowRight, Heart, Users } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 /**
  * Community CTA Section
@@ -11,6 +12,8 @@ import { ArrowRight, Heart, Users } from 'lucide-react';
  */
 
 const CommunityCTA = () => {
+  const t = useTranslations('Community');
+
   return (
     <section className='py-24 px-6 md:px-12 lg:px-24 bg-accent relative overflow-hidden'>
       {/* Background Decorative Elements */}
@@ -25,30 +28,27 @@ const CommunityCTA = () => {
           <div className='space-y-8 text-white'>
             <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
               <Users className='w-4 h-4' />
-              <span>Join Our Family</span>
+              <span>{t('badge')}</span>
             </div>
 
             <h2 className='text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight'>
-              You Don’t Have to <br />
-              <span className='text-primary italic'>Do This Alone</span>
+              {t('title')} <br />
+              <span className='text-primary italic'>{t('titleHighlight')}</span>
             </h2>
 
             <p className='text-xl text-white/80 font-sans leading-relaxed max-w-xl'>
-              Raising a child with SEND comes with unique challenges — but you
-              don’t have to face them by yourself. Join a community of parents
-              who understand, share, and support each other every step of the
-              way.
+              {t('description')}
             </p>
 
             <div className='flex flex-col sm:flex-row gap-4 pt-4'>
               <button className='group px-8 py-4 bg-accent text-accent-foreground rounded-2xl font-heading font-bold text-lg shadow-xl shadow-accent/20 hover:shadow-accent/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-2'>
-                <span>Join the Community</span>
+                <span>{t('ctaPrimary')}</span>
                 <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
               </button>
 
-              <button className='px-8 py-4 bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 rounded-2xl font-heading font-bold text-lg transition-all flex items-center justify-center gap-2'>
+              <button className='px-8 py-4 bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 rounded-full font-heading font-bold text-lg transition-all flex items-center justify-center gap-2'>
                 <Heart className='w-5 h-5' />
-                <span>Get Support</span>
+                <span>{t('ctaSecondary')}</span>
               </button>
             </div>
           </div>

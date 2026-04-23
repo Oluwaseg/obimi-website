@@ -1,5 +1,6 @@
 'use client';
 import { ExternalLink, Image as ImageIcon, Play, Video, X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 /**
@@ -57,8 +58,15 @@ const videos = [
 ];
 
 const MediaSection = () => {
+  const t = useTranslations('MediaSection');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
+  const videoTitles = [
+    { title: t('video1Title'), description: t('video1Description') },
+    { title: t('video2Title'), description: t('video2Description') },
+    { title: t('video3Title'), description: t('video3Description') },
+  ];
 
   return (
     <section className='py-24 px-6 md:px-12 lg:px-24 bg-background relative overflow-hidden'>
@@ -66,10 +74,10 @@ const MediaSection = () => {
         {/* Header */}
         <div className='text-center max-w-2xl mx-auto space-y-4'>
           <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
-            Our Media
+            {t('title')}
           </h2>
           <p className='text-lg text-muted-foreground font-sans'>
-            Glimpses of our community and the impact we're making together.
+            {t('description')}
           </p>
         </div>
 
@@ -77,7 +85,9 @@ const MediaSection = () => {
         <div className='space-y-8'>
           <div className='flex items-center gap-3 border-b border-border pb-4'>
             <ImageIcon className='w-6 h-6 text-primary' />
-            <h3 className='text-2xl font-heading font-bold'>Photo Gallery</h3>
+            <h3 className='text-2xl font-heading font-bold'>
+              {t('photoGallery')}
+            </h3>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]'>
@@ -106,7 +116,9 @@ const MediaSection = () => {
         <div className='space-y-8'>
           <div className='flex items-center gap-3 border-b border-border pb-4'>
             <Video className='w-6 h-6 text-secondary-foreground' />
-            <h3 className='text-2xl font-heading font-bold'>Video Stories</h3>
+            <h3 className='text-2xl font-heading font-bold'>
+              {t('videoStories')}
+            </h3>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -142,10 +154,10 @@ const MediaSection = () => {
                 </div>
                 <div className='px-2'>
                   <h4 className='text-xl font-heading font-bold text-foreground group-hover:text-primary transition-colors'>
-                    {video.title}
+                    {videoTitles[index].title}
                   </h4>
                   <p className='text-sm text-muted-foreground font-sans'>
-                    Watch our latest update on {video.title.toLowerCase()}.
+                    {videoTitles[index].description}
                   </p>
                 </div>
               </div>

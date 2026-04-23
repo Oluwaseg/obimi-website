@@ -49,7 +49,9 @@ export function Navbar() {
     {
       label: t('aboutUs'),
       items: [
-        { label: t('mission'), href: '/about' },
+        { label: t('about'), href: '/about' },
+        { label: t('support'), href: '/support' },
+        { label: t('mission'), href: '/mission' },
         { label: t('vision'), href: '/vision' },
         { label: t('ourTeam'), href: '/team' },
         { label: t('press'), href: '/press' },

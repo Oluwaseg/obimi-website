@@ -6,6 +6,7 @@ import {
   Stethoscope,
   Users,
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 /**
  * How We Help Section
@@ -17,50 +18,47 @@ import {
  * - Interactive hover states with "peek-a-boo" details.
  */
 
-const services = [
-  {
-    title: 'Education Support',
-    description:
-      'From EHCP processes to school placement and reviews, we help you advocate for your child’s education.',
-    icon: <GraduationCap className='w-8 h-8' />,
-    color: 'bg-primary/10 text-primary',
-    span: 'md:col-span-2 lg:col-span-4',
-  },
-  {
-    title: 'Health Navigation',
-    description:
-      'Understand diagnoses, work with therapists, and manage appointments with clarity and confidence.',
-    icon: <Stethoscope className='w-8 h-8' />,
-    color: 'bg-accent/10 text-accent-foreground',
-    span: 'md:col-span-2 lg:col-span-4',
-  },
-  {
-    title: 'Social Care & Benefits',
-    description:
-      'Get help accessing DLA, Carer’s Allowance, and local authority support.',
-    icon: <HeartHandshake className='w-8 h-8' />,
-    color: 'bg-secondary/20 text-secondary-foreground',
-    span: 'md:col-span-2 lg:col-span-4',
-  },
-  {
-    title: 'Community & Wellbeing',
-    description:
-      'Connect with other parents, join safe spaces, and take care of your own wellbeing too.',
-    icon: <Users className='w-8 h-8' />,
-    color: 'bg-brand-deep/10 text-brand-deep',
-    span: 'md:col-span-3 lg:col-span-6',
-  },
-  {
-    title: 'Consultancy',
-    description:
-      'Training and speaking engagements to support professionals and organisations working with SEND families.',
-    icon: <Presentation className='w-8 h-8' />,
-    color: 'bg-primary/5 text-primary',
-    span: 'md:col-span-3 lg:col-span-6',
-  },
-];
-
 const HowWeHelp = () => {
+  const t = useTranslations('HowWeHelp');
+
+  const services = [
+    {
+      title: t('service1Title'),
+      description: t('service1Description'),
+      icon: <GraduationCap className='w-8 h-8' />,
+      color: 'bg-primary/10 text-primary',
+      span: 'md:col-span-2 lg:col-span-4',
+    },
+    {
+      title: t('service2Title'),
+      description: t('service2Description'),
+      icon: <Stethoscope className='w-8 h-8' />,
+      color: 'bg-accent/10 text-accent-foreground',
+      span: 'md:col-span-2 lg:col-span-4',
+    },
+    {
+      title: t('service3Title'),
+      description: t('service3Description'),
+      icon: <HeartHandshake className='w-8 h-8' />,
+      color: 'bg-secondary/20 text-secondary-foreground',
+      span: 'md:col-span-2 lg:col-span-4',
+    },
+    {
+      title: t('service4Title'),
+      description: t('service4Description'),
+      icon: <Users className='w-8 h-8' />,
+      color: 'bg-brand-deep/10 text-brand-deep',
+      span: 'md:col-span-3 lg:col-span-6',
+    },
+    {
+      title: t('service5Title'),
+      description: t('service5Description'),
+      icon: <Presentation className='w-8 h-8' />,
+      color: 'bg-primary/5 text-primary',
+      span: 'md:col-span-3 lg:col-span-6',
+    },
+  ];
+
   return (
     <section className='py-24 px-6 md:px-12 lg:px-24 bg-background relative overflow-hidden'>
       {/* Background Accents */}
@@ -69,13 +67,13 @@ const HowWeHelp = () => {
       <div className='container mx-auto relative z-10'>
         <div className='max-w-3xl mb-16 space-y-4'>
           <div className='inline-block px-4 py-1 rounded-full bg-accent/20 text-accent-foreground text-sm font-bold font-heading uppercase tracking-wider'>
-            Our Services
+            {t('badge')}
           </div>
           <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
-            How We Can Help
+            {t('title')}
           </h2>
           <p className='text-xl text-muted-foreground font-sans'>
-            Practical support across every part of your journey.
+            {t('description')}
           </p>
         </div>
 
@@ -107,7 +105,7 @@ const HowWeHelp = () => {
 
               <div className='mt-8 flex items-center justify-between relative z-10'>
                 <button className='text-sm font-bold font-heading text-primary flex items-center gap-1 group/btn'>
-                  Learn More
+                  {t('learnMore')}
                   <ArrowUpRight className='w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform' />
                 </button>
 
