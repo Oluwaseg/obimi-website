@@ -1,16 +1,6 @@
 import { ArrowRight, Heart, LayoutGrid, Lightbulb, Users } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-/**
- * Why Obimi Section
- * Built with Next.js and Tailwind CSS v4
- *
- * Design Concept:
- * - High-trust layout with a featured video.
- * - Value cards that use a "grid-within-grid" approach.
- * - Intentional video placement that feels integrated, not decorative.
- */
-
 const WhyObimi = () => {
   const t = useTranslations('WhyObimi');
 

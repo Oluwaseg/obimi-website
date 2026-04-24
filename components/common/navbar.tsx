@@ -37,7 +37,7 @@ export function Navbar() {
       items: [
         { label: t('support'), href: '/support' },
         { label: t('mission'), href: '/mission' },
-        { label: t('ourTeam'), href: '/team' },
+        { label: t('ourTeam'), href: '/our-team' },
         { label: t('press'), href: '/press' },
         { label: t('faq'), href: '/faq' },
       ],
@@ -46,7 +46,6 @@ export function Navbar() {
     { label: t('shop'), href: '/shop' },
     { label: t('community'), href: '/community' },
     { label: t('knowledgeHub'), href: '/knowledge-hub' },
-    { label: t('contact'), href: '/contact' },
   ];
 
   useEffect(() => {
@@ -61,11 +60,6 @@ export function Navbar() {
 
   return (
     <>
-      {/* 
-        RADICAL LAYOUT: Floating "Island" Navbar
-        Instead of a full-width bar, this is a centered, rounded capsule that 
-        adapts its size and appearance based on scroll state.
-      */}
       <header className='fixed top-0 left-0 right-0 z-50 flex justify-center p-4 pointer-events-none'>
         <nav
           className={`
@@ -164,7 +158,7 @@ export function Navbar() {
             <Link
               href='https://www.paypal.com/ncp/payment/MQG6ZVX59QCSY'
               className={`
-                flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-500
+                flex items-center gap-2 px-3 py-2.5 rounded-full font-bold text-sm transition-all duration-500
                 ${
                   isScrolled
                     ? 'bg-primary text-white shadow-lg shadow-primary/25 hover:scale-105 active:scale-95'

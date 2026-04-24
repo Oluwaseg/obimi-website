@@ -1,5 +1,3 @@
-import { Footer } from '@/components/common/footer';
-import { Navbar } from '@/components/common/navbar';
 import { SOCIAL_ICON_MAP, SOCIAL_LINKS } from '@/constants/socials';
 import {
   ArrowRight,
@@ -17,7 +15,6 @@ const ContactPage = () => {
 
   return (
     <div className='bg-background min-h-screen'>
-      <Navbar />
       {/* Hero Section */}
       <section className='relative py-24 px-6 md:px-12 lg:px-24 bg-muted/30 overflow-hidden'>
         <div className='absolute top-0 right-0 w-1/3 h-full bg-primary/5 rounded-bl-[10rem] -z-10' />
@@ -204,7 +201,6 @@ const ContactPage = () => {
         <div className='absolute top-1/2 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -translate-x-1/2' />
         <div className='absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-x-1/2' />
       </section>
-      <Footer />
     </div>
   );
 };

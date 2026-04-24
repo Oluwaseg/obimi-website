@@ -1,6 +1,4 @@
 'use client';
-import { Footer } from '@/components/common/footer';
-import { Navbar } from '@/components/common/navbar';
 import {
   ArrowRight,
   HelpCircle,
@@ -9,8 +7,8 @@ import {
   Plus,
   Search,
 } from 'lucide-react';
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { useState } from 'react';
 
 const FAQPage = () => {
   const t = useTranslations('FAQPage');
@@ -27,7 +25,6 @@ const FAQPage = () => {
 
   return (
     <div className='bg-background min-h-screen'>
-      <Navbar />
       {/* Hero Section */}
       <section className='relative py-24 px-6 md:px-12 lg:px-24 bg-primary/5 overflow-hidden'>
         <div className='absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none'>
@@ -41,7 +38,8 @@ const FAQPage = () => {
             <span>{t('badge')}</span>
           </div>
           <h1 className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'>
-            {t('titlePrefix')} <span className='text-primary'>{t('titleHighlight')}</span>
+            {t('titlePrefix')}{' '}
+            <span className='text-primary'>{t('titleHighlight')}</span>
           </h1>
           <p className='text-xl md:text-2xl text-muted-foreground font-sans leading-relaxed'>
             {t('description')}
@@ -125,7 +123,6 @@ const FAQPage = () => {
         <div className='absolute top-1/2 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -translate-x-1/2' />
         <div className='absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-x-1/2' />
       </section>
-      <Footer />
     </div>
   );
 };

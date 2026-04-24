@@ -1,5 +1,3 @@
-import { Footer } from '@/components/common/footer';
-import { Navbar } from '@/components/common/navbar';
 import {
   ArrowRight,
   Heart,
@@ -42,7 +40,6 @@ const MissionPage = () => {
 
   return (
     <div className='bg-background min-h-screen'>
-      <Navbar />
       {/* Hero Section */}
       <section className='relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden'>
         <div className='absolute top-0 right-0 w-1/2 h-full bg-primary/5 rounded-bl-[10rem] -z-10' />
@@ -166,8 +163,6 @@ const MissionPage = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

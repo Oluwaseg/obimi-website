@@ -1,5 +1,3 @@
-import { Footer } from '@/components/common/footer';
-import { Navbar } from '@/components/common/navbar';
 import {
   ArrowRight,
   CheckCircle2,
@@ -55,7 +53,6 @@ const Support = () => {
 
   return (
     <div className='bg-background min-h-screen'>
-      <Navbar />
       {/* Hero Section */}
       <section className='relative py-24 px-6 md:px-12 lg:px-24 bg-primary text-white overflow-hidden'>
         <div className='absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none'>
@@ -275,8 +272,6 @@ const Support = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

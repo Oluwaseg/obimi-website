@@ -1,22 +1,11 @@
 import { ArrowRight, Heart, Users } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-/**
- * Community CTA Section
- * Built with Next.js and Tailwind CSS v4
- *
- * Design Concept:
- * - High-impact "Inverted" design (dark background) to break the page flow.
- * - Floating "Community Bubbles" to represent connection.
- * - Strong, clear typography with a focus on empathy.
- */
-
 const CommunityCTA = () => {
   const t = useTranslations('Community');
 
   return (
     <section className='py-24 px-6 md:px-12 lg:px-24 bg-accent relative overflow-hidden'>
-      {/* Background Decorative Elements */}
       <div className='absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none'>
         <div className='absolute top-[-10%] left-[-5%] w-96 h-96 bg-primary rounded-full blur-[120px]' />
         <div className='absolute bottom-[-10%] right-[-5%] w-96 h-96 bg-accent rounded-full blur-[120px]' />
@@ -24,7 +13,6 @@ const CommunityCTA = () => {
 
       <div className='container mx-auto relative z-10'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-16 items-center'>
-          {/* Left: Content */}
           <div className='space-y-8 text-white'>
             <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
               <Users className='w-4 h-4' />
@@ -53,15 +41,12 @@ const CommunityCTA = () => {
             </div>
           </div>
 
-          {/* Right: Visual Representation */}
           <div className='relative hidden lg:block'>
             <div className='relative w-full aspect-square flex items-center justify-center'>
-              {/* Central Logo/Icon */}
               <div className='w-32 h-32 rounded-[2.5rem] bg-primary flex items-center justify-center shadow-2xl shadow-primary/40 z-20 animate-pulse'>
                 <Users className='w-16 h-16 text-white' />
               </div>
 
-              {/* Floating Avatars/Bubbles */}
               <div className='absolute top-0 left-1/4 w-20 h-20 rounded-full border-4 border-white/20 overflow-hidden animate-bounce-slow'>
                 <img
                   src='https://i.pravatar.cc/150?u=1'
@@ -91,7 +76,6 @@ const CommunityCTA = () => {
                 />
               </div>
 
-              {/* Decorative Rings */}
               <div className='absolute w-[80%] h-[80%] border border-secondary rounded-full animate-spin-slow' />
               <div className='absolute w-[60%] h-[60%] border border-secondary rounded-full animate-reverse-spin-slow' />
             </div>

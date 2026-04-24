@@ -1,17 +1,6 @@
 import { ArrowRight, Heart, Sparkles, Users } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-/**
- * Obimi Hero Section Component
- * Built with Next.js and Tailwind CSS v4
- *
- * Design Features:
- * - Asymmetric "Bento-style" grid for a modern, non-standard look.
- * - Organic blob shapes and floating elements to feel friendly and supportive.
- * - Uses Fredoka for headings and Manrope for body (as per theme).
- * - Interactive hover states and subtle animations.
- */
-
 export function Hero() {
   const t = useTranslations('Hero');
 

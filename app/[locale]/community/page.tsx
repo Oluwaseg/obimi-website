@@ -1,5 +1,3 @@
-import { Footer } from '@/components/common/footer';
-import { Navbar } from '@/components/common/navbar';
 import {
   ArrowRight,
   Coffee,
@@ -44,7 +42,6 @@ const CommunityPage = () => {
 
   return (
     <div className='bg-background min-h-screen'>
-      <Navbar />
       {/* Hero Section */}
       <section className='relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden bg-primary/5'>
         <div className='absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none'>
@@ -194,7 +191,7 @@ const CommunityPage = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className='py-24 px-6 md:px-12 lg:px-24 bg-brand-deep text-white rounded-t-[5rem] md:rounded-t-[10rem]'>
+      <section className='py-24 px-6 md:px-12 lg:px-24 bg-brand-deep text-white rounded-[10rem] mb-4 md:rounded-t-[10rem]'>
         <div className='container mx-auto max-w-4xl text-center space-y-12'>
           <div className='w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mx-auto'>
             <Heart className='w-12 h-12 text-accent fill-accent/20' />
@@ -212,7 +209,6 @@ const CommunityPage = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

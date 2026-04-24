@@ -7,16 +7,6 @@ import {
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-/**
- * Knowledge Hub Preview Section
- * Built with Next.js and Tailwind CSS v4
- *
- * Design Concept:
- * - Clean, modern card-based layout with high readability.
- * - Subtle hover effects and clear CTAs.
- * - Focus on "Expertise" and "Clarity".
- */
-
 const KnowledgeHub = () => {
   const t = useTranslations('KnowledgeHub');
 

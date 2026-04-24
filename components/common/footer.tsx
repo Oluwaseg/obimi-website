@@ -124,7 +124,7 @@ export function Footer() {
         <div className='h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8' />
 
         {/* Bottom Bar: Clean & Minimal */}
-        <div className='flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40'>
+        <div className='flex flex-col font-heading sm:flex-row items-center justify-between gap-4 text-xs text-white/40'>
           <div className='flex flex-col sm:flex-row items-center gap-3 sm:gap-6'>
             <p>
               &copy; {currentYear} Obimi. {footerT('rights')}
@@ -139,18 +139,18 @@ export function Footer() {
 
           <div className='flex items-center gap-6'>
             <Link
-              href='/privacy'
+              href='/privacy-policy'
               className='hover:text-primary transition-colors'
             >
-              Privacy
+              Privacy Policy
             </Link>
-            <div className='w-px h-3 bg-white/10' />
+            {/* <div className='w-px h-3 bg-white/10' />
             <Link
               href='/terms'
               className='hover:text-primary transition-colors'
             >
               Terms
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

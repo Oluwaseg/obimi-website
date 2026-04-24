@@ -1,5 +1,3 @@
-import { Footer } from '@/components/common/footer';
-import { Navbar } from '@/components/common/navbar';
 import {
   ArrowRight,
   BookOpen,
@@ -82,7 +80,6 @@ const ServicesPage = () => {
 
   return (
     <div className='bg-background min-h-screen'>
-      <Navbar />
       {/* Hero Section */}
       <section className='relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden bg-muted/60'>
         <div className='absolute top-0 right-0 w-1/3 h-full bg-primary/5 rounded-bl-[10rem] -z-10' />
@@ -92,7 +89,8 @@ const ServicesPage = () => {
             <span>{t('badge')}</span>
           </div>
           <h1 className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'>
-            {t('titlePrefix')} <span className='text-primary'>{t('titleHighlight')}</span>
+            {t('titlePrefix')}{' '}
+            <span className='text-primary'>{t('titleHighlight')}</span>
           </h1>
           <p className='text-xl md:text-2xl text-muted-foreground font-sans leading-relaxed'>
             {t('description')}
@@ -199,7 +197,6 @@ const ServicesPage = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

@@ -3,16 +3,6 @@ import { ExternalLink, Image as ImageIcon, Play, Video, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
-/**
- * Media Section (Refined)
- * Built with Next.js and Tailwind CSS v4
- *
- * Updates:
- * - Lightbox for images (simulated with state).
- * - YouTube iframe integration for the video gallery.
- * - Improved hover interactions.
- */
-
 const images = [
   {
     src: 'https://images.unsplash.com/photo-1536640712247-c45474762b4b?q=80&w=1200&auto=format&fit=crop',

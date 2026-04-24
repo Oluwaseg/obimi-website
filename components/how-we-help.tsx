@@ -8,16 +8,6 @@ import {
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-/**
- * How We Help Section
- * Built with Next.js and Tailwind CSS v4
- *
- * Design Concept:
- * - "Floating Card" layout with varying heights and subtle depth.
- * - Uses a custom grid that breaks the standard 3-column pattern.
- * - Interactive hover states with "peek-a-boo" details.
- */
-
 const HowWeHelp = () => {
   const t = useTranslations('HowWeHelp');
 
