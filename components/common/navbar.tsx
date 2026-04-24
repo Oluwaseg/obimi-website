@@ -2,7 +2,7 @@
 
 import { IMAGES } from '@/constants';
 import { routing } from '@/i18n/routing';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Globe, Heart, LayoutGrid, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -21,20 +21,14 @@ export function Navbar() {
   );
   const [isLangOpen, setIsLangOpen] = useState(false);
 
-  // Get current locale from pathname
   const currentLocale = pathname.split('/')[1] || routing.defaultLocale;
 
   const switchLocale = (newLocale: string) => {
     const segments = pathname.split('/').filter(Boolean);
     const currentPath = '/' + (segments.slice(1).join('/') || '');
-    let newPath: string;
-    if (currentPath === '/') {
-      newPath = `/${newLocale}`;
-    } else {
-      newPath = `/${newLocale}${currentPath}`;
-    }
+    let newPath =
+      currentPath === '/' ? `/${newLocale}` : `/${newLocale}${currentPath}`;
     window.location.href = newPath;
-    setIsLangOpen(false);
   };
 
   const navItems = [
@@ -50,29 +44,14 @@ export function Navbar() {
       ],
     },
     { label: t('ourServices'), href: '/services' },
-    {
-      label: t('shop'),
-      href: '/shop',
-    },
-    {
-      label: t('community'),
-      href: '/community',
-    },
-    // {
-    //   label: t('getInvolved'),
-    //   items: [
-    //     { label: t('fundraising'), href: '/get-involved' },
-    //     { label: t('donate'), href: '/donate' },
-    //   ],
-    // },
+    { label: t('shop'), href: '/shop' },
+    { label: t('community'), href: '/community' },
+    { label: t('knowledgeHub'), href: '/knowledge-hub' },
     { label: t('contact'), href: '/contact' },
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -82,198 +61,226 @@ export function Navbar() {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 font-heading transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-white py-2.5'
-      }`}
-    >
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex items-center justify-between h-14'>
-          {/* Logo */}
-          <Link href='/' className='flex-shrink-0 flex items-center'>
-            <div className='relative w-auto'>
+    <>
+      {/* 
+        RADICAL LAYOUT: Floating "Island" Navbar
+        Instead of a full-width bar, this is a centered, rounded capsule that 
+        adapts its size and appearance based on scroll state.
+      */}
+      <header className='fixed top-0 left-0 right-0 z-50 flex justify-center p-4 pointer-events-none'>
+        <nav
+          className={`
+            pointer-events-auto flex items-center justify-between
+            transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]
+            ${
+              isScrolled
+                ? 'w-full max-w-6xl bg-white/50 backdrop-blur-xl rounded-full px-6 py-2 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/20'
+                : 'w-full max-w-7xl bg-transparent px-4 py-4'
+            }
+          `}
+        >
+          {/* Left: Logo Area */}
+          <div className='flex items-center gap-8'>
+            <Link href='/' className='relative group shrink-0'>
+              <div className='absolute -inset-2 bg-primary/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
               <Image
                 src={isScrolled ? IMAGES.PRIMARY_LOGO : IMAGES.SECONDARY_LOGO}
                 alt='Obimi'
-                width={160}
-                height={40}
+                width={140}
+                height={35}
                 priority
-                className={`w-auto max-h-48 transition-all duration-300 ${isScrolled ? 'h-12' : 'h-14'}`}
+                className={`w-auto transition-all duration-500 ${isScrolled ? 'h-8' : 'h-10'}`}
               />
-            </div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className='hidden lg:flex items-center gap-0.5'>
-            {navItems.map((item) => (
-              <div key={item.label} className='relative group'>
-                {item.items ? (
-                  <>
-                    <button className='px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-gray-700 hover:text-purple-600 transition-colors duration-200 flex items-center gap-1.5 group'>
-                      {item.label}
-                      <ChevronDown className='w-3.5 h-3.5 transition-transform group-hover:rotate-180 duration-200' />
-                    </button>
-
-                    {/* Desktop Dropdown Menu */}
-                    <div className='absolute left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2.5 z-50'>
-                      {item.items.map((subitem) => (
-                        <Link
-                          key={subitem.label}
-                          href={subitem.href}
-                          className='block px-4 py-2.5 text-xs font-medium text-gray-600 hover:bg-purple-50 hover:text-purple-600 transition-colors duration-150'
-                        >
-                          {subitem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  <Link
-                    href={item.href!}
-                    className='px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-gray-700 hover:text-purple-600 transition-colors duration-200'
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Right Actions */}
-          <div className='flex items-center gap-2 lg:gap-3'>
-            {/* Donate Button */}
-            <Link
-              href='/donate'
-              className='hidden sm:inline-flex px-6 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white text-xs font-semibold uppercase tracking-wide rounded-full hover:shadow-md hover:scale-105 transition-all duration-200'
-            >
-              {commonT('donate')}
             </Link>
 
-            {/* Divider */}
-            <div className='hidden lg:block w-px h-5 bg-gray-200'></div>
+            {/* Desktop Links */}
+            <div className='hidden lg:flex items-center gap-1'>
+              {navItems.map((item) => (
+                <div key={item.label} className='relative group'>
+                  {item.items ? (
+                    <div className='relative'>
+                      <button className='flex items-center gap-1 px-4 py-2 text-sm font-semibold text-gray-700 hover:text-primary transition-colors rounded-full hover:bg-primary/5'>
+                        {item.label}
+                        <ChevronDown className='w-3 h-3 transition-transform group-hover:rotate-180' />
+                      </button>
+                      {/* Mega-style Dropdown */}
+                      <div className='absolute top-full left-0 mt-2 w-64 bg-white rounded-3xl shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-3 origin-top-left scale-95 group-hover:scale-100'>
+                        <div className='grid gap-1'>
+                          {item.items.map((sub) => (
+                            <Link
+                              key={sub.label}
+                              href={sub.href}
+                              className='flex items-center justify-between px-4 py-3 text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 rounded-2xl transition-all'
+                            >
+                              {sub.label}
+                              <div className='w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100' />
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href!}
+                      className='px-4 py-2 text-sm font-semibold text-gray-700 hover:text-primary transition-colors rounded-full hover:bg-primary/5'
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
 
-            {/* Theme Toggle Icon */}
-            <Switch />
-
-            {/* Language Switcher */}
-            <div className='relative'>
+          {/* Right: Actions */}
+          <div className='flex items-center gap-2'>
+            {/* Language - Minimalist Circle */}
+            <div className='relative hidden lg:block'>
               <button
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className='hidden lg:inline-flex p-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200'
-                title='Change language'
+                className='w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 hover:border-primary hover:text-primary transition-all text-xs font-bold uppercase'
               >
-                <span className='text-xs font-semibold uppercase'>
-                  {currentLocale}
-                </span>
+                <Globe className='w-4 h-4' />
               </button>
-
               {isLangOpen && (
-                <div className='absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-xl border border-gray-100 py-1 z-50'>
+                <div className='absolute right-0 mt-3 w-32 bg-white rounded-2xl shadow-2xl border border-gray-100 py-2 animate-in fade-in zoom-in-95 duration-200'>
                   {routing.locales.map((locale) => (
                     <button
                       key={locale}
                       onClick={() => switchLocale(locale)}
-                      className={`w-full px-4 py-2 text-left text-xs font-medium hover:bg-purple-50 transition-colors ${
-                        currentLocale === locale
-                          ? 'text-purple-600 bg-purple-50'
-                          : 'text-gray-700'
-                      }`}
+                      className={`w-full px-4 py-2 text-left text-xs font-bold hover:bg-primary/5 ${currentLocale === locale ? 'text-primary' : 'text-gray-600'}`}
                     >
-                      {locale === 'en' ? 'English' : 'Deutsch'}
+                      {locale.toUpperCase()}
                     </button>
                   ))}
                 </div>
               )}
             </div>
 
-            {/* Mobile Menu Button */}
+            <div className='hidden sm:block'>
+              <Switch />
+            </div>
+
+            {/* The "Hero" Action - Floating Button */}
+            <Link
+              href='https://www.paypal.com/ncp/payment/MQG6ZVX59QCSY'
+              className={`
+                flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-500
+                ${
+                  isScrolled
+                    ? 'bg-primary text-white shadow-lg shadow-primary/25 hover:scale-105 active:scale-95'
+                    : 'bg-white text-primary shadow-xl shadow-black/5 hover:bg-primary hover:text-white'
+                }
+              `}
+            >
+              <Heart className='w-4 h-4 fill-current' />
+              <span>{commonT('donate')}</span>
+            </Link>
+
+            {/* Mobile Trigger - Modern Burger */}
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className='lg:hidden inline-flex items-center justify-center p-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200'
+              className='lg:hidden w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-900 hover:bg-primary hover:text-white transition-all'
             >
-              {isMobileOpen ? <X size={18} /> : <Menu size={18} />}
+              {isMobileOpen ? <X size={20} /> : <LayoutGrid size={20} />}
             </button>
           </div>
-        </div>
+        </nav>
+      </header>
 
-        {/* Mobile Navigation */}
-        {isMobileOpen && (
-          <div className='lg:hidden border-t border-gray-200 mt-3 pt-3 pb-4 space-y-1.5'>
-            {navItems.map((item) => (
-              <div key={item.label}>
-                {item.items ? (
-                  <div className='space-y-1'>
-                    <button
-                      onClick={() => toggleMobileItem(item.label)}
-                      className='w-full flex items-center justify-between px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors'
+      {/* 
+        FULL SCREEN MOBILE OVERLAY 
+        Instead of a dropdown, this is a cinematic full-screen menu
+      */}
+      <div
+        className={`
+          fixed inset-0 z-[60] bg-background transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]
+          ${isMobileOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}
+        `}
+      >
+        <div className='h-full flex flex-col p-8'>
+          <div className='flex justify-between items-center'>
+            <Image
+              src={IMAGES.PRIMARY_LOGO}
+              alt='Logo'
+              width={120}
+              height={30}
+            />
+            <button
+              onClick={() => setIsMobileOpen(false)}
+              className='w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 text-gray-900'
+            >
+              <X size={24} />
+            </button>
+          </div>
+
+          <div className='flex-1 flex flex-col justify-center space-y-6'>
+            {navItems.map((item, idx) => (
+              <div key={item.label} className='overflow-hidden'>
+                <div
+                  className='transition-all duration-700 delay-[100ms]'
+                  style={{
+                    transform: isMobileOpen
+                      ? 'translateY(0)'
+                      : 'translateY(100%)',
+                  }}
+                >
+                  {item.items ? (
+                    <div className='space-y-4'>
+                      <button
+                        onClick={() => toggleMobileItem(item.label)}
+                        className='text-4xl font-bold hover:text-primary flex items-center gap-4'
+                      >
+                        {item.label}
+                        <ChevronDown
+                          className={`w-8 h-8 transition-transform ${expandedMobileItem === item.label ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+                      {expandedMobileItem === item.label && (
+                        <div className='grid grid-cols-2 gap-4 pl-4'>
+                          {item.items.map((sub) => (
+                            <Link
+                              key={sub.label}
+                              href={sub.href}
+                              className='text-lg font-medium hover:text-primary'
+                              onClick={() => setIsMobileOpen(false)}
+                            >
+                              {sub.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href!}
+                      className='text-4xl font-bold hover:text-primary'
+                      onClick={() => setIsMobileOpen(false)}
                     >
-                      <span>{item.label}</span>
-                      <ChevronDown
-                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                          expandedMobileItem === item.label ? 'rotate-180' : ''
-                        }`}
-                      />
-                    </button>
-
-                    {expandedMobileItem === item.label && (
-                      <div className='bg-gray-50 rounded-lg ml-4 mt-1 space-y-1'>
-                        {item.items.map((subitem) => (
-                          <Link
-                            key={subitem.label}
-                            href={subitem.href}
-                            className='block px-4 py-2 text-xs font-medium text-gray-600 hover:text-purple-600 hover:bg-white rounded transition-colors'
-                            onClick={() => {
-                              setIsMobileOpen(false);
-                              setExpandedMobileItem(null);
-                            }}
-                          >
-                            {subitem.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    href={item.href!}
-                    className='block px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors'
-                    onClick={() => setIsMobileOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                )}
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
               </div>
             ))}
-
-            {/* Mobile Action Buttons */}
-            <div className='border-t border-gray-200 mt-4 pt-4 space-y-2'>
-              <Link
-                href='/donate'
-                className='block px-4 py-2 text-center text-xs font-semibold uppercase tracking-wide bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-full hover:shadow-md transition-all'
-                onClick={() => setIsMobileOpen(false)}
-              >
-                {commonT('donate')}
-              </Link>
-              <div className='flex gap-2'>
-                <Switch />
-                <button
-                  onClick={() => {
-                    const newLocale = currentLocale === 'en' ? 'de' : 'en';
-                    switchLocale(newLocale);
-                    setIsMobileOpen(false);
-                  }}
-                  className='flex-1 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center gap-2'
-                >
-                  <span className='w-4 h-4 flex items-center justify-center text-xs font-bold'>
-                    {currentLocale.toUpperCase()}
-                  </span>
-                  {currentLocale === 'en' ? 'Deutsch' : 'English'}
-                </button>
-              </div>
-            </div>
           </div>
-        )}
+
+          <div className='pt-8 border-t border-gray-100 flex items-center justify-between'>
+            <div className='flex gap-4'>
+              {routing.locales.map((locale) => (
+                <button
+                  key={locale}
+                  onClick={() => switchLocale(locale)}
+                  className={`text-sm font-bold ${currentLocale === locale ? 'text-primary' : 'text-gray-400'}`}
+                >
+                  {locale.toUpperCase()}
+                </button>
+              ))}
+            </div>
+            <Switch />
+          </div>
+        </div>
       </div>
-    </nav>
+    </>
   );
 }
