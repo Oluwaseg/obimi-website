@@ -1,3 +1,5 @@
+import { getTranslations } from 'next-intl/server';
+import type { Metadata } from 'next';
 import CommunityCTA from '@/components/community';
 import { Hero } from '@/components/hero';
 import HowWeHelp from '@/components/how-we-help';
@@ -16,4 +18,15 @@ export default function Home() {
       <KnowledgeHub />
     </main>
   );
+}
+
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'SEO.Home' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+  };
 }

@@ -507,5 +507,58 @@
     "section10Title": "10. Contact",
     "section10Heading": "Questions?",
     "section10Desc": "If you have any questions about this policy or how we handle your data, please reach out."
+  },
+  "SEO": {
+    "defaultTitle": "Obimi | Empowering SEND Families",
+    "defaultDescription": "Obimi provides guidance, resources, and community support for parents and caregivers of children with Special Educational Needs and Disabilities (SEND).",
+    "siteName": "Obimi",
+    "Home": {
+      "title": "Support for SEND Parents & Caregivers | Obimi",
+      "description": "Navigating education, health, and care systems can feel overwhelming. Obimi gives you the guidance, resources, and community you need to support your child with confidence."
+    },
+    "Community": {
+      "title": "Join Our SEND Parent Community | Obimi",
+      "description": "The SEND journey can feel isolating, but you don’t have to go through it alone. Join a community of parents who understand, share, and support each other."
+    },
+    "Contact": {
+      "title": "Contact Us | Obimi",
+      "description": "Have a question or need support? We’re here to help — reach out to the Obimi team and we’ll get back to you."
+    },
+    "FAQ": {
+      "title": "Frequently Asked Questions | Obimi",
+      "description": "Quick answers to help you understand how Obimi works and how we can support you and your family on the SEND journey."
+    },
+    "KnowledgeHub": {
+      "title": "SEND Resources & Guidance | Obimi Knowledge Hub",
+      "description": "Explore practical guides and insights to help you navigate the SEND journey, from EHCPs to health diagnoses and therapies."
+    },
+    "Mission": {
+      "title": "Our Mission & Vision | Obimi",
+      "description": "At Obimi, our mission is to support, empower, and connect parents and caregivers of children with additional needs."
+    },
+    "OurTeam": {
+      "title": "Meet Our Team | Obimi",
+      "description": "A passionate team dedicated to supporting parents and caregivers every step of the way, built from real lived experience."
+    },
+    "PrivacyPolicy": {
+      "title": "Privacy Policy | Obimi",
+      "description": "Read our privacy policy to understand how we collect, use, and protect your data at Obimi."
+    },
+    "Services": {
+      "title": "Our Support Services | Obimi",
+      "description": "Practical, empathetic support designed to meet you wherever you are on your SEND journey, including 1-to-1 sessions, workshops, and peer support."
+    },
+    "Shop": {
+      "title": "Shop | Obimi",
+      "description": "Support Obimi and spread awareness with our range of products."
+    },
+    "Support": {
+      "title": "Support Obimi | Empower Families",
+      "description": "Your support helps parents and caregivers navigate the SEND journey with confidence, clarity, and community."
+    },
+    "Press": {
+      "title": "Press & Media | Obimi",
+      "description": "Read the latest news, press releases, and media coverage about Obimi and our mission to support SEND families."
+    }
   }
 }

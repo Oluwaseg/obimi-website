@@ -1,3 +1,5 @@
+import { getTranslations } from 'next-intl/server';
+import type { Metadata } from 'next';
 import {
   ArrowRight,
   Coffee,
@@ -214,3 +216,14 @@ const CommunityPage = () => {
 };
 
 export default CommunityPage;
+
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'SEO.Community' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+  };
+}

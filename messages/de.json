@@ -507,5 +507,58 @@
     "section10Title": "10. Kontakt",
     "section10Heading": "Fragen?",
     "section10Desc": "Wenn Sie Fragen zu dieser Richtlinie haben oder wie wir mit Ihren Daten umgehen, wenden Sie sich bitte an uns."
+  },
+  "SEO": {
+    "defaultTitle": "Obimi | Unterstützung für SEND-Familien",
+    "defaultDescription": "Obimi bietet Anleitung, Ressourcen und gemeinschaftliche Unterstützung für Eltern und Betreuer von Kindern mit sonderpädagogischem Förderbedarf und Behinderungen (SEND).",
+    "siteName": "Obimi",
+    "Home": {
+      "title": "Unterstützung für SEND-Eltern & Betreuer | Obimi",
+      "description": "Die Navigation durch Bildungs-, Gesundheits- und Betreuungssysteme kann überwältigend sein. Obimi gibt Ihnen die Anleitung, Ressourcen und Gemeinschaft, die Sie brauchen."
+    },
+    "Community": {
+      "title": "Werden Sie Teil unserer SEND-Eltern-Gemeinschaft | Obimi",
+      "description": "Die SEND-Reise kann sich isolierend anfühlen, aber Sie müssen sie nicht alleine durchstehen. Schließen Sie sich einer Gemeinschaft von Eltern an, die sich verstehen und unterstützen."
+    },
+    "Contact": {
+      "title": "Kontaktieren Sie uns | Obimi",
+      "description": "Haben Sie eine Frage oder benötigen Sie Unterstützung? Wir sind hier, um zu helfen — kontaktieren Sie das Obimi-Team und wir melden uns bei Ihnen."
+    },
+    "FAQ": {
+      "title": "Häufig gestellte Fragen | Obimi",
+      "description": "Schnelle Antworten, die Ihnen helfen zu verstehen, wie Obimi funktioniert und wie wir Sie und Ihre Familie auf der SEND-Reise unterstützen können."
+    },
+    "KnowledgeHub": {
+      "title": "SEND-Ressourcen & Leitfäden | Obimi Wissenszentrum",
+      "description": "Entdecken Sie praktische Leitfäden und Erkenntnisse, die Ihnen helfen, die SEND-Reise zu navigieren, von EHCPs bis hin zu Gesundheitsdiagnosen und Therapien."
+    },
+    "Mission": {
+      "title": "Unsere Mission & Vision | Obimi",
+      "description": "Bei Obimi ist es unsere Mission, Eltern und Betreuer von Kindern mit zusätzlichen Bedürfnissen zu unterstützen, zu stärken und zu verbinden."
+    },
+    "OurTeam": {
+      "title": "Lernen Sie unser Team kennen | Obimi",
+      "description": "Ein leidenschaftliches Team, das Eltern und Betreuer bei jedem Schritt unterstützt, aufgebaut auf echten, gelebten Erfahrungen."
+    },
+    "PrivacyPolicy": {
+      "title": "Datenschutzrichtlinie | Obimi",
+      "description": "Lesen Sie unsere Datenschutzrichtlinie, um zu verstehen, wie wir Ihre Daten bei Obimi sammeln, verwenden und schützen."
+    },
+    "Services": {
+      "title": "Unsere Unterstützungsdienste | Obimi",
+      "description": "Praktische, einfühlsame Unterstützung, die Sie dort abholt, wo Sie auf Ihrer SEND-Reise stehen, einschließlich 1-zu-1-Sitzungen, Workshops und Peer-Support."
+    },
+    "Shop": {
+      "title": "Shop | Obimi",
+      "description": "Unterstützen Sie Obimi und verbreiten Sie das Bewusstsein mit unserer Produktpalette."
+    },
+    "Support": {
+      "title": "Obimi unterstützen | Familien stärken",
+      "description": "Ihre Unterstützung hilft Eltern und Betreuern, die SEND-Reise mit Selbstvertrauen, Klarheit und Gemeinschaft zu bewältigen."
+    },
+    "Press": {
+      "title": "Presse & Medien | Obimi",
+      "description": "Lesen Sie die neuesten Nachrichten, Pressemitteilungen und Medienberichte über Obimi und unsere Mission, SEND-Familien zu unterstützen."
+    }
   }
 }

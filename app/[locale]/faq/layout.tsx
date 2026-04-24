@@ -1,18 +1,17 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
-import { KnowledgeHubMain } from '@/components/knowledge-hub-main';
-
-export default function Page() {
-  return <KnowledgeHubMain />;
-}
-
+import { ReactNode } from 'react';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'SEO.KnowledgeHub' });
+  const t = await getTranslations({ locale, namespace: 'SEO.FAQ' });
 
   return {
     title: t('title'),
     description: t('description'),
   };
+}
+
+export default function Layout({ children }: { children: ReactNode }) {
+  return <>{children}</>;
 }

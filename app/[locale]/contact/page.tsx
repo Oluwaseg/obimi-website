@@ -1,3 +1,5 @@
+import { getTranslations } from 'next-intl/server';
+import type { Metadata } from 'next';
 import { SOCIAL_ICON_MAP, SOCIAL_LINKS } from '@/constants/socials';
 import {
   ArrowRight,
@@ -206,3 +208,14 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'SEO.Contact' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+  };
+}
