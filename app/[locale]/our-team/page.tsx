@@ -1,5 +1,6 @@
 'use client';
 
+import { IMAGES } from '@/constants/image';
 import {
   ArrowRight,
   Heart,
@@ -8,29 +9,26 @@ import {
   Sparkles,
   Users,
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaFacebook } from 'react-icons/fa';
 
 export default function OurTeamPage() {
+  const t = useTranslations('OurTeamPage');
+
   const coreTeam = [
     {
-      name: 'Team Member Name',
-      role: 'Community Support',
-      bio: 'Supporting families through guidance, resources, and community engagement.',
-      image: '/api/placeholder/400/400',
+      name: t('teamMember1Name'),
+      role: t('teamMember1Role'),
+      bio: t('teamMember1Bio'),
+      image: IMAGES.TATUM_HASLOP,
     },
     {
-      name: 'Team Member Name',
-      role: 'Operations',
-      bio: 'Ensuring our services run smoothly to provide the best support for SEND families.',
-      image: '/api/placeholder/400/400',
-    },
-    {
-      name: 'Team Member Name',
-      role: 'Volunteer Coordinator',
-      bio: 'Building a network of passionate individuals dedicated to the Obimi mission.',
-      image: '/api/placeholder/400/400',
+      name: t('teamMember2Name'),
+      role: t('teamMember2Role'),
+      bio: t('teamMember2Bio'),
+      image: IMAGES.FUNMI,
     },
   ];
 
@@ -41,15 +39,15 @@ export default function OurTeamPage() {
         <div className='max-w-3xl'>
           <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-purple/5 text-brand-purple text-sm font-bold mb-6'>
             <Users className='w-4 h-4' />
-            <span>Our Team</span>
+            <span>{t('badge')}</span>
           </div>
           <h1 className='text-5xl md:text-7xl font-bold font-heading text-brand-deep mb-8 leading-[1.1]'>
-            Meet the people{' '}
-            <span className='text-brand-purple'>behind Obimi</span>.
+            {t('titlePrefix')}
+            <span className='text-brand-purple'>{t('titleHighlight')}</span>
+            {t('titleSuffix')}
           </h1>
           <p className='text-xl text-gray-600 leading-relaxed'>
-            A passionate team dedicated to supporting parents and caregivers
-            every step of the way.
+            {t('description')}
           </p>
         </div>
       </section>
@@ -59,7 +57,7 @@ export default function OurTeamPage() {
         <div className='flex items-center gap-3 mb-12'>
           <div className='w-12 h-1 bg-brand-yellow rounded-full' />
           <h2 className='text-3xl font-bold font-heading text-brand-deep'>
-            Founder
+            {t('founderSectionTitle')}
           </h2>
         </div>
 
@@ -73,8 +71,8 @@ export default function OurTeamPage() {
             <div className='w-full lg:w-1/2 p-8 lg:p-12'>
               <div className='relative aspect-square rounded-[3rem] overflow-hidden border-8 border-white/10 group-hover:border-brand-yellow/30 transition-colors duration-500'>
                 <Image
-                  src='/api/placeholder/800/800'
-                  alt='Founder Name'
+                  src={IMAGES.HELEN_EWUMI}
+                  alt={t('founderName')}
                   fill
                   className='object-cover group-hover:scale-105 transition-transform duration-700'
                 />
@@ -85,25 +83,18 @@ export default function OurTeamPage() {
             <div className='w-full lg:w-1/2 p-8 lg:p-20 lg:pl-0'>
               <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-brand-yellow text-sm font-bold mb-6'>
                 <Sparkles className='w-4 h-4' />
-                <span>Lived Experience & Expertise</span>
+                <span>{t('founderBadge')}</span>
               </div>
               <h3 className='text-4xl md:text-5xl font-bold font-heading text-white mb-4'>
-                Founder Name
+                {t('founderName')}
               </h3>
               <p className='text-xl text-brand-yellow font-bold mb-8'>
-                Founder & Social Worker
+                {t('founderRole')}
               </p>
 
               <div className='space-y-6 text-lg text-white/70 leading-relaxed mb-10'>
-                <p>
-                  Obimi was founded by a SEND parent and social worker who
-                  understands the challenges families face firsthand.
-                </p>
-                <p>
-                  Her mission is to ensure no parent feels alone navigating the
-                  SEND journey, combining professional expertise with the deep
-                  understanding of lived experience.
-                </p>
+                <p>{t('founderBio1')}</p>
+                <p>{t('founderBio2')}</p>
               </div>
 
               <div className='flex items-center gap-4'>
@@ -130,7 +121,7 @@ export default function OurTeamPage() {
         <div className='flex items-center gap-3 mb-16'>
           <div className='w-12 h-1 bg-brand-purple rounded-full' />
           <h2 className='text-3xl font-bold font-heading text-brand-deep'>
-            Our Team
+            {t('coreTeamTitle')}
           </h2>
         </div>
 
@@ -167,42 +158,34 @@ export default function OurTeamPage() {
             <div className='flex items-center gap-3 mb-8'>
               <div className='w-12 h-1 bg-brand-purple rounded-full' />
               <h2 className='text-3xl font-bold font-heading text-brand-deep'>
-                Our Community
+                {t('communityTitle')}
               </h2>
             </div>
             <p className='text-2xl md:text-3xl text-brand-deep font-medium leading-relaxed mb-12'>
-              Obimi is supported by a growing network of parents, caregivers,
-              and professionals who contribute their time, knowledge, and lived
-              experience to support others.
+              {t('communityDescription')}
             </p>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
               <div className='flex items-start gap-4'>
-                <div className='w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-brand-purple shadow-sm flex-shrink-0'>
+                <div className='w-12 h-12 rounded-full bg-accent flex items-center justify-center text-brand-purple shadow-sm flex-shrink-0'>
                   <Heart className='w-6 h-6' />
                 </div>
                 <div>
                   <h4 className='text-xl font-bold text-brand-deep mb-2'>
-                    Lived Experience
+                    {t('communityFeature1Title')}
                   </h4>
-                  <p className='text-gray-600'>
-                    Parents sharing real-world insights that only those on the
-                    journey truly understand.
-                  </p>
+                  <p className='text-gray-600'>{t('communityFeature1Desc')}</p>
                 </div>
               </div>
               <div className='flex items-start gap-4'>
-                <div className='w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-brand-purple shadow-sm flex-shrink-0'>
+                <div className='w-12 h-12 rounded-full bg-white flex items-center justify-center text-brand-purple shadow-sm flex-shrink-0'>
                   <ShieldCheck className='w-6 h-6' />
                 </div>
                 <div>
                   <h4 className='text-xl font-bold text-brand-deep mb-2'>
-                    Professional Support
+                    {t('communityFeature2Title')}
                   </h4>
-                  <p className='text-gray-600'>
-                    Experts providing guidance on education, health, and social
-                    care systems.
-                  </p>
+                  <p className='text-gray-600'>{t('communityFeature2Desc')}</p>
                 </div>
               </div>
             </div>
@@ -215,17 +198,17 @@ export default function OurTeamPage() {
         <div className='bg-brand-yellow rounded-[3rem] p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left'>
           <div>
             <h2 className='text-3xl md:text-4xl font-bold font-heading text-brand-deep mb-4'>
-              Want to be part of the Obimi community?
+              {t('finalCtaTitle')}
             </h2>
             <p className='text-brand-deep/70 text-lg font-medium'>
-              Join us in making a difference for SEND families.
+              {t('finalCtaDesc')}
             </p>
           </div>
           <Link
-            href='/get-involved'
+            href='/contact'
             className='px-10 py-5 bg-brand-deep text-white font-bold rounded-full hover:bg-brand-purple transition-all flex items-center gap-3 group shadow-xl shadow-brand-deep/10'
           >
-            <span>Get Involved</span>
+            <span>{t('finalCtaButton')}</span>
             <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
           </Link>
         </div>
