@@ -78,7 +78,7 @@ export function KnowledgeHubMain() {
   return (
     <>
       <Navbar />
-      <div className='bg-white min-h-screen pt-32 pb-24'>
+      <div className='bg-background min-h-screen pt-32 pb-24'>
         {/* Hero Section */}
         <section className='max-w-[1440px] mx-auto px-6 md:px-12 mb-20'>
           <div className='max-w-3xl'>

@@ -1,5 +1,6 @@
 import { Footer } from '@/components/common/footer';
 import { Navbar } from '@/components/common/navbar';
+import { SOCIAL_ICON_MAP, SOCIAL_LINKS } from '@/constants/socials';
 import {
   ArrowRight,
   Clock,
@@ -9,7 +10,6 @@ import {
   Send,
   Users,
 } from 'lucide-react';
-import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
 
 const ContactPage = () => {
@@ -27,7 +27,8 @@ const ContactPage = () => {
             <span>{t('badge')}</span>
           </div>
           <h1 className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'>
-            {t('titlePrefix')} <span className='text-primary'>{t('titleHighlight')}</span>
+            {t('titlePrefix')}{' '}
+            <span className='text-primary'>{t('titleHighlight')}</span>
           </h1>
           <p className='text-xl md:text-2xl text-muted-foreground font-sans leading-relaxed'>
             {t('description')}
@@ -75,33 +76,22 @@ const ContactPage = () => {
                     {t('socialTitle')}
                   </p>
                   <div className='flex gap-4'>
-                    {[
-                      {
-                        icon: <FaFacebook className='w-6 h-6' />,
-                        label: 'Facebook',
-                        color: 'hover:bg-[#1877F2]',
-                      },
-                      {
-                        icon: <FaInstagram className='w-6 h-6' />,
-                        label: 'Instagram',
-                        color:
-                          'hover:bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF]',
-                      },
-                      {
-                        icon: <FaLinkedin className='w-6 h-6' />,
-                        label: 'LinkedIn',
-                        color: 'hover:bg-[#0A66C2]',
-                      },
-                    ].map((social) => (
-                      <a
-                        key={social.label}
-                        href='#'
-                        className={`w-14 h-14 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-white transition-all duration-300 ${social.color} shadow-lg hover:shadow-xl hover:-translate-y-1`}
-                        aria-label={social.label}
-                      >
-                        {social.icon}
-                      </a>
-                    ))}
+                    {SOCIAL_LINKS.map((social) => {
+                      const Icon = SOCIAL_ICON_MAP[social.icon];
+
+                      return (
+                        <a
+                          key={social.label}
+                          href={social.href}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center hover:text-primary transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1'
+                          aria-label={social.label}
+                        >
+                          <Icon className='w-6 h-6' />
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
               </div>

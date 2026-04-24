@@ -8,7 +8,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Switch } from './switch';
 
 export function Navbar() {
   const t = useTranslations('Navigation');
@@ -157,9 +156,9 @@ export function Navbar() {
               )}
             </div>
 
-            <div className='hidden sm:block'>
+            {/* <div className='hidden sm:block'>
               <Switch />
-            </div>
+            </div> */}
 
             {/* The "Hero" Action - Floating Button */}
             <Link
@@ -277,7 +276,7 @@ export function Navbar() {
                 </button>
               ))}
             </div>
-            <Switch />
+            {/* <Switch /> */}
           </div>
         </div>
       </div>
