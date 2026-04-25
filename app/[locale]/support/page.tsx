@@ -133,7 +133,7 @@ const Support = () => {
       </section>
 
       {/* Impact Section */}
-      <section className='py-24 px-6 md:px-12 lg:px-24 bg-muted/20'>
+      <section className='py-24 px-6 md:px-12 lg:px-24'>
         <div className='container mx-auto'>
           <div
             data-aos='fade-up'
@@ -153,7 +153,7 @@ const Support = () => {
                 key={index}
                 data-aos='fade-up'
                 data-aos-delay={index * 100}
-                className='group p-8 rounded-[3rem] bg-background border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 space-y-6'
+                className='group p-8 rounded-[3rem] bg-primary/10 border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 space-y-6'
               >
                 <div className='w-16 h-16 rounded-full bg-muted flex items-center justify-center group-hover:bg-primary/10 transition-colors'>
                   {point.icon}
@@ -173,7 +173,7 @@ const Support = () => {
       </section>
 
       {/* Ways to Help Section */}
-      <section className='py-24 px-6 md:px-12 lg:px-24 bg-background'>
+      <section className='py-24 px-6 md:px-12 lg:px-24 '>
         <div className='container mx-auto'>
           <div className='text-center max-w-3xl mx-auto mb-20 space-y-4'>
             <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>

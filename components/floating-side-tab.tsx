@@ -261,7 +261,7 @@ export default function FloatingSideTab() {
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
-        className='fixed right-0 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center justify-center w-12 h-20 bg-primary hover:bg-primary/90 text-primary-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
+        className='rounded-l-[22px] fixed right-0 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center justify-center w-12 h-20 bg-primary hover:bg-primary/90 text-primary-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
         aria-label='Open help panel'
         aria-expanded={isOpen}
       >
