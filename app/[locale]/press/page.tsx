@@ -1,5 +1,6 @@
 'use client';
 import { Calendar, ChevronLeft, ChevronRight, Heart, X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 const HERO_BG =
@@ -193,6 +194,7 @@ function Lightbox({
 
 // ============ MAIN EVENTS PAGE ============
 export default function Events() {
+  const t = useTranslations('PressPage');
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImages, setLightboxImages] = useState<
     Array<{ src: string; alt: string; title?: string }>
@@ -216,6 +218,30 @@ export default function Events() {
       (prev) => (prev - 1 + lightboxImages.length) % lightboxImages.length
     );
 
+  const communityGalleries = [
+    {
+      title: t('gallery1Title'),
+      description: t('gallery1Description'),
+      images: COMMUNITY_GALLERIES[0].images,
+    },
+    {
+      title: t('gallery2Title'),
+      description: t('gallery2Description'),
+      images: COMMUNITY_GALLERIES[1].images,
+    },
+    {
+      title: t('gallery3Title'),
+      description: t('gallery3Description'),
+      images: COMMUNITY_GALLERIES[2].images,
+    },
+  ];
+
+  const features = [
+    t('feature1'),
+    t('feature2'),
+    t('feature3'),
+  ];
+
   return (
     <div className='min-h-screen bg-background'>
       {/* ==================== HERO SECTION ==================== */}
@@ -232,11 +258,10 @@ export default function Events() {
         <div className='relative z-10 container text-center px-4 py-20'>
           <div className='max-w-3xl mx-auto animate-fade-in-up'>
             <h1 data-aos='fade-up' className='text-5xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight'>
-              Events
+              {t('heroTitle')}
             </h1>
             <p data-aos='fade-up' data-aos-delay='200' className='text-xl md:text-2xl text-white/90 font-light'>
-              Bringing parents and caregivers together through support,
-              learning, and community.
+              {t('heroDescription')}
             </p>
           </div>
         </div>
@@ -248,7 +273,7 @@ export default function Events() {
       <section className='py-20 md:py-28 px-4 bg-background'>
         <div className='max-w-2xl mx-auto'>
           <h2 data-aos='fade-down' className='text-4xl md:text-5xl font-heading font-bold text-primary mb-4 text-center animate-fade-in-up'>
-            Upcoming Events
+            {t('upcomingTitle')}
           </h2>
 
           <div data-aos='zoom-in' data-aos-delay='200' className='bg-card rounded-2xl shadow-md p-12 text-center border border-border animate-fade-in-up'>
@@ -257,20 +282,19 @@ export default function Events() {
             </div>
 
             <h3 className='text-2xl font-heading font-bold text-foreground mb-3'>
-              We're currently planning our next events.
+              {t('upcomingCardTitle')}
             </h3>
 
             <p className='text-lg text-muted-foreground mb-8'>
-              Stay connected to be the first to know when new sessions are
-              announced.
+              {t('upcomingCardDescription')}
             </p>
 
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <button className='px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all duration-300 hover:shadow-lg'>
-                Join Community
+                {t('joinCommunity')}
               </button>
               <button className='px-8 py-3 border-2 border-primary text-primary hover:bg-primary/10 font-semibold rounded-lg transition-all duration-300'>
-                Get Updates
+                {t('getUpdates')}
               </button>
             </div>
           </div>
@@ -282,10 +306,10 @@ export default function Events() {
         <div className='max-w-6xl mx-auto'>
           <div className='mb-16 text-center animate-fade-in-up'>
             <h2 data-aos='fade-right' className='text-4xl md:text-5xl font-heading font-bold text-primary mb-4'>
-              Featured Events
+              {t('featuredTitle')}
             </h2>
             <p className='text-lg text-muted-foreground'>
-              Explore our most anticipated community events
+              {t('featuredDescription')}
             </p>
           </div>
 
@@ -322,15 +346,15 @@ export default function Events() {
         <div className='max-w-6xl mx-auto'>
           <div className='mb-16 text-center animate-fade-in-up'>
             <h2 data-aos='fade-right' className='text-4xl md:text-5xl font-heading font-bold text-primary mb-4'>
-              Community Moments
+              {t('communityMomentsTitle')}
             </h2>
             <p className='text-lg text-muted-foreground'>
-              Highlights from past Obimi events and gatherings
+              {t('communityMomentsDescription')}
             </p>
           </div>
 
           <div className='space-y-20'>
-            {COMMUNITY_GALLERIES.map((gallery, galleryIndex) => (
+            {communityGalleries.map((gallery, galleryIndex) => (
               <div
                 key={galleryIndex}
                 data-aos='fade-up'
@@ -378,20 +402,14 @@ export default function Events() {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center'>
             <div className='animate-fade-in-up'>
               <h2 className='text-4xl md:text-5xl font-heading font-bold text-primary mb-6 leading-tight'>
-                Join Our Next Event
+                {t('finalCtaTitle')}
               </h2>
               <p className='text-xl text-muted-foreground mb-8 leading-relaxed'>
-                Be part of a supportive community that understands your journey.
-                Connect with other parents and caregivers, learn from experts,
-                and grow together.
+                {t('finalCtaDescription')}
               </p>
 
               <div className='space-y-4 mb-8'>
-                {[
-                  'Connect with like-minded parents and caregivers',
-                  'Learn practical strategies and tools',
-                  'Build meaningful relationships in a safe space',
-                ].map((feature, index) => (
+                {features.map((feature, index) => (
                   <div
                     key={index}
                     className='flex items-start gap-3 animate-fade-in-up'
@@ -410,10 +428,10 @@ export default function Events() {
 
             <div className='flex flex-col gap-4 animate-fade-in-up'>
               <button className='px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all duration-300 hover:shadow-lg text-lg'>
-                Get Involved
+                {t('getInvolved')}
               </button>
               <button className='px-8 py-4 border-2 border-primary text-primary hover:bg-primary/10 font-semibold rounded-lg transition-all duration-300 text-lg'>
-                Join Community
+                {t('joinCommunity')}
               </button>
             </div>
           </div>

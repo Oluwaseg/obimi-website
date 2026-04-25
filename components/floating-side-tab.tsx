@@ -28,34 +28,30 @@ interface AccordionItemProps {
 
 function AccordionItem({ item, isOpen, onToggle }: AccordionItemProps) {
   return (
-    <div className='border-b border-border last:border-b-0'>
+    <div className='border-b border-border/50 last:border-b-0'>
       <button
         onClick={onToggle}
-        className='w-full px-4 py-3 flex items-center justify-between hover:bg-muted/50 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded'
+        className='w-full px-4 py-3 flex items-center justify-between text-left hover:bg-background/50 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50'
         aria-expanded={isOpen}
       >
-        <span className='text-left font-medium text-sm text-foreground'>
+        <span className='text-sm font-medium text-foreground leading-snug'>
           {item.question}
         </span>
         <ChevronDown
-          size={18}
-          className={`flex-shrink-0 text-muted-foreground transition-transform duration-300 ${
+          size={16}
+          className={`flex-shrink-0 text-muted-foreground transition-transform duration-200 ml-3 ${
             isOpen ? 'rotate-180' : ''
           }`}
         />
       </button>
       {isOpen && (
-        <div className='px-4 py-3 bg-muted/30 text-sm text-muted-foreground animate-in fade-in duration-200'>
+        <div className='px-4 py-3 bg-background/30 text-sm text-foreground/80 leading-relaxed animate-in fade-in duration-150'>
           {item.answer}
         </div>
       )}
     </div>
   );
 }
-
-// ============================================================================
-// FAQ Tab Content
-// ============================================================================
 
 interface FAQTabProps {
   onClose: () => void;
@@ -73,25 +69,19 @@ function FAQTab({ onClose }: FAQTabProps) {
 
   return (
     <div className='flex flex-col h-full'>
-      <div className='flex-1 overflow-y-auto pr-2 custom-scrollbar'>
-        <div className='divide-y divide-border'>
-          {faqData.map((item) => (
-            <AccordionItem
-              key={item.id}
-              item={item}
-              isOpen={openId === item.id}
-              onToggle={() => setOpenId(openId === item.id ? null : item.id)}
-            />
-          ))}
-        </div>
+      <div className='flex-1 overflow-y-auto pr-3'>
+        {faqData.map((item) => (
+          <AccordionItem
+            key={item.id}
+            item={item}
+            isOpen={openId === item.id}
+            onToggle={() => setOpenId(openId === item.id ? null : item.id)}
+          />
+        ))}
       </div>
     </div>
   );
 }
-
-// ============================================================================
-// Contact Form Tab
-// ============================================================================
 
 interface ContactTabProps {
   onClose: () => void;
@@ -122,22 +112,20 @@ function ContactTab({ onClose }: ContactTabProps) {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     setSubmitSuccess(true);
     setFormData({ name: '', email: '', message: '' });
 
-    // Reset success message after 3 seconds
     setTimeout(() => setSubmitSuccess(false), 3000);
     setIsSubmitting(false);
   };
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col h-full space-y-4'>
+    <form onSubmit={handleSubmit} className='flex flex-col h-full gap-4'>
       {submitSuccess && (
-        <div className='p-3 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg text-sm text-green-800 dark:text-green-200 animate-in fade-in duration-200'>
-          ✓ {t('trustBadgeText')} {t('trustBadgeHighlight')}
+        <div className='p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800/40 rounded text-sm text-green-700 dark:text-green-400 font-medium animate-in fade-in duration-200'>
+          {t('trustBadgeText')} {t('trustBadgeHighlight')}
         </div>
       )}
 
@@ -145,7 +133,7 @@ function ContactTab({ onClose }: ContactTabProps) {
         <div>
           <label
             htmlFor='name'
-            className='block text-sm font-medium text-foreground mb-1.5'
+            className='block text-xs font-semibold text-foreground/70 mb-1.5'
           >
             {t('formNameLabel')}
           </label>
@@ -157,14 +145,14 @@ function ContactTab({ onClose }: ContactTabProps) {
             value={formData.name}
             onChange={handleChange}
             required
-            className='w-full'
+            className='w-full bg-background border-border text-sm h-9'
           />
         </div>
 
         <div>
           <label
             htmlFor='email'
-            className='block text-sm font-medium text-foreground mb-1.5'
+            className='block text-xs font-semibold text-foreground/70 mb-1.5'
           >
             {t('formEmailLabel')}
           </label>
@@ -176,14 +164,14 @@ function ContactTab({ onClose }: ContactTabProps) {
             value={formData.email}
             onChange={handleChange}
             required
-            className='w-full'
+            className='w-full bg-background border-border text-sm h-9'
           />
         </div>
 
         <div className='flex-1 flex flex-col'>
           <label
             htmlFor='message'
-            className='block text-sm font-medium text-foreground mb-1.5'
+            className='block text-xs font-semibold text-foreground/70 mb-1.5'
           >
             {t('formMessageLabel')}
           </label>
@@ -194,7 +182,7 @@ function ContactTab({ onClose }: ContactTabProps) {
             value={formData.message}
             onChange={handleChange}
             required
-            className='flex-1 w-full px-3 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 resize-none'
+            className='flex-1 w-full px-3 py-2 border border-border rounded bg-background text-foreground text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-0 resize-none'
           />
         </div>
       </div>
@@ -202,18 +190,23 @@ function ContactTab({ onClose }: ContactTabProps) {
       <Button
         type='submit'
         disabled={isSubmitting}
-        className='w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium transition-all duration-200 flex items-center justify-center gap-2'
+        className='w-full h-9 bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-medium transition-colors'
       >
-        <Send size={16} />
-        {isSubmitting ? commonT('submit') + '...' : t('formSubmit')}
+        {isSubmitting ? (
+          <>
+            <span className='inline-block animate-spin mr-2'>↻</span>
+            {commonT('submit')}
+          </>
+        ) : (
+          <>
+            <Send size={14} className='mr-2' />
+            {t('formSubmit')}
+          </>
+        )}
       </Button>
     </form>
   );
 }
-
-// ============================================================================
-// Main Component
-// ============================================================================
 
 export default function FloatingSideTab() {
   const t = useTranslations('Navigation');
@@ -224,7 +217,6 @@ export default function FloatingSideTab() {
   const panelRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  // Close panel when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -244,7 +236,6 @@ export default function FloatingSideTab() {
     }
   }, [isOpen]);
 
-  // Handle escape key
   useEffect(() => {
     function handleEscape(event: KeyboardEvent) {
       if (event.key === 'Escape' && isOpen) {
@@ -260,77 +251,74 @@ export default function FloatingSideTab() {
 
   return (
     <>
-      {/* Backdrop overlay */}
       {isOpen && (
         <div
-          className='fixed inset-0 bg-black/20 dark:bg-black/40 z-40 animate-in fade-in duration-200'
+          className='fixed inset-0 bg-black/20 dark:bg-black/30 z-40 animate-in fade-in duration-200'
           onClick={() => setIsOpen(false)}
         />
       )}
 
-      {/* Floating Tab Button */}
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
-        className='fixed right-4 top-1/2 -translate-y-1/2 z-50 hidden md:flex items-center justify-center w-14 h-24 bg-gradient-to-b from-primary to-primary/90 hover:to-primary/80 text-primary-foreground rounded-l-[2rem] rounded-r-none shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 group'
-        aria-label='Open support panel'
+        className='fixed right-0 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center justify-center w-12 h-20 bg-primary hover:bg-primary/90 text-primary-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
+        aria-label='Open help panel'
         aria-expanded={isOpen}
       >
-        <span className='text-xs font-bold tracking-widest [writing-mode:vertical-rl] rotate-180 group-hover:scale-110 transition-transform duration-300 uppercase'>
+        <span className='text-xs font-bold tracking-wider [writing-mode:vertical-rl] rotate-180 leading-tight'>
           {t('contact')}
         </span>
       </button>
 
-      {/* Floating Panel */}
       <div
         ref={panelRef}
-        className={`fixed right-0 top-1/2 -translate-y-1/2 z-50 w-full max-w-sm h-[500px] bg-card text-card-foreground rounded-2xl shadow-2xl border border-border transition-all duration-300 transform ${
-          isOpen
-            ? 'translate-x-0 opacity-100'
-            : 'translate-x-full opacity-0 pointer-events-none'
-        } md:right-20 md:max-w-sm flex flex-col overflow-hidden`}
+        className={`fixed right-0 top-0 z-50 w-full h-screen md:w-96 md:h-[600px] md:bottom-auto md:rounded-l-lg bg-card border-l border-border shadow-xl transition-transform duration-300 flex flex-col overflow-hidden ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
       >
         {/* Header */}
-        <div className='flex items-center justify-between px-6 py-4 border-b border-border bg-gradient-to-r from-primary/5 to-accent/5'>
-          <h2 className='text-lg font-bold text-foreground font-heading'>
-            {t('support')}
-          </h2>
+        <div className='flex items-center justify-between px-6 py-4 border-b border-border/50 bg-card shrink-0'>
+          <div>
+            <h2 className='text-lg font-semibold text-foreground'>
+              {t('support')}
+            </h2>
+          </div>
           <button
             onClick={() => setIsOpen(false)}
-            className='p-1.5 hover:bg-muted rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring'
+            className='p-1.5 hover:bg-muted rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 md:flex hidden'
             aria-label='Close panel'
           >
-            <X size={20} className='text-muted-foreground' />
+            <X size={20} className='text-foreground/60' />
           </button>
         </div>
 
-        {/* Tab Navigation */}
-        <div className='flex border-b border-border bg-muted/30'>
+        {/* Tabs */}
+        <div className='flex border-b border-border/50 bg-background/50 shrink-0 px-1 py-1 gap-1'>
           <button
             onClick={() => setActiveTab('faq')}
-            className={`flex-1 px-4 py-3 text-sm font-bold font-heading uppercase tracking-wider transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+            className={`flex-1 px-4 py-2 text-sm font-medium rounded transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
               activeTab === 'faq'
-                ? 'text-primary border-b-2 border-primary bg-primary/5'
-                : 'text-muted-foreground hover:text-foreground'
+                ? 'bg-primary text-primary-foreground'
+                : 'text-foreground/70 hover:text-foreground'
             }`}
           >
             {faqT('badge')}
           </button>
           <button
             onClick={() => setActiveTab('contact')}
-            className={`flex-1 px-4 py-3 text-sm font-bold font-heading uppercase tracking-wider transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+            className={`flex-1 px-4 py-2 text-sm font-medium rounded transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
               activeTab === 'contact'
-                ? 'text-primary border-b-2 border-primary bg-primary/5'
-                : 'text-muted-foreground hover:text-foreground'
+                ? 'bg-primary text-primary-foreground'
+                : 'text-foreground/70 hover:text-foreground'
             }`}
           >
             {contactT('badge')}
           </button>
         </div>
 
-        {/* Content Area */}
-        <div className='flex-1 overflow-hidden'>
-          <div className='h-full overflow-y-auto px-4 py-4'>
+        {/* Content */}
+        <div className='flex-1 overflow-hidden flex flex-col'>
+          <div className='flex-1 overflow-y-auto px-6 py-5'>
             {activeTab === 'faq' ? (
               <FAQTab onClose={() => setIsOpen(false)} />
             ) : (
