@@ -1,13 +1,18 @@
 import { Footer } from '@/components/common/footer';
 import { Navbar } from '@/components/common/navbar';
+import FloatingSideTab from '@/components/floating-side-tab';
 import { routing } from '@/i18n/routing';
+import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import type { ReactNode } from 'react';
-import type { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'SEO' });
 
@@ -48,6 +53,7 @@ export default async function LocaleLayout({
       <Navbar />
       {children}
       <Footer />
+      <FloatingSideTab />
     </NextIntlClientProvider>
   );
 }

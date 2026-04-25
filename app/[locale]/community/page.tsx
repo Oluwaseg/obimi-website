@@ -1,5 +1,5 @@
-import { getTranslations } from 'next-intl/server';
-import type { Metadata } from 'next';
+'use client';
+
 import {
   ArrowRight,
   Coffee,
@@ -11,9 +11,15 @@ import {
   Users,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 const CommunityPage = () => {
   const t = useTranslations('CommunityPage');
+  const router = useRouter();
+
+  const cta = () => {
+    router.push('/contact');
+  };
 
   const communityOffers = [
     {
@@ -53,11 +59,17 @@ const CommunityPage = () => {
 
         <div className='container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10'>
           <div className='space-y-8'>
-            <div data-aos='fade-down' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
+            <div
+              data-aos='fade-down'
+              className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'
+            >
               <Users className='w-4 h-4' />
               <span>{t('badge')}</span>
             </div>
-            <h1 data-aos='fade-right' className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'>
+            <h1
+              data-aos='fade-right'
+              className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'
+            >
               {t('titlePrefix')} <br />
               <span className='text-primary italic'>{t('titleHighlight')}</span>
             </h1>
@@ -65,17 +77,27 @@ const CommunityPage = () => {
               {t('description')}
             </p>
             <div className='flex flex-col sm:flex-row gap-4 pt-4'>
-              <button className='group px-10 py-5 bg-primary text-primary-foreground rounded-full font-heading font-bold text-xl shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-3'>
+              <button
+                onClick={cta}
+                className='group px-10 py-5 bg-primary text-primary-foreground rounded-full font-heading font-bold text-xl shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-3'
+              >
                 <span>{t('ctaPrimary')}</span>
                 <ArrowRight className='w-6 h-6 group-hover:translate-x-1 transition-transform' />
               </button>
-              <button className='px-10 py-5 bg-white border-2 border-primary/20 text-primary hover:bg-primary/5 rounded-full font-heading font-bold text-xl transition-all flex items-center justify-center gap-3'>
+              <button
+                onClick={cta}
+                className='px-10 py-5 bg-white border-2 border-primary/20 text-primary hover:bg-primary/5 rounded-full font-heading font-bold text-xl transition-all flex items-center justify-center gap-3'
+              >
                 <span>{t('ctaSecondary')}</span>
               </button>
             </div>
           </div>
 
-          <div data-aos='zoom-in' data-aos-delay='300' className='relative hidden lg:block'>
+          <div
+            data-aos='zoom-in'
+            data-aos-delay='300'
+            className='relative hidden lg:block'
+          >
             <div className='relative w-full aspect-square flex items-center justify-center'>
               {/* Central Image */}
               <div className='w-64 h-64 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-background z-20 rotate-3'>
@@ -130,7 +152,9 @@ const CommunityPage = () => {
             {communityOffers.map((offer, index) => (
               <div
                 key={index}
-                data-aos='zoom-in' data-aos-delay={index * 100} className='group p-10 rounded-[3rem] bg-background border border-border/50 hover:border-primary/30 hover:shadow-2xl transition-all duration-500 flex flex-col md:flex-row gap-8 items-start'
+                data-aos='zoom-in'
+                data-aos-delay={index * 100}
+                className='group p-10 rounded-[3rem] bg-background border border-border/50 hover:border-primary/30 hover:shadow-2xl transition-all duration-500 flex flex-col md:flex-row gap-8 items-start'
               >
                 <div
                   className={`flex-shrink-0 w-20 h-20 rounded-full ${offer.bg} flex items-center justify-center group-hover:scale-110 transition-transform`}
@@ -157,7 +181,10 @@ const CommunityPage = () => {
           <h2 className='text-3xl md:text-4xl font-heading font-bold text-foreground'>
             {t('midCtaTitle')}
           </h2>
-          <button className='group px-12 py-6 bg-primary text-primary-foreground rounded-full font-heading font-bold text-2xl shadow-2xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-2 flex items-center gap-3 mx-auto'>
+          <button
+            onClick={cta}
+            className='group px-12 py-6 bg-primary text-primary-foreground rounded-full font-heading font-bold text-2xl shadow-2xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-2 flex items-center gap-3 mx-auto'
+          >
             <span>{t('midCtaButton')}</span>
             <ArrowRight className='w-6 h-6 group-hover:translate-x-1 transition-transform' />
           </button>
@@ -167,7 +194,10 @@ const CommunityPage = () => {
 
       {/* Depth Section */}
       <section className='py-24 px-6 md:px-12 lg:px-24 bg-background'>
-        <div data-aos='fade-right' className='container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center'>
+        <div
+          data-aos='fade-right'
+          className='container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center'
+        >
           <div className='relative'>
             <div className='aspect-video rounded-[3rem] overflow-hidden shadow-2xl border-8 border-background relative group'>
               <img
@@ -202,10 +232,16 @@ const CommunityPage = () => {
             {t('finalCtaTitle')}
           </h2>
           <div className='flex flex-col sm:flex-row gap-6 justify-center pt-8'>
-            <button className='px-12 py-6 bg-accent text-accent-foreground rounded-full font-heading font-bold text-2xl shadow-2xl hover:shadow-accent/40 transition-all hover:-translate-y-2'>
+            <button
+              onClick={cta}
+              className='px-12 py-6 bg-accent text-accent-foreground rounded-full font-heading font-bold text-2xl shadow-2xl hover:shadow-accent/40 transition-all hover:-translate-y-2'
+            >
               {t('finalCtaPrimary')}
             </button>
-            <button className='px-12 py-6 bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 rounded-full font-heading font-bold text-2xl transition-all hover:-translate-y-2'>
+            <button
+              onClick={cta}
+              className='px-12 py-6 bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 rounded-full font-heading font-bold text-2xl transition-all hover:-translate-y-2'
+            >
               {t('finalCtaSecondary')}
             </button>
           </div>
@@ -216,14 +252,3 @@ const CommunityPage = () => {
 };
 
 export default CommunityPage;
-
-
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'SEO.Community' });
-
-  return {
-    title: t('title'),
-    description: t('description'),
-  };
-}

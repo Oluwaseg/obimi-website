@@ -12,8 +12,16 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function ShopMainPage() {
+  const router = useRouter();
+  const contact = () => {
+    router.push('/contact');
+  };
+  const donate = () => {
+    router.push('https://www.paypal.com/ncp/payment/MQG6ZVX59QCSY');
+  };
   const products = [
     {
       id: 'parent-guide',
@@ -54,25 +62,25 @@ export default function ShopMainPage() {
       icon: <Globe className='w-8 h-8' />,
       title: 'Free Resources',
       desc: 'Providing free guides for parents who need them most.',
-      color: 'bg-brand-purple/10 text-brand-purple',
+      color: 'bg-brand-deep/10 text-brand-deep',
     },
     {
       icon: <Users className='w-8 h-8' />,
       title: 'Community Sessions',
       desc: 'Running support groups and workshops for families.',
-      color: 'bg-brand-yellow/20 text-brand-yellow-dark',
+      color: 'bg-accent/20 text-accent',
     },
     {
       icon: <ShieldCheck className='w-8 h-8' />,
       title: 'Safe Spaces',
       desc: 'Creating environments where every parent feels heard.',
-      color: 'bg-brand-purple/10 text-brand-purple',
+      color: 'bg-brand-deep/10 text-brand-deep',
     },
     {
       icon: <Heart className='w-8 h-8' />,
       title: 'Reaching Families',
       desc: 'Supporting underserved communities across the country.',
-      color: 'bg-brand-yellow/20 text-brand-yellow-dark',
+      color: 'bg-accent/20 text-accent',
     },
   ];
 
@@ -82,29 +90,46 @@ export default function ShopMainPage() {
       <section className='max-w-[1440px] mx-auto px-6 md:px-12 mb-24'>
         <div className='relative bg-brand-deep rounded-[4rem] p-12 md:p-24 overflow-hidden'>
           {/* Background Decorative Elements */}
-          <div className='absolute top-0 right-0 w-[600px] h-[600px] bg-brand-purple/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2' />
-          <div className='absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-yellow/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2' />
+          <div className='absolute top-0 right-0 w-[600px] h-[600px] bg-brand-deep/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2' />
+          <div className='absolute bottom-0 left-0 w-[300px] h-[300px] bg-accent/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2' />
 
           <div className='relative z-10 max-w-3xl'>
-            <div data-aos='fade-down' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-brand-yellow text-sm font-bold mb-8'>
+            <div
+              data-aos='fade-down'
+              className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-accent text-sm font-bold mb-8'
+            >
               <ShoppingBag className='w-4 h-4' />
               <span>Shop With Purpose</span>
             </div>
-            <h1 data-aos='fade-right' className='text-5xl md:text-7xl font-bold font-heading text-white mb-8 leading-[1.1]'>
+            <h1
+              data-aos='fade-right'
+              className='text-5xl md:text-7xl font-bold font-heading text-white mb-8 leading-[1.1]'
+            >
               Every purchase{' '}
-              <span className='text-brand-yellow'>makes an impact</span>.
+              <span className='text-accent'>makes an impact</span>.
             </h1>
-            <p data-aos='fade-right' data-aos-delay='200' className='text-xl text-white/70 leading-relaxed mb-12'>
+            <p
+              data-aos='fade-right'
+              data-aos-delay='200'
+              className='text-xl text-white/70 leading-relaxed mb-12'
+            >
               When you shop with Obimi, you're not just buying — you're helping
               us reach more parents, provide resources, and build a stronger
               community.
             </p>
-            <div data-aos='fade-up' data-aos-delay='300' className='flex flex-wrap gap-4'>
+            <div
+              data-aos='fade-up'
+              data-aos-delay='300'
+              className='flex flex-wrap gap-4'
+            >
               <button className='px-10 py-5 bg-accent text-brand-deep font-bold rounded-full hover:bg-white transition-all flex items-center gap-3 group'>
                 <span>Browse Products</span>
                 <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
               </button>
-              <button className='px-10 py-5 bg-white/10 text-white font-bold rounded-full hover:bg-white/20 transition-all border border-white/10'>
+              <button
+                onClick={donate}
+                className='px-10 py-5 bg-white/10 text-white font-bold rounded-full hover:bg-white/20 transition-all border border-white/10'
+              >
                 Support Our Work
               </button>
             </div>
@@ -115,7 +140,7 @@ export default function ShopMainPage() {
       {/* Product Grid */}
       <section className='max-w-[1440px] mx-auto px-6 md:px-12 mb-32'>
         <div data-aos='fade-up' className='flex items-center gap-3 mb-16'>
-          <div className='w-12 h-1 bg-brand-purple rounded-full' />
+          <div className='w-12 h-1 bg-brand-deep rounded-full' />
           <h2 className='text-3xl font-bold font-heading text-brand-deep'>
             Featured Products
           </h2>
@@ -143,7 +168,7 @@ export default function ShopMainPage() {
                 <div className='absolute inset-0 bg-brand-deep/0 group-hover:bg-brand-deep/10 transition-colors duration-500' />
               </div>
               <div className='px-2'>
-                <h3 className='text-xl font-bold font-heading text-brand-deep mb-2 group-hover:text-brand-purple transition-colors'>
+                <h3 className='text-xl font-bold font-heading text-brand-deep mb-2 group-hover:text-brand-deep transition-colors'>
                   {product.name}
                 </h3>
                 <p className='text-gray-500 text-sm mb-4 line-clamp-2'>
@@ -159,21 +184,34 @@ export default function ShopMainPage() {
       <section className='max-w-[1440px] mx-auto px-6 md:px-12 mb-32'>
         <div className='relative bg-background rounded-[4rem] p-12 md:p-24 overflow-hidden border border-gray-100'>
           {/* Decorative background text */}
-          <div data-aos='fade-down' className='absolute -top-10 -right-10 text-[12rem] font-bold text-accent select-none pointer-events-none font-heading'>
+          <div
+            data-aos='fade-down'
+            className='absolute -top-10 -right-10 text-[12rem] font-bold text-accent select-none pointer-events-none font-heading'
+          >
             IMPACT
           </div>
 
           <div className='grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10'>
             <div className='lg:col-span-5'>
-              <div data-aos='fade-down' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-deep/5 text-brand-purple text-sm font-bold mb-6'>
+              <div
+                data-aos='fade-down'
+                className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-deep/5 text-brand-deep text-sm font-bold mb-6'
+              >
                 <Sparkles className='w-4 h-4' />
                 <span>Purpose-Driven Shop</span>
               </div>
-              <h2 data-aos='fade-right' className='text-4xl md:text-6xl font-bold font-heading text-brand-deep mb-8 leading-tight'>
-                Why Your <span className='text-brand-purple'>Purchase</span>{' '}
+              <h2
+                data-aos='fade-right'
+                className='text-4xl md:text-6xl font-bold font-heading text-brand-deep mb-8 leading-tight'
+              >
+                Why Your <span className='text-brand-deep'>Purchase</span>{' '}
                 Matters
               </h2>
-              <p data-aos='fade-right' data-aos-delay='200' className='text-xl text-gray-600 leading-relaxed mb-10'>
+              <p
+                data-aos='fade-right'
+                data-aos-delay='200'
+                className='text-xl text-gray-600 leading-relaxed mb-10'
+              >
                 Every purchase turns into real-world impact for SEND families.
                 We don't just sell products; we build bridges to support.
               </p>
@@ -242,7 +280,10 @@ export default function ShopMainPage() {
 
       {/* Final Conversion Section */}
       <section className='max-w-[1440px] mx-auto px-6 md:px-12'>
-        <div data-aos='zoom-in' className='bg-brand-yellow rounded-[3rem] p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left'>
+        <div
+          data-aos='zoom-in'
+          className='bg-accent rounded-[3rem] p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left'
+        >
           <div className='max-w-2xl'>
             <h2 className='text-3xl md:text-4xl font-bold font-heading text-brand-deep mb-4'>
               Want to Support Without Buying?
@@ -255,7 +296,7 @@ export default function ShopMainPage() {
           <div className='flex flex-wrap justify-center gap-4'>
             <Link
               href='https://www.paypal.com/ncp/payment/MQG6ZVX59QCSY'
-              className='px-10 py-5 bg-brand-deep text-white font-bold rounded-full hover:bg-brand-purple transition-all flex items-center gap-3 group shadow-xl shadow-brand-deep/10'
+              className='px-10 py-5 bg-brand-deep text-white font-bold rounded-full hover:bg-brand-deep transition-all flex items-center gap-3 group shadow-xl shadow-brand-deep/10'
             >
               <span>Donate Now</span>
               <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />

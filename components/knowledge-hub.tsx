@@ -1,3 +1,4 @@
+'use client';
 import {
   ArrowRight,
   BookOpen,
@@ -6,9 +7,12 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const KnowledgeHub = () => {
   const t = useTranslations('KnowledgeHub');
+  const router = useRouter();
 
   const articles = [
     {
@@ -17,6 +21,7 @@ const KnowledgeHub = () => {
       category: t('article1Category'),
       readTime: t('article1ReadTime'),
       color: 'bg-primary/10 text-primary',
+      href: '/knowledge-hub/education/annual-reviews',
     },
     {
       title: t('article2Title'),
@@ -24,6 +29,7 @@ const KnowledgeHub = () => {
       category: t('article2Category'),
       readTime: t('article2ReadTime'),
       color: 'bg-accent/20 text-accent-foreground',
+      href: '/knowledge-hub/education/ehcp-guide',
     },
     {
       title: t('article3Title'),
@@ -31,18 +37,24 @@ const KnowledgeHub = () => {
       category: t('article3Category'),
       readTime: t('article3ReadTime'),
       color: 'bg-secondary/30 text-secondary-foreground',
+      href: '/knowledge-hub/education/sen-support',
     },
   ];
+
+  const handleCTAClick = () => {
+    router.push('/contact');
+  };
+
+  const handleKnowledgeHubClick = () => {
+    router.push('/knowledge-hub');
+  };
 
   return (
     <section className='py-24 px-6 md:px-12 lg:px-24 bg-muted/20 relative overflow-hidden'>
       <div className='container mx-auto relative z-10'>
         {/* Header */}
         <div className='flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16'>
-          <div 
-            data-aos='fade-right'
-            className='max-w-2xl space-y-4'
-          >
+          <div data-aos='fade-right' className='max-w-2xl space-y-4'>
             <div className='inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
               <BookOpen className='w-4 h-4' />
               <span>{t('badge')}</span>
@@ -55,9 +67,10 @@ const KnowledgeHub = () => {
             </p>
           </div>
 
-          <button 
+          <button
             data-aos='fade-left'
-            className='group flex items-center gap-2 text-lg font-heading font-bold text-primary hover:text-primary/80 transition-colors'
+            onClick={handleKnowledgeHubClick}
+            className='cursor-pointer group flex items-center gap-2 text-lg font-heading font-bold text-primary hover:text-primary/80 transition-colors'
           >
             <span>{t('cta')}</span>
             <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
@@ -67,8 +80,9 @@ const KnowledgeHub = () => {
         {/* Articles Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {articles.map((article, index) => (
-            <div
+            <Link
               key={index}
+              href={article.href}
               data-aos='fade-up'
               data-aos-delay={index * 100}
               className='group relative bg-background rounded-[2.5rem] p-8 border border-border/50 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 flex flex-col justify-between overflow-hidden'
@@ -99,17 +113,17 @@ const KnowledgeHub = () => {
               </div>
 
               <div className='mt-8 pt-6 border-t border-border/50 relative z-10'>
-                <button className='flex items-center gap-2 text-sm font-bold font-heading text-foreground group-hover:text-primary transition-colors'>
+                <div className='flex items-center gap-2 text-sm font-bold font-heading text-foreground group-hover:text-primary transition-colors'>
                   {t('readArticle')}
                   <ChevronRight className='w-4 h-4 group-hover:translate-x-1 transition-transform' />
-                </button>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
         {/* Bottom Decorative Element */}
-        <div 
+        <div
           data-aos='fade-up'
           data-aos-delay='300'
           className='mt-20 p-8 rounded-[3rem] bg-primary/5 border border-primary/10 flex flex-col md:flex-row items-center justify-between gap-8'
@@ -127,7 +141,10 @@ const KnowledgeHub = () => {
               </p>
             </div>
           </div>
-          <button className='px-8 py-4 bg-primary text-primary-foreground rounded-full font-heading font-bold text-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all hover:-translate-y-1'>
+          <button
+            onClick={handleCTAClick}
+            className='px-8 py-4 bg-primary text-primary-foreground rounded-full font-heading font-bold text-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all hover:-translate-y-1'
+          >
             {t('ctaBoxButton')}
           </button>
         </div>

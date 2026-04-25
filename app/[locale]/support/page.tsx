@@ -1,5 +1,5 @@
-import { getTranslations } from 'next-intl/server';
-import type { Metadata } from 'next';
+'use client';
+
 import {
   ArrowRight,
   CheckCircle2,
@@ -13,9 +13,19 @@ import {
   Users,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 const Support = () => {
   const t = useTranslations('Support');
+  const router = useRouter();
+
+  const handleCTAClick = () => {
+    router.push('/contact');
+  };
+
+  const handleDonateClick = () => {
+    router.push('https://www.paypal.com/ncp/payment/MQG6ZVX59QCSY');
+  };
 
   const impactPoints = [
     {
@@ -64,28 +74,48 @@ const Support = () => {
 
         <div className='container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10'>
           <div className='space-y-8'>
-            <div data-aos='fade-down' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-accent text-sm font-bold font-heading uppercase tracking-wider'>
+            <div
+              data-aos='fade-down'
+              className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-accent text-sm font-bold font-heading uppercase tracking-wider'
+            >
               <Heart className='w-4 h-4' />
               <span>{t('badge')}</span>
             </div>
-            <h1 data-aos='fade-right' className='text-5xl md:text-7xl font-heading font-bold leading-tight'>
+            <h1
+              data-aos='fade-right'
+              className='text-5xl md:text-7xl font-heading font-bold leading-tight'
+            >
               {t('title')} <br />
               <span className='text-accent'>{t('titleHighlight')}</span>
             </h1>
-            <p data-aos='fade-right' data-aos-delay='200' className='text-xl md:text-2xl text-white/80 font-sans leading-relaxed max-w-xl'>
+            <p
+              data-aos='fade-right'
+              data-aos-delay='200'
+              className='text-xl md:text-2xl text-white/80 font-sans leading-relaxed max-w-xl'
+            >
               {t('heroDescription')}
             </p>
             <div className='flex flex-col sm:flex-row gap-4 pt-4'>
-              <button className='group px-10 py-5 bg-accent text-accent-foreground rounded-full font-heading font-bold text-xl shadow-xl shadow-accent/20 hover:shadow-accent/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-3'>
+              <button
+                onClick={handleDonateClick}
+                className='group px-10 py-5 bg-accent text-accent-foreground rounded-full font-heading font-bold text-xl shadow-xl shadow-accent/20 hover:shadow-accent/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-3'
+              >
                 <span>{t('ctaPrimary')}</span>
                 <ArrowRight className='w-6 h-6 group-hover:translate-x-1 transition-transform' />
               </button>
-              <button className='px-10 py-5 bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 rounded-full font-heading font-bold text-xl transition-all flex items-center justify-center gap-3'>
+              <button
+                onClick={handleCTAClick}
+                className='px-10 py-5 bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 rounded-full font-heading font-bold text-xl transition-all flex items-center justify-center gap-3'
+              >
                 <span>{t('ctaSecondary')}</span>
               </button>
             </div>
           </div>
-          <div data-aos='zoom-in' data-aos-delay='300' className='relative hidden lg:block'>
+          <div
+            data-aos='zoom-in'
+            data-aos-delay='300'
+            className='relative hidden lg:block'
+          >
             <div className='aspect-video rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white/10 relative group'>
               <img
                 src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop'
@@ -105,7 +135,10 @@ const Support = () => {
       {/* Impact Section */}
       <section className='py-24 px-6 md:px-12 lg:px-24 bg-muted/20'>
         <div className='container mx-auto'>
-          <div data-aos='fade-up' className='text-center max-w-3xl mx-auto mb-20 space-y-6'>
+          <div
+            data-aos='fade-up'
+            className='text-center max-w-3xl mx-auto mb-20 space-y-6'
+          >
             <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
               {t('impactTitle')}
             </h2>
@@ -118,7 +151,9 @@ const Support = () => {
             {impactPoints.map((point, index) => (
               <div
                 key={index}
-                data-aos='fade-up' data-aos-delay={index * 100} className='group p-8 rounded-[3rem] bg-background border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 space-y-6'
+                data-aos='fade-up'
+                data-aos-delay={index * 100}
+                className='group p-8 rounded-[3rem] bg-background border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 space-y-6'
               >
                 <div className='w-16 h-16 rounded-full bg-muted flex items-center justify-center group-hover:bg-primary/10 transition-colors'>
                   {point.icon}
@@ -148,7 +183,10 @@ const Support = () => {
 
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
             {/* Donation Card */}
-            <div data-aos='fade-up' className='p-10 rounded-[4rem] bg-primary/5 border-2 border-primary/10 space-y-8 flex flex-col justify-between'>
+            <div
+              data-aos='fade-up'
+              className='p-10 rounded-[4rem] bg-primary/5 border-2 border-primary/10 space-y-8 flex flex-col justify-between'
+            >
               <div className='space-y-6'>
                 <div className='w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/20'>
                   <Heart className='w-8 h-8 text-white' />
@@ -168,13 +206,20 @@ const Support = () => {
                   </span>
                 </div>
               </div>
-              <button className='w-full py-5 bg-primary text-primary-foreground rounded-full font-heading font-bold text-xl shadow-lg shadow-primary/20 hover:shadow-xl transition-all hover:-translate-y-1'>
+              <button
+                onClick={handleDonateClick}
+                className='w-full py-5 bg-primary text-primary-foreground rounded-full font-heading font-bold text-xl shadow-lg shadow-primary/20 hover:shadow-xl transition-all hover:-translate-y-1'
+              >
                 {t('donationButton')}
               </button>
             </div>
 
             {/* Volunteer Card */}
-            <div data-aos='fade-up' data-aos-delay='100' className='p-10 rounded-[4rem] bg-accent/5 border-2 border-accent/10 space-y-8 flex flex-col justify-between'>
+            <div
+              data-aos='fade-up'
+              data-aos-delay='100'
+              className='p-10 rounded-[4rem] bg-accent/5 border-2 border-accent/10 space-y-8 flex flex-col justify-between'
+            >
               <div className='space-y-6'>
                 <div className='w-16 h-16 rounded-full bg-accent flex items-center justify-center shadow-lg shadow-accent/20'>
                   <Users className='w-8 h-8 text-accent-foreground' />
@@ -197,13 +242,20 @@ const Support = () => {
                   ))}
                 </div>
               </div>
-              <button className='w-full py-5 bg-accent text-accent-foreground rounded-full font-heading font-bold text-xl shadow-lg shadow-accent/20 hover:shadow-xl transition-all hover:-translate-y-1'>
+              <button
+                onClick={handleCTAClick}
+                className='w-full py-5 bg-accent text-accent-foreground rounded-full font-heading font-bold text-xl shadow-lg shadow-accent/20 hover:shadow-xl transition-all hover:-translate-y-1'
+              >
                 {t('volunteerButton')}
               </button>
             </div>
 
             {/* Partner Card */}
-            <div data-aos='fade-up' data-aos-delay='200' className='p-10 rounded-[4rem] bg-secondary/10 border-2 border-secondary/20 space-y-8 flex flex-col justify-between'>
+            <div
+              data-aos='fade-up'
+              data-aos-delay='200'
+              className='p-10 rounded-[4rem] bg-secondary/10 border-2 border-secondary/20 space-y-8 flex flex-col justify-between'
+            >
               <div className='space-y-6'>
                 <div className='w-16 h-16 rounded-full bg-secondary flex items-center justify-center shadow-lg shadow-secondary/20'>
                   <Handshake className='w-8 h-8 text-secondary-foreground' />
@@ -215,13 +267,20 @@ const Support = () => {
                   {t('partnerDescription')}
                 </p>
               </div>
-              <button className='w-full py-5 bg-secondary text-secondary-foreground rounded-full font-heading font-bold text-xl shadow-lg shadow-secondary/20 hover:shadow-xl transition-all hover:-translate-y-1'>
+              <button
+                onClick={handleCTAClick}
+                className='w-full py-5 bg-secondary text-secondary-foreground rounded-full font-heading font-bold text-xl shadow-lg shadow-secondary/20 hover:shadow-xl transition-all hover:-translate-y-1'
+              >
                 {t('partnerButton')}
               </button>
             </div>
 
             {/* Spread the Word Card */}
-            <div data-aos='fade-up' data-aos-delay='300' className='p-10 rounded-[4rem] bg-ring/5 border-2 border-ring/10 space-y-8 flex flex-col justify-between'>
+            <div
+              data-aos='fade-up'
+              data-aos-delay='300'
+              className='p-10 rounded-[4rem] bg-ring/5 border-2 border-ring/10 space-y-8 flex flex-col justify-between'
+            >
               <div className='space-y-6'>
                 <div className='w-16 h-16 rounded-full bg-ring flex items-center justify-center shadow-lg shadow-ring/20'>
                   <Share2 className='w-8 h-8 text-white' />
@@ -247,7 +306,10 @@ const Support = () => {
                   </li>
                 </ul>
               </div>
-              <button className='w-full py-5 bg-ring text-white rounded-full font-heading font-bold text-xl shadow-lg shadow-ring/20 hover:shadow-xl transition-all hover:-translate-y-1'>
+              <button
+                onClick={handleCTAClick}
+                className='w-full py-5 bg-ring text-white rounded-full font-heading font-bold text-xl shadow-lg shadow-ring/20 hover:shadow-xl transition-all hover:-translate-y-1'
+              >
                 {t('spreadButton')}
               </button>
             </div>
@@ -258,17 +320,30 @@ const Support = () => {
       {/* Final CTA Section */}
       <section className='py-24 px-6 md:px-12 lg:px-24 bg-primary text-primary-foreground text-center rounded-t-[5rem] md:rounded-t-[10rem]'>
         <div className='container mx-auto max-w-4xl space-y-12'>
-          <div data-aos='zoom-in' className='w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mx-auto'>
+          <div
+            data-aos='zoom-in'
+            className='w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mx-auto'
+          >
             <Sparkles className='w-12 h-12 text-accent' />
           </div>
-          <h2 data-aos='fade-up' data-aos-delay='200' className='text-4xl md:text-6xl font-heading font-bold leading-tight'>
+          <h2
+            data-aos='fade-up'
+            data-aos-delay='200'
+            className='text-4xl md:text-6xl font-heading font-bold leading-tight'
+          >
             {t('finalTitle')}
           </h2>
           <div className='flex flex-col sm:flex-row gap-6 justify-center pt-8'>
-            <button className='px-12 py-6 bg-accent text-accent-foreground rounded-full font-heading font-bold text-2xl shadow-2xl hover:shadow-accent/40 transition-all hover:-translate-y-2'>
+            <button
+              onClick={handleDonateClick}
+              className='px-12 py-6 bg-accent text-accent-foreground rounded-full font-heading font-bold text-2xl shadow-2xl hover:shadow-accent/40 transition-all hover:-translate-y-2'
+            >
               {t('finalCtaPrimary')}
             </button>
-            <button className='px-12 py-6 bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 rounded-full font-heading font-bold text-2xl transition-all hover:-translate-y-2'>
+            <button
+              onClick={handleCTAClick}
+              className='px-12 py-6 bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 rounded-full font-heading font-bold text-2xl transition-all hover:-translate-y-2'
+            >
               {t('finalCtaSecondary')}
             </button>
           </div>
@@ -279,14 +354,3 @@ const Support = () => {
 };
 
 export default Support;
-
-
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'SEO.Support' });
-
-  return {
-    title: t('title'),
-    description: t('description'),
-  };
-}

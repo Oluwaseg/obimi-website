@@ -1,5 +1,5 @@
-import { getTranslations } from 'next-intl/server';
-import type { Metadata } from 'next';
+'use client';
+
 import {
   ArrowRight,
   BookOpen,
@@ -11,9 +11,12 @@ import {
   Video,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 const ServicesPage = () => {
   const t = useTranslations('ServicesPage');
+
+  const router = useRouter();
 
   const services = [
     {
@@ -85,8 +88,15 @@ const ServicesPage = () => {
       {/* Hero Section */}
       <section className='relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden bg-muted/60'>
         <div className='absolute top-0 right-0 w-1/3 h-full bg-primary/5 rounded-bl-[10rem] -z-10' />
-        <div data-aos='fade-up' className='container mx-auto text-center max-w-4xl space-y-8 relative z-10'>
-          <div data-aos='fade-down' data-aos-delay='200' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
+        <div
+          data-aos='fade-up'
+          className='container mx-auto text-center max-w-4xl space-y-8 relative z-10'
+        >
+          <div
+            data-aos='fade-down'
+            data-aos-delay='200'
+            className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'
+          >
             <Sparkles className='w-4 h-4' />
             <span>{t('badge')}</span>
           </div>
@@ -103,13 +113,16 @@ const ServicesPage = () => {
       {/* Services Section */}
       <section className='py-24 px-6 md:px-12 lg:px-24'>
         <div className='container mx-auto space-y-24'>
-          <div data-aos='fade-up' className='text-center max-w-3xl mx-auto space-y-4'>
+          <div
+            data-aos='fade-up'
+            className='text-center max-w-3xl mx-auto space-y-4'
+          >
             <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
               {t('servicesTitle')}
             </h2>
           </div>
 
-          <div className='space-y-32'>
+          <div className='space-y-32 overflow-hidden'>
             {services.map((service, index) => (
               <div
                 key={service.id}
@@ -117,7 +130,8 @@ const ServicesPage = () => {
               >
                 {/* Content Column */}
                 <div
-                  data-aos={index % 2 === 0 ? 'fade-right' : 'fade-left'} className={`lg:col-span-6 space-y-8 ${index % 2 !== 0 ? 'lg:order-2' : ''}`}
+                  data-aos={index % 2 === 0 ? 'fade-right' : 'fade-left'}
+                  className={`lg:col-span-6 space-y-8 ${index % 2 !== 0 ? 'lg:order-2' : ''}`}
                 >
                   <div
                     className={`w-20 h-20 rounded-full ${service.color} flex items-center justify-center shadow-lg`}
@@ -139,7 +153,8 @@ const ServicesPage = () => {
                       {service.benefits.map((benefit) => (
                         <div
                           key={benefit}
-                          data-aos='fade-up' className='flex items-center gap-3 text-foreground font-sans'
+                          data-aos='fade-up'
+                          className='flex items-center gap-3 text-foreground font-sans'
                         >
                           <CheckCircle2 className='w-5 h-5 text-primary' />
                           <span>{benefit}</span>
@@ -148,7 +163,10 @@ const ServicesPage = () => {
                     </div>
                   </div>
 
-                  <button className='group px-8 py-4 bg-primary text-primary-foreground rounded-full font-heading font-bold text-lg shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1 flex items-center gap-3'>
+                  <button
+                    onClick={() => router.push('/contact')}
+                    className='group px-8 py-4 bg-primary text-primary-foreground rounded-full font-heading font-bold text-lg shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1 flex items-center gap-3'
+                  >
                     <span>{service.cta}</span>
                     <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
                   </button>
@@ -158,7 +176,12 @@ const ServicesPage = () => {
                 <div
                   className={`lg:col-span-6 relative ${index % 2 !== 0 ? 'lg:order-1' : ''}`}
                 >
-                  <div data-aos={index % 2 === 0 ? 'zoom-in-left' : 'zoom-in-right'} className='aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-background relative group'>
+                  <div
+                    data-aos={
+                      index % 2 === 0 ? 'zoom-in-left' : 'zoom-in-right'
+                    }
+                    className='aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-background relative group'
+                  >
                     <img
                       src={service.image}
                       alt={service.title}
@@ -190,10 +213,16 @@ const ServicesPage = () => {
             {t('finalCtaDescription')}
           </p>
           <div className='flex flex-col sm:flex-row gap-6 justify-center pt-8'>
-            <button className='px-12 py-6 bg-primary text-primary-foreground rounded-full font-heading font-bold text-2xl shadow-2xl hover:shadow-primary/40 transition-all hover:-translate-y-2'>
+            <button
+              onClick={() => router.push('/contact')}
+              className='px-12 py-6 bg-primary text-primary-foreground rounded-full font-heading font-bold text-2xl shadow-2xl hover:shadow-primary/40 transition-all hover:-translate-y-2'
+            >
               {t('finalCtaPrimary')}
             </button>
-            <button className='px-12 py-6 bg-accent text-accent-foreground rounded-full font-heading font-bold text-2xl shadow-2xl hover:shadow-accent/40 transition-all hover:-translate-y-2'>
+            <button
+              onClick={() => router.push('/contact')}
+              className='px-12 py-6 bg-accent text-accent-foreground rounded-full font-heading font-bold text-2xl shadow-2xl hover:shadow-accent/40 transition-all hover:-translate-y-2'
+            >
               {t('finalCtaSecondary')}
             </button>
           </div>
@@ -204,14 +233,3 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
-
-
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'SEO.Services' });
-
-  return {
-    title: t('title'),
-    description: t('description'),
-  };
-}

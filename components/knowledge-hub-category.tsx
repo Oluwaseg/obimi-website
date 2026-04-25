@@ -45,10 +45,17 @@ export function KnowledgeHubCategory({
         </Link>
 
         <div className='max-w-3xl'>
-          <h1 data-aos='fade-right' className='text-5xl md:text-6xl font-bold font-heading text-brand-deep mb-6'>
+          <h1
+            data-aos='fade-right'
+            className='text-5xl md:text-6xl font-bold font-heading text-brand-deep mb-6'
+          >
             {category.title}
           </h1>
-          <p data-aos='fade-right' data-aos-delay='200' className='text-xl text-gray-600 leading-relaxed'>
+          <p
+            data-aos='fade-right'
+            data-aos-delay='200'
+            className='text-xl text-gray-600 leading-relaxed'
+          >
             {category.desc}
           </p>
         </div>
@@ -56,7 +63,10 @@ export function KnowledgeHubCategory({
 
       {/* Search & Filter Bar */}
       <section className='max-w-[1440px] mx-auto px-6 md:px-12 mb-12'>
-        <div data-aos='fade-up' className='flex flex-col md:flex-row gap-4 items-center justify-between p-4 bg-gray-50 rounded-[2rem] border border-gray-100'>
+        <div
+          data-aos='fade-up'
+          className='flex flex-col md:flex-row gap-4 items-center justify-between p-4 bg-gray-50 rounded-[2rem] border border-gray-100'
+        >
           <div className='relative w-full md:max-w-md group'>
             <Search className='absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-brand-purple transition-colors' />
             <input

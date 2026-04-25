@@ -1,16 +1,8 @@
-import { getTranslations } from 'next-intl/server';
-import type { Metadata } from 'next';
 import { SOCIAL_ICON_MAP, SOCIAL_LINKS } from '@/constants/socials';
-import {
-  ArrowRight,
-  Clock,
-  Heart,
-  Mail,
-  MessageCircle,
-  Send,
-  Users,
-} from 'lucide-react';
+import { Clock, Mail, MessageCircle, Send } from 'lucide-react';
+import type { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
 const ContactPage = () => {
   const t = useTranslations('ContactPage');
@@ -21,11 +13,17 @@ const ContactPage = () => {
       <section className='relative py-24 px-6 md:px-12 lg:px-24 bg-muted/30 overflow-hidden'>
         <div className='absolute top-0 right-0 w-1/3 h-full bg-primary/5 rounded-bl-[10rem] -z-10' />
         <div className='container mx-auto text-center max-w-4xl space-y-8 relative z-10'>
-          <div data-aos='fade-down' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
+          <div
+            data-aos='fade-down'
+            className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'
+          >
             <MessageCircle className='w-4 h-4' />
             <span>{t('badge')}</span>
           </div>
-          <h1 data-aos='fade-up' className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'>
+          <h1
+            data-aos='fade-up'
+            className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'
+          >
             {t('titlePrefix')}{' '}
             <span className='text-primary'>{t('titleHighlight')}</span>
           </h1>
@@ -36,9 +34,9 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Section */}
-      <section className='py-24 px-6 md:px-12 lg:px-24'>
+      <section className='py-24 px-6 md:px-12 lg:px-24 '>
         <div className='container mx-auto'>
-          <div className='grid grid-cols-1 lg:grid-cols-12 gap-16 items-start'>
+          <div className='grid grid-cols-1 lg:grid-cols-12 gap-16 items-start overflow-hidden'>
             {/* Left Side: Contact Info */}
             <div data-aos='fade-right' className='lg:col-span-5 space-y-12'>
               <div className='space-y-6'>
@@ -96,11 +94,12 @@ const ContactPage = () => {
               </div>
 
               {/* Trust Badge */}
-              <div className='p-8 rounded-[2.5rem] bg-accent/10 border-2 border-accent/20 flex items-center gap-6'>
-                <div className='w-16 h-16 rounded-full bg-accent flex items-center justify-center flex-shrink-0'>
-                  <Clock className='w-8 h-8 text-accent-foreground' />
+              <div className='p-6 sm:p-8 rounded-[2.5rem] bg-accent/10 border-2 border-accent/20 flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-4 sm:gap-6'>
+                <div className='w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-accent flex items-center justify-center flex-shrink-0'>
+                  <Clock className='w-6 h-6 sm:w-8 sm:h-8 text-accent-foreground' />
                 </div>
-                <p className='text-lg font-sans font-medium text-accent-foreground leading-tight'>
+
+                <p className='text-sm sm:text-lg font-sans font-medium text-accent-foreground leading-snug'>
                   {t('trustBadgeText')}{' '}
                   <span className='font-bold'>{t('trustBadgeHighlight')}</span>.
                 </p>
@@ -109,9 +108,13 @@ const ContactPage = () => {
 
             {/* Right Side: Form */}
             <div data-aos='fade-left' className='lg:col-span-7'>
-              <div data-aos='zoom-in' data-aos-delay='200' className='bg-background rounded-[3rem] p-8 md:p-12 border-2 border-border shadow-2xl shadow-primary/5 relative overflow-hidden'>
+              <div
+                data-aos='zoom-in'
+                data-aos-delay='200'
+                className='bg-background rounded-[3rem] p-8 md:p-12 border-2 border-border shadow-2xl shadow-primary/5 relative overflow-hidden'
+              >
                 {/* Decorative background element */}
-                <div className='absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10' />
+                <div className='absolute top-0 right-0 w-32 h-32 bg-primary/70 rounded-bl-full -z-10' />
 
                 <div className='space-y-8'>
                   <div className='space-y-2'>
@@ -179,7 +182,7 @@ const ContactPage = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className='py-24 px-6 md:px-12 lg:px-24 bg-secondary/60 relative overflow-hidden'>
+      {/* <section className='py-24 px-6 md:px-12 lg:px-24 bg-secondary/60 relative overflow-hidden'>
         <div className='container mx-auto max-w-4xl text-center space-y-12 relative z-10'>
           <div className='w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto'>
             <Heart className='w-12 h-12 text-primary fill-primary/20' />
@@ -198,19 +201,20 @@ const ContactPage = () => {
             </button>
           </div>
         </div>
-
-        {/* Decorative Blobs */}
         <div className='absolute top-1/2 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -translate-x-1/2' />
         <div className='absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-x-1/2' />
-      </section>
+      </section> */}
     </div>
   );
 };
 
 export default ContactPage;
 
-
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'SEO.Contact' });
 

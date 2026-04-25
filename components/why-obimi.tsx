@@ -1,8 +1,11 @@
+'use client';
 import { ArrowRight, Heart, LayoutGrid, Lightbulb, Users } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 const WhyObimi = () => {
   const t = useTranslations('WhyObimi');
+  const router = useRouter();
 
   const values = [
     {
@@ -27,14 +30,15 @@ const WhyObimi = () => {
     },
   ];
 
+  const handleCTAClick = () => {
+    router.push('/contact');
+  };
+
   return (
-    <section className='py-24 px-6 md:px-12 lg:px-24 bg-muted/30 relative overflow-hidden'>
+    <section className='py-24 px-6 md:px-12 lg:px-24 bg-secondary/30 relative overflow-hidden'>
       <div className='container mx-auto relative z-10'>
         {/* Section Header */}
-        <div 
-          data-aos='fade-right'
-          className='max-w-3xl mb-20 space-y-6'
-        >
+        <div data-aos='fade-right' className='max-w-3xl mb-20 space-y-6'>
           <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
             {t('title')}
           </h2>
@@ -45,7 +49,7 @@ const WhyObimi = () => {
 
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-16 items-start'>
           {/* Left: Video Section (7 cols) */}
-          <div 
+          <div
             data-aos='fade-right'
             data-aos-delay='200'
             className='lg:col-span-7 space-y-6'
@@ -99,15 +103,16 @@ const WhyObimi = () => {
               ))}
             </div>
 
-            {/* CTA Buttons */}
-            <div className='flex flex-col sm:flex-row gap-4 pt-4'>
-              <button className='px-8 py-4 bg-primary text-primary-foreground rounded-full font-heading font-bold text-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2'>
-                <span>{t('ctaPrimary')}</span>
-                <ArrowRight className='w-5 h-5' />
-              </button>
-
-              <button className='px-8 py-4 bg-transparent border-2 border-primary/20 text-primary hover:bg-primary/5 rounded-full font-heading font-bold text-lg transition-all flex items-center justify-center gap-2'>
-                <span>{t('ctaSecondary')}</span>
+            {/* CTA Button */}
+            <div className='pt-6 flex justify-end sm:justify-end'>
+              <button
+                onClick={handleCTAClick}
+                className='w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground rounded-full font-heading font-bold text-sm sm:text-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2'
+              >
+                <span className='text-center leading-tight'>
+                  {t('ctaPrimary')}
+                </span>
+                <ArrowRight className='w-5 h-5 shrink-0' />
               </button>
             </div>
           </div>

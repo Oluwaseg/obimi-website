@@ -1,8 +1,15 @@
+'use client';
 import { ArrowRight, Heart, Users } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 const CommunityCTA = () => {
+  const router = useRouter();
   const t = useTranslations('Community');
+
+  const handleCtaClick = () => {
+    router.push('/contact');
+  };
 
   return (
     <section className='py-24 px-6 md:px-12 lg:px-24 bg-accent relative overflow-hidden'>
@@ -13,10 +20,7 @@ const CommunityCTA = () => {
 
       <div className='container mx-auto relative z-10'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-16 items-center'>
-          <div 
-            data-aos='fade-right'
-            className='space-y-8 text-white'
-          >
+          <div data-aos='fade-right' className='space-y-8 text-white'>
             <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
               <Users className='w-4 h-4' />
               <span>{t('badge')}</span>
@@ -32,19 +36,25 @@ const CommunityCTA = () => {
             </p>
 
             <div className='flex flex-col sm:flex-row gap-4 pt-4'>
-              <button className='group px-8 py-4 bg-accent text-accent-foreground rounded-2xl font-heading font-bold text-lg shadow-xl shadow-accent/20 hover:shadow-accent/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-2'>
+              <button
+                onClick={handleCtaClick}
+                className='group px-8 py-4 bg-accent text-accent-foreground rounded-2xl font-heading font-bold text-lg shadow-xl shadow-accent/20 hover:shadow-accent/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-2'
+              >
                 <span>{t('ctaPrimary')}</span>
                 <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
               </button>
 
-              <button className='px-8 py-4 bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 rounded-full font-heading font-bold text-lg transition-all flex items-center justify-center gap-2'>
+              <button
+                onClick={handleCtaClick}
+                className='px-8 py-4 bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 rounded-full font-heading font-bold text-lg transition-all flex items-center justify-center gap-2'
+              >
                 <Heart className='w-5 h-5' />
                 <span>{t('ctaSecondary')}</span>
               </button>
             </div>
           </div>
 
-          <div 
+          <div
             data-aos='zoom-in'
             data-aos-delay='400'
             className='relative hidden lg:block'

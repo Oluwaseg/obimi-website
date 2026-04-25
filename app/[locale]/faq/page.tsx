@@ -8,16 +8,21 @@ import {
   Search,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 const FAQPage = () => {
   const t = useTranslations('FAQPage');
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-
+  const router = useRouter();
   const faqs = Array.from({ length: 9 }).map((_, i) => ({
     question: t(`faq${i + 1}Question`),
     answer: t(`faq${i + 1}Answer`),
   }));
+
+  const getInvolved = () => {
+    router.push('/contact');
+  };
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -33,14 +38,14 @@ const FAQPage = () => {
         </div>
 
         <div className='container mx-auto text-center max-w-4xl space-y-8 relative z-10'>
-          <div 
+          <div
             data-aos='fade-down'
             className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'
           >
             <HelpCircle className='w-4 h-4' />
             <span>{t('badge')}</span>
           </div>
-          <h1 
+          <h1
             data-aos='fade-up'
             className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'
           >
@@ -52,7 +57,7 @@ const FAQPage = () => {
           </p>
 
           {/* Search Bar (Visual) */}
-          <div 
+          <div
             data-aos='fade-up'
             data-aos-delay='200'
             className='max-w-2xl mx-auto relative mt-12'
@@ -125,7 +130,10 @@ const FAQPage = () => {
           <p className='text-xl text-muted-foreground font-sans'>
             {t('finalCtaDescription')}
           </p>
-          <button className='group px-12 py-6 bg-primary text-primary-foreground rounded-full font-heading font-bold text-2xl shadow-2xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-2 flex items-center gap-3 mx-auto'>
+          <button
+            onClick={getInvolved}
+            className='group px-12 py-6 bg-primary text-primary-foreground rounded-full font-heading font-bold text-2xl shadow-2xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-2 flex items-center gap-3 mx-auto'
+          >
             <span>{t('finalCtaButton')}</span>
             <ArrowRight className='w-6 h-6 group-hover:translate-x-1 transition-transform' />
           </button>
