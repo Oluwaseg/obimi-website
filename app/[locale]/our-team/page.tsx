@@ -37,11 +37,11 @@ export default function OurTeamPage() {
       {/* Hero Section */}
       <section className='max-w-[1440px] mx-auto px-6 md:px-12 mb-24'>
         <div className='max-w-3xl'>
-          <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-purple/5 text-brand-purple text-sm font-bold mb-6'>
+<div data-aos='fade-down' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-purple/5 text-brand-purple text-sm font-bold mb-6'>
             <Users className='w-4 h-4' />
             <span>{t('badge')}</span>
           </div>
-          <h1 className='text-5xl md:text-7xl font-bold font-heading text-brand-deep mb-8 leading-[1.1]'>
+          <h1 data-aos='fade-right' className='text-5xl md:text-7xl font-bold font-heading text-brand-deep mb-8 leading-[1.1]'>
             {t('titlePrefix')}
             <span className='text-brand-purple'>{t('titleHighlight')}</span>
             {t('titleSuffix')}
@@ -54,7 +54,7 @@ export default function OurTeamPage() {
 
       {/* Founder Section */}
       <section className='max-w-[1440px] mx-auto px-6 md:px-12 mb-32'>
-        <div className='flex items-center gap-3 mb-12'>
+        <div data-aos='fade-up' className='flex items-center gap-3 mb-12'>
           <div className='w-12 h-1 bg-brand-yellow rounded-full' />
           <h2 className='text-3xl font-bold font-heading text-brand-deep'>
             {t('founderSectionTitle')}
@@ -68,7 +68,7 @@ export default function OurTeamPage() {
 
           <div className='relative z-10 flex flex-col lg:flex-row items-center'>
             {/* Founder Image Container */}
-            <div className='w-full lg:w-1/2 p-8 lg:p-12'>
+            <div data-aos='zoom-in' className='w-full lg:w-1/2 p-8 lg:p-12'>
               <div className='relative aspect-square rounded-[3rem] overflow-hidden border-8 border-white/10 group-hover:border-brand-yellow/30 transition-colors duration-500'>
                 <Image
                   src={IMAGES.HELEN_EWUMI}
@@ -80,7 +80,7 @@ export default function OurTeamPage() {
             </div>
 
             {/* Founder Content */}
-            <div className='w-full lg:w-1/2 p-8 lg:p-20 lg:pl-0'>
+            <div data-aos='fade-left' className='w-full lg:w-1/2 p-8 lg:p-20 lg:pl-0'>
               <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-brand-yellow text-sm font-bold mb-6'>
                 <Sparkles className='w-4 h-4' />
                 <span>{t('founderBadge')}</span>
@@ -129,6 +129,8 @@ export default function OurTeamPage() {
           {coreTeam.map((member, idx) => (
             <div
               key={idx}
+              data-aos='fade-up'
+              data-aos-delay={idx * 100}
               className='group p-8 rounded-[3rem] bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-[0_30px_60px_rgba(0,0,0,0.05)] transition-all duration-500'
             >
               <div className='relative w-full aspect-square rounded-[2.5rem] overflow-hidden mb-8'>
@@ -151,22 +153,22 @@ export default function OurTeamPage() {
 
       {/* Community Support Section */}
       <section className='max-w-[1440px] mx-auto px-6 md:px-12 mb-32'>
-        <div className='bg-brand-purple/5 rounded-[4rem] p-12 md:p-20 border border-brand-purple/10 relative overflow-hidden'>
+        <div data-aos='zoom-in' className='bg-brand-purple/5 rounded-[4rem] p-12 md:p-20 border border-brand-purple/10 relative overflow-hidden'>
           <div className='absolute top-0 right-0 w-64 h-64 bg-brand-purple/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2' />
 
           <div className='relative z-10 max-w-4xl'>
-            <div className='flex items-center gap-3 mb-8'>
+            <div data-aos='fade-right' className='flex items-center gap-3 mb-8'>
               <div className='w-12 h-1 bg-brand-purple rounded-full' />
               <h2 className='text-3xl font-bold font-heading text-brand-deep'>
                 {t('communityTitle')}
               </h2>
             </div>
-            <p className='text-2xl md:text-3xl text-brand-deep font-medium leading-relaxed mb-12'>
+            <p data-aos='fade-right' data-aos-delay='200' className='text-2xl md:text-3xl text-brand-deep font-medium leading-relaxed mb-12'>
               {t('communityDescription')}
             </p>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-              <div className='flex items-start gap-4'>
+              <div data-aos='fade-up' data-aos-delay='300' className='flex items-start gap-4'>
                 <div className='w-12 h-12 rounded-full bg-accent flex items-center justify-center text-brand-purple shadow-sm flex-shrink-0'>
                   <Heart className='w-6 h-6' />
                 </div>
@@ -177,7 +179,7 @@ export default function OurTeamPage() {
                   <p className='text-gray-600'>{t('communityFeature1Desc')}</p>
                 </div>
               </div>
-              <div className='flex items-start gap-4'>
+              <div data-aos='fade-up' data-aos-delay='400' className='flex items-start gap-4'>
                 <div className='w-12 h-12 rounded-full bg-white flex items-center justify-center text-brand-purple shadow-sm flex-shrink-0'>
                   <ShieldCheck className='w-6 h-6' />
                 </div>
@@ -195,7 +197,7 @@ export default function OurTeamPage() {
 
       {/* Final CTA */}
       <section className='max-w-[1440px] mx-auto px-6 md:px-12'>
-        <div className='bg-brand-yellow rounded-[3rem] p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left'>
+        <div data-aos='zoom-in' className='bg-brand-yellow rounded-[3rem] p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left'>
           <div>
             <h2 className='text-3xl md:text-4xl font-bold font-heading text-brand-deep mb-4'>
               {t('finalCtaTitle')}

@@ -21,11 +21,11 @@ const ContactPage = () => {
       <section className='relative py-24 px-6 md:px-12 lg:px-24 bg-muted/30 overflow-hidden'>
         <div className='absolute top-0 right-0 w-1/3 h-full bg-primary/5 rounded-bl-[10rem] -z-10' />
         <div className='container mx-auto text-center max-w-4xl space-y-8 relative z-10'>
-          <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
+          <div data-aos='fade-down' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
             <MessageCircle className='w-4 h-4' />
             <span>{t('badge')}</span>
           </div>
-          <h1 className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'>
+          <h1 data-aos='fade-up' className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'>
             {t('titlePrefix')}{' '}
             <span className='text-primary'>{t('titleHighlight')}</span>
           </h1>
@@ -40,7 +40,7 @@ const ContactPage = () => {
         <div className='container mx-auto'>
           <div className='grid grid-cols-1 lg:grid-cols-12 gap-16 items-start'>
             {/* Left Side: Contact Info */}
-            <div className='lg:col-span-5 space-y-12'>
+            <div data-aos='fade-right' className='lg:col-span-5 space-y-12'>
               <div className='space-y-6'>
                 <h2 className='text-4xl font-heading font-bold text-foreground'>
                   {t('contactInfoTitle')}
@@ -108,8 +108,8 @@ const ContactPage = () => {
             </div>
 
             {/* Right Side: Form */}
-            <div className='lg:col-span-7'>
-              <div className='bg-background rounded-[3rem] p-8 md:p-12 border-2 border-border shadow-2xl shadow-primary/5 relative overflow-hidden'>
+            <div data-aos='fade-left' className='lg:col-span-7'>
+              <div data-aos='zoom-in' data-aos-delay='200' className='bg-background rounded-[3rem] p-8 md:p-12 border-2 border-border shadow-2xl shadow-primary/5 relative overflow-hidden'>
                 {/* Decorative background element */}
                 <div className='absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10' />
 

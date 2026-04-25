@@ -231,10 +231,10 @@ export default function Events() {
 
         <div className='relative z-10 container text-center px-4 py-20'>
           <div className='max-w-3xl mx-auto animate-fade-in-up'>
-            <h1 className='text-5xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight'>
+            <h1 data-aos='fade-up' className='text-5xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight'>
               Events
             </h1>
-            <p className='text-xl md:text-2xl text-white/90 font-light'>
+            <p data-aos='fade-up' data-aos-delay='200' className='text-xl md:text-2xl text-white/90 font-light'>
               Bringing parents and caregivers together through support,
               learning, and community.
             </p>
@@ -247,11 +247,11 @@ export default function Events() {
       {/* ==================== UPCOMING EVENTS SECTION ==================== */}
       <section className='py-20 md:py-28 px-4 bg-background'>
         <div className='max-w-2xl mx-auto'>
-          <h2 className='text-4xl md:text-5xl font-heading font-bold text-primary mb-4 text-center animate-fade-in-up'>
+          <h2 data-aos='fade-down' className='text-4xl md:text-5xl font-heading font-bold text-primary mb-4 text-center animate-fade-in-up'>
             Upcoming Events
           </h2>
 
-          <div className='bg-card rounded-2xl shadow-md p-12 text-center border border-border animate-fade-in-up'>
+          <div data-aos='zoom-in' data-aos-delay='200' className='bg-card rounded-2xl shadow-md p-12 text-center border border-border animate-fade-in-up'>
             <div className='inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6'>
               <Calendar className='w-8 h-8 text-primary' />
             </div>
@@ -281,7 +281,7 @@ export default function Events() {
       <section className='py-20 md:py-28 px-4 bg-muted'>
         <div className='max-w-6xl mx-auto'>
           <div className='mb-16 text-center animate-fade-in-up'>
-            <h2 className='text-4xl md:text-5xl font-heading font-bold text-primary mb-4'>
+            <h2 data-aos='fade-right' className='text-4xl md:text-5xl font-heading font-bold text-primary mb-4'>
               Featured Events
             </h2>
             <p className='text-lg text-muted-foreground'>
@@ -293,6 +293,8 @@ export default function Events() {
             {FEATURED_EVENTS.map((event, idx) => (
               <div
                 key={event.id}
+                data-aos='fade-up'
+                data-aos-delay={idx * 100}
                 className='group cursor-pointer animate-fade-in-up'
                 style={{ animationDelay: `${idx * 100}ms` }}
               >
@@ -319,7 +321,7 @@ export default function Events() {
       <section className='py-20 md:py-28 px-4 bg-background'>
         <div className='max-w-6xl mx-auto'>
           <div className='mb-16 text-center animate-fade-in-up'>
-            <h2 className='text-4xl md:text-5xl font-heading font-bold text-primary mb-4'>
+            <h2 data-aos='fade-right' className='text-4xl md:text-5xl font-heading font-bold text-primary mb-4'>
               Community Moments
             </h2>
             <p className='text-lg text-muted-foreground'>
@@ -331,6 +333,8 @@ export default function Events() {
             {COMMUNITY_GALLERIES.map((gallery, galleryIndex) => (
               <div
                 key={galleryIndex}
+                data-aos='fade-up'
+                data-aos-delay={galleryIndex * 100}
                 className='animate-fade-in-up'
                 style={{ animationDelay: `${galleryIndex * 100}ms` }}
               >

@@ -31,7 +31,10 @@ const WhyObimi = () => {
     <section className='py-24 px-6 md:px-12 lg:px-24 bg-muted/30 relative overflow-hidden'>
       <div className='container mx-auto relative z-10'>
         {/* Section Header */}
-        <div className='max-w-3xl mb-20 space-y-6'>
+        <div 
+          data-aos='fade-right'
+          className='max-w-3xl mb-20 space-y-6'
+        >
           <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
             {t('title')}
           </h2>
@@ -42,7 +45,11 @@ const WhyObimi = () => {
 
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-16 items-start'>
           {/* Left: Video Section (7 cols) */}
-          <div className='lg:col-span-7 space-y-6'>
+          <div 
+            data-aos='fade-right'
+            data-aos-delay='200'
+            className='lg:col-span-7 space-y-6'
+          >
             <div className='relative group aspect-video rounded-[2rem] overflow-hidden shadow-2xl'>
               <iframe
                 className='w-full h-full'
@@ -73,6 +80,8 @@ const WhyObimi = () => {
               {values.map((value, index) => (
                 <div
                   key={index}
+                  data-aos='fade-left'
+                  data-aos-delay={index * 100}
                   className='group flex gap-5 p-6 rounded-[2rem] bg-background border border-border/50 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300'
                 >
                   <div className='flex-shrink-0 w-12 h-12 rounded-full bg-muted flex items-center justify-center group-hover:bg-primary/10 transition-colors'>

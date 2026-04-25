@@ -66,11 +66,11 @@ export function KnowledgeHubMain() {
       {/* Hero Section */}
       <section className='max-w-[1440px] mx-auto px-6 md:px-12 mb-20'>
         <div className='max-w-3xl'>
-          <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-purple/5 text-brand-purple text-sm font-bold mb-6'>
+<div data-aos='fade-down' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-purple/5 text-brand-purple text-sm font-bold mb-6'>
             <BookOpen className='w-4 h-4' />
             <span>{t('badge')}</span>
           </div>
-          <h1 className='text-5xl md:text-7xl font-bold font-heading text-brand-deep mb-8 leading-[1.1]'>
+          <h1 data-aos='fade-right' className='text-5xl md:text-7xl font-bold font-heading text-brand-deep mb-8 leading-[1.1]'>
             {t('mainHeroTitle')}{' '}
             <span className='text-brand-purple'>
               {t('mainHeroTitleHighlight')}
@@ -82,7 +82,7 @@ export function KnowledgeHubMain() {
           </p>
 
           {/* Search Bar */}
-          <div className='relative max-w-2xl group'>
+          <div data-aos='fade-up' data-aos-delay='200' className='relative max-w-2xl group'>
             <Search className='absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400 group-focus-within:text-brand-purple transition-colors' />
             <input
               type='text'
@@ -105,10 +105,12 @@ export function KnowledgeHubMain() {
         </div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-          {categories.map((cat) => (
+          {categories.map((cat, idx) => (
             <Link
               key={cat.id}
               href={cat.href}
+              data-aos='zoom-in'
+              data-aos-delay={idx * 100}
               className='group relative p-10 rounded-[3rem] bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-[0_30px_60px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition-all duration-500 overflow-hidden'
             >
               <div
@@ -165,6 +167,8 @@ export function KnowledgeHubMain() {
                 <Link
                   key={idx}
                   href={article.href}
+                  data-aos='fade-up'
+                  data-aos-delay={idx * 100}
                   className='group bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-[2.5rem] hover:bg-white hover:border-white transition-all duration-500'
                 >
                   <div className='flex items-center gap-3 mb-6'>

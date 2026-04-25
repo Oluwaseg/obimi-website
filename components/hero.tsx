@@ -1,8 +1,15 @@
+'use client';
 import { ArrowRight, Heart, Sparkles, Users } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 export function Hero() {
   const t = useTranslations('Hero');
+  const router = useRouter();
+
+  const handleCtaClick = () => {
+    router.push('/contact');
+  };
 
   return (
     <section className='relative min-h-[90vh] flex items-center overflow-hidden bg-background py-20 px-6 md:px-12 lg:px-24'>
@@ -13,12 +20,18 @@ export function Hero() {
       <div className='container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10'>
         {/* Left Content Column (7 cols) */}
         <div className='lg:col-span-7 space-y-8'>
-          <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/30 border border-secondary/50 text-secondary-foreground text-sm font-medium animate-in fade-in slide-in-from-left-4 duration-700'>
+          <div
+            data-aos='fade-down'
+            className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/30 border border-secondary/50 text-secondary-foreground text-sm font-medium animate-in fade-in slide-in-from-left-4 duration-700'
+          >
             <Sparkles className='w-4 h-4 text-primary' />
             <span>{t('badge')}</span>
           </div>
 
-          <h1 className='text-5xl md:text-6xl lg:text-7xl font-heading font-bold leading-[1.1] text-foreground tracking-tight'>
+          <h1
+            data-aos='fade-right'
+            className='text-5xl md:text-6xl lg:text-7xl font-heading font-bold leading-[1.1] text-foreground tracking-tight'
+          >
             {t('title')} <br />
             <span className='text-primary relative'>
               {t('titleHighlight')}
@@ -39,25 +52,43 @@ export function Hero() {
             <span className='block'>{t('titleSuffix')}</span>
           </h1>
 
-          <p className='text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed font-sans'>
+          <p
+            data-aos='fade-up'
+            data-aos-delay='200'
+            className='text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed font-sans'
+          >
             {t('description')}
           </p>
 
-          <div className='flex flex-col sm:flex-row gap-4 pt-4'>
-            <button className='group relative px-8 py-4 bg-primary text-primary-foreground font-heading font-bold text-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-1 flex items-center justify-center gap-2 overflow-hidden rounded-full hover:shadow-md transition-all'>
+          <div
+            data-aos='fade-up'
+            data-aos-delay='400'
+            className='flex flex-col sm:flex-row gap-4 pt-4'
+          >
+            <button
+              onClick={handleCtaClick}
+              className='group relative px-8 py-4 bg-primary text-primary-foreground font-heading font-bold text-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-1 flex items-center justify-center gap-2 overflow-hidden rounded-full hover:shadow-md transition-all'
+            >
               <span className='relative z-10'>{t('ctaPrimary')}</span>
               <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10' />
               <div className='absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300' />
             </button>
 
-            <button className='px-8 py-4 bg-transparent border-2 border-primary/20 text-primary hover:bg-primary/5 font-heading font-bold text-lg flex items-center justify-center gap-2 rounded-full hover:shadow-md transition-all'>
+            <button
+              onClick={handleCtaClick}
+              className='px-8 py-4 bg-transparent border-2 border-primary/20 text-primary hover:bg-primary/5 font-heading font-bold text-lg flex items-center justify-center gap-2 rounded-full hover:shadow-md transition-all'
+            >
               <Users className='w-5 h-5' />
               <span>{t('ctaSecondary')}</span>
             </button>
           </div>
 
           {/* Trust Indicators */}
-          <div className='flex items-center gap-6 pt-8 border-t border-border/50'>
+          <div
+            data-aos='fade-up'
+            data-aos-delay='600'
+            className='flex items-center gap-6 pt-8 border-t border-border/50'
+          >
             <div className='flex -space-x-3'>
               {[1, 2, 3, 4].map((i) => (
                 <div
@@ -84,7 +115,11 @@ export function Hero() {
         <div className='lg:col-span-5 relative'>
           <div className='relative grid grid-cols-2 gap-4'>
             {/* Main Large Image Card */}
-            <div className='col-span-2 relative group'>
+            <div
+              data-aos='zoom-in'
+              data-aos-delay='300'
+              className='col-span-2 relative group'
+            >
               <div className='absolute -inset-2 bg-gradient-to-r from-primary to-secondary rounded-[2.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000'></div>
               <div className='relative aspect-[4/3] rounded-[2rem] overflow-hidden border-4 border-background shadow-2xl'>
                 <img
@@ -95,13 +130,21 @@ export function Hero() {
               </div>
 
               {/* Floating Badge 1 */}
-              <div className='absolute -top-6 -right-6 bg-accent text-accent-foreground p-4 rounded-full shadow-xl rotate-12 animate-bounce-slow'>
+              <div
+                data-aos='zoom-in'
+                data-aos-delay='800'
+                className='absolute -top-6 -right-6 bg-accent text-accent-foreground p-4 rounded-full shadow-xl rotate-12 animate-bounce-slow'
+              >
                 <Heart className='w-6 h-6 fill-current' />
               </div>
             </div>
 
             {/* Smaller Secondary Card */}
-            <div className='relative aspect-square rounded-[2rem] overflow-hidden border-4 border-background shadow-xl -mt-12 z-20 group'>
+            <div
+              data-aos='zoom-in'
+              data-aos-delay='500'
+              className='relative aspect-square rounded-[2rem] overflow-hidden border-4 border-background shadow-xl -mt-12 z-20 group'
+            >
               <img
                 src='https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=600&auto=format&fit=crop'
                 alt='Child playing'
@@ -110,9 +153,13 @@ export function Hero() {
             </div>
 
             {/* Info Card */}
-            <div className='bg-secondary text-white p-6 rounded-[2rem] shadow-xl -mt-12 z-10 flex flex-col justify-center items-center text-center gap-2 border-4 border-background'>
+            <div
+              data-aos='zoom-in'
+              data-aos-delay='700'
+              className='bg-brand-deep text-white p-6 rounded-[2rem] shadow-xl -mt-12 z-10 flex flex-col justify-center items-center text-center gap-2 border-4 border-background'
+            >
               <div className='w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center'>
-                <Users className='w-6 h-6 text-primary' />
+                <Users className='w-6 h-6 text-accent' />
               </div>
               <span className='text-2xl font-heading font-bold'>
                 {t('cardTitle')}

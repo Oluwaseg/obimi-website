@@ -86,20 +86,20 @@ export default function ShopMainPage() {
           <div className='absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-yellow/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2' />
 
           <div className='relative z-10 max-w-3xl'>
-            <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-brand-yellow text-sm font-bold mb-8'>
+            <div data-aos='fade-down' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-brand-yellow text-sm font-bold mb-8'>
               <ShoppingBag className='w-4 h-4' />
               <span>Shop With Purpose</span>
             </div>
-            <h1 className='text-5xl md:text-7xl font-bold font-heading text-white mb-8 leading-[1.1]'>
+            <h1 data-aos='fade-right' className='text-5xl md:text-7xl font-bold font-heading text-white mb-8 leading-[1.1]'>
               Every purchase{' '}
               <span className='text-brand-yellow'>makes an impact</span>.
             </h1>
-            <p className='text-xl text-white/70 leading-relaxed mb-12'>
+            <p data-aos='fade-right' data-aos-delay='200' className='text-xl text-white/70 leading-relaxed mb-12'>
               When you shop with Obimi, you're not just buying — you're helping
               us reach more parents, provide resources, and build a stronger
               community.
             </p>
-            <div className='flex flex-wrap gap-4'>
+            <div data-aos='fade-up' data-aos-delay='300' className='flex flex-wrap gap-4'>
               <button className='px-10 py-5 bg-accent text-brand-deep font-bold rounded-full hover:bg-white transition-all flex items-center gap-3 group'>
                 <span>Browse Products</span>
                 <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
@@ -114,7 +114,7 @@ export default function ShopMainPage() {
 
       {/* Product Grid */}
       <section className='max-w-[1440px] mx-auto px-6 md:px-12 mb-32'>
-        <div className='flex items-center gap-3 mb-16'>
+        <div data-aos='fade-up' className='flex items-center gap-3 mb-16'>
           <div className='w-12 h-1 bg-brand-purple rounded-full' />
           <h2 className='text-3xl font-bold font-heading text-brand-deep'>
             Featured Products
@@ -122,10 +122,12 @@ export default function ShopMainPage() {
         </div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
-          {products.map((product) => (
+          {products.map((product, idx) => (
             <Link
               key={product.id}
               href={`/shop/${product.id}`}
+              data-aos='fade-up'
+              data-aos-delay={idx * 100}
               className='group flex flex-col'
             >
               <div className='relative aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-gray-100 mb-6'>
@@ -157,21 +159,21 @@ export default function ShopMainPage() {
       <section className='max-w-[1440px] mx-auto px-6 md:px-12 mb-32'>
         <div className='relative bg-background rounded-[4rem] p-12 md:p-24 overflow-hidden border border-gray-100'>
           {/* Decorative background text */}
-          <div className='absolute -top-10 -right-10 text-[12rem] font-bold text-accent select-none pointer-events-none font-heading'>
+          <div data-aos='fade-down' className='absolute -top-10 -right-10 text-[12rem] font-bold text-accent select-none pointer-events-none font-heading'>
             IMPACT
           </div>
 
           <div className='grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10'>
             <div className='lg:col-span-5'>
-              <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-deep/5 text-brand-purple text-sm font-bold mb-6'>
+              <div data-aos='fade-down' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-deep/5 text-brand-purple text-sm font-bold mb-6'>
                 <Sparkles className='w-4 h-4' />
                 <span>Purpose-Driven Shop</span>
               </div>
-              <h2 className='text-4xl md:text-6xl font-bold font-heading text-brand-deep mb-8 leading-tight'>
+              <h2 data-aos='fade-right' className='text-4xl md:text-6xl font-bold font-heading text-brand-deep mb-8 leading-tight'>
                 Why Your <span className='text-brand-purple'>Purchase</span>{' '}
                 Matters
               </h2>
-              <p className='text-xl text-gray-600 leading-relaxed mb-10'>
+              <p data-aos='fade-right' data-aos-delay='200' className='text-xl text-gray-600 leading-relaxed mb-10'>
                 Every purchase turns into real-world impact for SEND families.
                 We don't just sell products; we build bridges to support.
               </p>
@@ -201,6 +203,8 @@ export default function ShopMainPage() {
                 {impactPoints.map((point, idx) => (
                   <div
                     key={idx}
+                    data-aos='fade-up'
+                    data-aos-delay={idx * 100}
                     className={`p-10 rounded-[3rem] transition-all duration-500 hover:-translate-y-2 hover:shadow-xl ${
                       idx % 2 === 0
                         ? 'bg-accent shadow-sm border border-gray-100'
@@ -238,7 +242,7 @@ export default function ShopMainPage() {
 
       {/* Final Conversion Section */}
       <section className='max-w-[1440px] mx-auto px-6 md:px-12'>
-        <div className='bg-brand-yellow rounded-[3rem] p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left'>
+        <div data-aos='zoom-in' className='bg-brand-yellow rounded-[3rem] p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left'>
           <div className='max-w-2xl'>
             <h2 className='text-3xl md:text-4xl font-bold font-heading text-brand-deep mb-4'>
               Want to Support Without Buying?

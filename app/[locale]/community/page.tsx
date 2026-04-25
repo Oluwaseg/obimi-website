@@ -53,11 +53,11 @@ const CommunityPage = () => {
 
         <div className='container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10'>
           <div className='space-y-8'>
-            <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
+            <div data-aos='fade-down' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
               <Users className='w-4 h-4' />
               <span>{t('badge')}</span>
             </div>
-            <h1 className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'>
+            <h1 data-aos='fade-right' className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'>
               {t('titlePrefix')} <br />
               <span className='text-primary italic'>{t('titleHighlight')}</span>
             </h1>
@@ -75,7 +75,7 @@ const CommunityPage = () => {
             </div>
           </div>
 
-          <div className='relative hidden lg:block'>
+          <div data-aos='zoom-in' data-aos-delay='300' className='relative hidden lg:block'>
             <div className='relative w-full aspect-square flex items-center justify-center'>
               {/* Central Image */}
               <div className='w-64 h-64 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-background z-20 rotate-3'>
@@ -118,7 +118,7 @@ const CommunityPage = () => {
       </section>
 
       {/* What You Get Section */}
-      <section className='py-24 px-6 md:px-12 lg:px-24'>
+      <section data-aos='fade-up' className='py-24 px-6 md:px-12 lg:px-24'>
         <div className='container mx-auto'>
           <div className='text-center max-w-3xl mx-auto mb-20 space-y-4'>
             <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
@@ -130,7 +130,7 @@ const CommunityPage = () => {
             {communityOffers.map((offer, index) => (
               <div
                 key={index}
-                className='group p-10 rounded-[3rem] bg-background border border-border/50 hover:border-primary/30 hover:shadow-2xl transition-all duration-500 flex flex-col md:flex-row gap-8 items-start'
+                data-aos='zoom-in' data-aos-delay={index * 100} className='group p-10 rounded-[3rem] bg-background border border-border/50 hover:border-primary/30 hover:shadow-2xl transition-all duration-500 flex flex-col md:flex-row gap-8 items-start'
               >
                 <div
                   className={`flex-shrink-0 w-20 h-20 rounded-full ${offer.bg} flex items-center justify-center group-hover:scale-110 transition-transform`}
@@ -167,7 +167,7 @@ const CommunityPage = () => {
 
       {/* Depth Section */}
       <section className='py-24 px-6 md:px-12 lg:px-24 bg-background'>
-        <div className='container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center'>
+        <div data-aos='fade-right' className='container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center'>
           <div className='relative'>
             <div className='aspect-video rounded-[3rem] overflow-hidden shadow-2xl border-8 border-background relative group'>
               <img

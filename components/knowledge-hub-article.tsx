@@ -67,11 +67,11 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
         </div>
 
         <div className='max-w-4xl'>
-          <h1 className='text-4xl md:text-6xl font-bold font-heading text-brand-deep mb-8 leading-tight'>
+          <h1 data-aos='fade-right' className='text-4xl md:text-6xl font-bold font-heading text-brand-deep mb-8 leading-tight'>
             {article.title}
           </h1>
 
-          <div className='flex flex-wrap items-center gap-6 pb-12 border-b border-gray-100'>
+          <div data-aos='fade-up' data-aos-delay='200' className='flex flex-wrap items-center gap-6 pb-12 border-b border-gray-100'>
             <div className='flex items-center gap-2 text-gray-500'>
               <Calendar className='w-5 h-5 text-brand-purple' />
               <span className='font-bold'>{article.date}</span>
@@ -99,7 +99,7 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
           {/* Main Content */}
           <div className='lg:col-span-8'>
             {/* Intro */}
-            <div className='bg-brand-purple/5 p-8 md:p-10 rounded-[2.5rem] mb-16 border-l-4 border-brand-purple'>
+            <div data-aos='fade-left' className='bg-brand-purple/5 p-8 md:p-10 rounded-[2.5rem] mb-16 border-l-4 border-brand-purple'>
               <p className='text-xl md:text-2xl text-brand-deep font-medium leading-relaxed italic'>
                 "{article.intro}"
               </p>
@@ -108,7 +108,7 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
             {/* Dynamic Sections */}
             <div className='space-y-16'>
               {article.sections.map((section, idx) => (
-                <section key={idx} className='scroll-mt-32'>
+                <section key={idx} data-aos='fade-up' className='scroll-mt-32'>
                   <h2 className='text-3xl font-bold font-heading text-brand-deep mb-8 flex items-center gap-4'>
                     <span className='flex items-center justify-center w-10 h-10 rounded-xl bg-brand-purple text-white text-lg'>
                       {idx + 1}
@@ -172,7 +172,7 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
             </div>
 
             {/* Key Takeaway */}
-            <div className='mt-20 p-10 bg-brand-deep rounded-[3rem] text-white relative overflow-hidden'>
+            <div data-aos='zoom-in' className='mt-20 p-10 bg-brand-deep rounded-[3rem] text-white relative overflow-hidden'>
               <div className='absolute top-0 right-0 w-64 h-64 bg-brand-purple/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2' />
               <div className='relative z-10'>
                 <h3 className='text-2xl font-bold font-heading mb-4 flex items-center gap-3'>

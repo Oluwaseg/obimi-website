@@ -61,7 +61,7 @@ export default function Page({ params }: Props) {
       <section className='max-w-[1440px] mx-auto px-6 md:px-12 mb-32'>
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-16'>
           {/* Product Image */}
-          <div className='lg:col-span-6'>
+          <div data-aos='zoom-in' className='lg:col-span-6'>
             <div className='relative aspect-[4/5] rounded-[3rem] overflow-hidden bg-gray-50 border border-gray-100 shadow-sm group'>
               <Image
                 src={product.image}
@@ -69,7 +69,7 @@ export default function Page({ params }: Props) {
                 fill
                 className='object-cover group-hover:scale-105 transition-transform duration-700'
               />
-              <div className='absolute top-8 left-8 px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full text-sm font-bold text-brand-deep shadow-sm'>
+              <div data-aos='fade-down' data-aos-delay='300' className='absolute top-8 left-8 px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full text-sm font-bold text-brand-deep shadow-sm'>
                 Mission-Driven Product
               </div>
             </div>
@@ -77,18 +77,18 @@ export default function Page({ params }: Props) {
 
           {/* Product Content */}
           <div className='lg:col-span-6 flex flex-col justify-center'>
-            <div className='inline-flex items-center gap-2 px-4 py-2 text-brand-deep text-sm font-bold mb-6'>
+            <div data-aos='fade-down' className='inline-flex items-center gap-2 px-4 py-2 text-brand-deep text-sm font-bold mb-6'>
               <Sparkles className='w-4 h-4' />
               <span>2026 Edition</span>
             </div>
-            <h1 className='text-4xl md:text-6xl font-bold font-heading text-brand-deep mb-6 leading-tight'>
+            <h1 data-aos='fade-right' className='text-4xl md:text-6xl font-bold font-heading text-brand-deep mb-6 leading-tight'>
               {product.title}
             </h1>
-            <p className='text-3xl font-bold text-brand-deep mb-8'>
+            <p data-aos='fade-up' data-aos-delay='200' className='text-3xl font-bold text-brand-deep mb-8'>
               {product.price}
             </p>
 
-            <div className='prose prose-lg max-w-none text-gray-600 leading-relaxed mb-10'>
+            <div data-aos='fade-up' data-aos-delay='300' className='prose prose-lg max-w-none text-gray-600 leading-relaxed mb-10'>
               <p className='text-xl font-medium text-brand-deep mb-4'>
                 {product.description}
               </p>
@@ -96,7 +96,7 @@ export default function Page({ params }: Props) {
             </div>
 
             {/* What's Inside */}
-            <div className='mb-12'>
+            <div data-aos='fade-up' data-aos-delay='400' className='mb-12'>
               <h3 className='text-xl font-bold font-heading text-brand-deep mb-6 flex items-center gap-2'>
                 <Package className='w-5 h-5 text-brand-deep' />
                 What’s Inside:
@@ -105,6 +105,8 @@ export default function Page({ params }: Props) {
                 {product.inside.map((item, i) => (
                   <li
                     key={i}
+                    data-aos='fade-up'
+                    data-aos-delay={500 + i * 100}
                     className='flex items-center gap-3 p-4 bg-gray-50 rounded-2xl border border-gray-100'
                   >
                     <CheckCircle2 className='w-5 h-5 text-brand-deep flex-shrink-0' />
@@ -115,7 +117,7 @@ export default function Page({ params }: Props) {
             </div>
 
             {/* Important Notes */}
-            <div className='mb-12 p-6 bg-brand-yellow/10 rounded-[2rem] border border-brand-yellow/20'>
+            <div data-aos='zoom-in' data-aos-delay='600' className='mb-12 p-6 bg-brand-yellow/10 rounded-[2rem] border border-brand-yellow/20'>
               <h3 className='text-lg font-bold font-heading text-brand-deep mb-4 flex items-center gap-2'>
                 <Info className='w-5 h-5 text-brand-yellow-dark' />
                 Important Notes:
@@ -134,7 +136,7 @@ export default function Page({ params }: Props) {
             </div>
 
             {/* Actions */}
-            <div className='flex flex-col gap-4'>
+            <div data-aos='fade-up' data-aos-delay='700' className='flex flex-col gap-4'>
               <button className='w-full py-6 bg-brand-deep text-white font-bold rounded-full hover:bg-brand-deep transition-all flex items-center justify-center gap-3 group shadow-xl shadow-brand-deep/10'>
                 <ShoppingBag className='w-6 h-6' />
                 <span>Get Your Copy</span>
@@ -142,7 +144,7 @@ export default function Page({ params }: Props) {
               </button>
 
               {/* Donation Option */}
-              <div className='p-8 bg-brand-deep/5 rounded-[2.5rem] border border-brand-deep/10 mt-4'>
+              <div data-aos='fade-up' data-aos-delay='800' className='p-8 bg-brand-deep/5 rounded-[2.5rem] border border-brand-deep/10 mt-4'>
                 <div className='flex items-center gap-3 mb-4'>
                   <Heart className='w-6 h-6 text-brand-deep' />
                   <h4 className='text-xl font-bold text-brand-deep'>
@@ -166,7 +168,7 @@ export default function Page({ params }: Props) {
       {/* Trust & Impact Section */}
       <section className='max-w-[1440px] mx-auto px-6 md:px-12'>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-          <div className='p-10 bg-gray-50 rounded-[3rem] border border-gray-100 text-center'>
+          <div data-aos='fade-up' className='p-10 bg-gray-50 rounded-[3rem] border border-gray-100 text-center'>
             <div className='w-16 h-16 rounded-full bg-white flex items-center justify-center text-brand-deep shadow-sm mx-auto mb-6'>
               <Truck className='w-8 h-8' />
             </div>
@@ -177,7 +179,7 @@ export default function Page({ params }: Props) {
               We ensure your guide reaches you safely and securely.
             </p>
           </div>
-          <div className='p-10 bg-gray-50 rounded-[3rem] border border-gray-100 text-center'>
+          <div data-aos='fade-up' data-aos-delay='100' className='p-10 bg-gray-50 rounded-[3rem] border border-gray-100 text-center'>
             <div className='w-16 h-16 rounded-full bg-white flex items-center justify-center text-brand-deep shadow-sm mx-auto mb-6'>
               <ShieldCheck className='w-8 h-8' />
             </div>
@@ -188,7 +190,7 @@ export default function Page({ params }: Props) {
               All information is reviewed by experts and parents.
             </p>
           </div>
-          <div className='p-10 bg-gray-50 rounded-[3rem] border border-gray-100 text-center'>
+          <div data-aos='fade-up' data-aos-delay='200' className='p-10 bg-gray-50 rounded-[3rem] border border-gray-100 text-center'>
             <div className='w-16 h-16 rounded-full bg-white flex items-center justify-center text-brand-deep shadow-sm mx-auto mb-6'>
               <Heart className='w-8 h-8' />
             </div>

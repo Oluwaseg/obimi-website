@@ -39,7 +39,10 @@ const KnowledgeHub = () => {
       <div className='container mx-auto relative z-10'>
         {/* Header */}
         <div className='flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16'>
-          <div className='max-w-2xl space-y-4'>
+          <div 
+            data-aos='fade-right'
+            className='max-w-2xl space-y-4'
+          >
             <div className='inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
               <BookOpen className='w-4 h-4' />
               <span>{t('badge')}</span>
@@ -52,7 +55,10 @@ const KnowledgeHub = () => {
             </p>
           </div>
 
-          <button className='group flex items-center gap-2 text-lg font-heading font-bold text-primary hover:text-primary/80 transition-colors'>
+          <button 
+            data-aos='fade-left'
+            className='group flex items-center gap-2 text-lg font-heading font-bold text-primary hover:text-primary/80 transition-colors'
+          >
             <span>{t('cta')}</span>
             <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
           </button>
@@ -63,6 +69,8 @@ const KnowledgeHub = () => {
           {articles.map((article, index) => (
             <div
               key={index}
+              data-aos='fade-up'
+              data-aos-delay={index * 100}
               className='group relative bg-background rounded-[2.5rem] p-8 border border-border/50 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 flex flex-col justify-between overflow-hidden'
             >
               {/* Hover Background Accent */}
@@ -101,7 +109,11 @@ const KnowledgeHub = () => {
         </div>
 
         {/* Bottom Decorative Element */}
-        <div className='mt-20 p-8 rounded-[3rem] bg-primary/5 border border-primary/10 flex flex-col md:flex-row items-center justify-between gap-8'>
+        <div 
+          data-aos='fade-up'
+          data-aos-delay='300'
+          className='mt-20 p-8 rounded-[3rem] bg-primary/5 border border-primary/10 flex flex-col md:flex-row items-center justify-between gap-8'
+        >
           <div className='flex items-center gap-4'>
             <div className='w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/20'>
               <Sparkles className='w-6 h-6 text-white' />

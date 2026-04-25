@@ -85,8 +85,8 @@ const ServicesPage = () => {
       {/* Hero Section */}
       <section className='relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden bg-muted/60'>
         <div className='absolute top-0 right-0 w-1/3 h-full bg-primary/5 rounded-bl-[10rem] -z-10' />
-        <div className='container mx-auto text-center max-w-4xl space-y-8 relative z-10'>
-          <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
+        <div data-aos='fade-up' className='container mx-auto text-center max-w-4xl space-y-8 relative z-10'>
+          <div data-aos='fade-down' data-aos-delay='200' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
             <Sparkles className='w-4 h-4' />
             <span>{t('badge')}</span>
           </div>
@@ -103,7 +103,7 @@ const ServicesPage = () => {
       {/* Services Section */}
       <section className='py-24 px-6 md:px-12 lg:px-24'>
         <div className='container mx-auto space-y-24'>
-          <div className='text-center max-w-3xl mx-auto space-y-4'>
+          <div data-aos='fade-up' className='text-center max-w-3xl mx-auto space-y-4'>
             <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
               {t('servicesTitle')}
             </h2>
@@ -117,7 +117,7 @@ const ServicesPage = () => {
               >
                 {/* Content Column */}
                 <div
-                  className={`lg:col-span-6 space-y-8 ${index % 2 !== 0 ? 'lg:order-2' : ''}`}
+                  data-aos={index % 2 === 0 ? 'fade-right' : 'fade-left'} className={`lg:col-span-6 space-y-8 ${index % 2 !== 0 ? 'lg:order-2' : ''}`}
                 >
                   <div
                     className={`w-20 h-20 rounded-full ${service.color} flex items-center justify-center shadow-lg`}
@@ -139,7 +139,7 @@ const ServicesPage = () => {
                       {service.benefits.map((benefit) => (
                         <div
                           key={benefit}
-                          className='flex items-center gap-3 text-foreground font-sans'
+                          data-aos='fade-up' className='flex items-center gap-3 text-foreground font-sans'
                         >
                           <CheckCircle2 className='w-5 h-5 text-primary' />
                           <span>{benefit}</span>
@@ -158,7 +158,7 @@ const ServicesPage = () => {
                 <div
                   className={`lg:col-span-6 relative ${index % 2 !== 0 ? 'lg:order-1' : ''}`}
                 >
-                  <div className='aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-background relative group'>
+                  <div data-aos={index % 2 === 0 ? 'zoom-in-left' : 'zoom-in-right'} className='aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-background relative group'>
                     <img
                       src={service.image}
                       alt={service.title}

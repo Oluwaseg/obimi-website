@@ -84,16 +84,16 @@ export default function PrivacyPolicyPage() {
         </Link>
 
         <div className='max-w-4xl'>
-          <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-deep/5 text-brand-deep text-sm font-bold mb-6'>
+          <div data-aos='fade-down' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-deep/5 text-brand-deep text-sm font-bold mb-6'>
             <Shield className='w-4 h-4' />
             <span>{t('badge')}</span>
           </div>
-          <h1 className='text-5xl md:text-7xl font-bold font-heading text-brand-deep mb-8 leading-[1.1]'>
+          <h1 data-aos='fade-right' className='text-5xl md:text-7xl font-bold font-heading text-brand-deep mb-8 leading-[1.1]'>
             {t('titlePrefix')}{' '}
             <span className='text-brand-deep'>{t('titleHighlight')}</span>
             {t('titleSuffix')}
           </h1>
-          <div className='flex flex-wrap items-center gap-6 text-gray-500 font-medium'>
+          <div data-aos='fade-up' data-aos-delay='200' className='flex flex-wrap items-center gap-6 text-gray-500 font-medium'>
             <div className='flex items-center gap-2'>
               <Clock className='w-5 h-5 text-brand-deep' />
               <span>{t('effectiveDate')}</span>
@@ -111,7 +111,7 @@ export default function PrivacyPolicyPage() {
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-16'>
           {/* Sidebar Navigation */}
           <aside className='hidden lg:block lg:col-span-4'>
-            <div className='sticky top-32 p-8 bg-gray-50 rounded-[2.5rem] border border-gray-100'>
+            <div data-aos='fade-right' className='sticky top-32 p-8 bg-gray-50 rounded-[2.5rem] border border-gray-100'>
               <h4 className='text-xl font-bold font-heading text-brand-deep mb-6'>
                 {t('contentsTitle')}
               </h4>
@@ -134,7 +134,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Policy Content */}
           <div className='lg:col-span-8'>
-            <div className='bg-brand-deep/5 p-8 md:p-10 rounded-[2.5rem] mb-16 border-l-4 border-brand-deep'>
+            <div data-aos='fade-left' className='bg-brand-deep/5 p-8 md:p-10 rounded-[2.5rem] mb-16 border-l-4 border-brand-deep'>
               <p className='text-xl text-brand-deep font-medium leading-relaxed italic'>
                 {t('introQuote')}
               </p>
@@ -142,7 +142,7 @@ export default function PrivacyPolicyPage() {
 
             <div className='space-y-16'>
               {/* Section 1 */}
-              <section id='who-we-are' className='scroll-mt-32'>
+              <section id='who-we-are' data-aos='fade-up' className='scroll-mt-32'>
                 <h2 className='text-3xl font-bold font-heading text-brand-deep mb-6 flex items-center gap-4'>
                   <span className='w-10 h-10 text-brand-deep flex items-center justify-center'>
                     1
@@ -169,7 +169,7 @@ export default function PrivacyPolicyPage() {
               </section>
 
               {/* Section 2 */}
-              <section id='info-collect' className='scroll-mt-32'>
+              <section id='info-collect' data-aos='fade-up' className='scroll-mt-32'>
                 <h2 className='text-3xl font-bold font-heading text-brand-deep mb-6 flex items-center gap-4'>
                   <span className='w-10 h-10 text-brand-deep flex items-center justify-center'>
                     2
@@ -199,7 +199,7 @@ export default function PrivacyPolicyPage() {
               </section>
 
               {/* Section 3 */}
-              <section id='how-use' className='scroll-mt-32'>
+              <section id='how-use' data-aos='fade-up' className='scroll-mt-32'>
                 <h2 className='text-3xl font-bold font-heading text-brand-deep mb-6 flex items-center gap-4'>
                   <span className='w-10 h-10 text-brand-deep flex items-center justify-center'>
                     3
@@ -226,7 +226,7 @@ export default function PrivacyPolicyPage() {
               </section>
 
               {/* Section 5 */}
-              <section id='sharing' className='scroll-mt-32'>
+              <section id='sharing' data-aos='fade-up' className='scroll-mt-32'>
                 <h2 className='text-3xl font-bold font-heading text-brand-deep mb-6 flex items-center gap-4'>
                   <span className='w-10 h-10 text-brand-deep flex items-center justify-center'>
                     5
@@ -262,7 +262,7 @@ export default function PrivacyPolicyPage() {
               </section>
 
               {/* Section 7 */}
-              <section id='rights' className='scroll-mt-32'>
+              <section id='rights' data-aos='fade-up' className='scroll-mt-32'>
                 <h2 className='text-3xl font-bold font-heading text-brand-deep mb-6 flex items-center gap-4'>
                   <span className='w-10 h-10 text-brand-deep flex items-center justify-center'>
                     7
@@ -318,7 +318,7 @@ export default function PrivacyPolicyPage() {
               </section>
 
               {/* Section 10 */}
-              <section id='contact' className='scroll-mt-32'>
+              <section id='contact' data-aos='zoom-in' className='scroll-mt-32'>
                 <div className='p-10 bg-brand-deep rounded-[3rem] text-white relative overflow-hidden'>
                   <div className='absolute top-0 right-0 w-64 h-64 bg-brand-deep/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2' />
                   <div className='relative z-10'>

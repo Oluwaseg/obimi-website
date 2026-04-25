@@ -56,13 +56,23 @@ const HowWeHelp = () => {
 
       <div className='container mx-auto relative z-10'>
         <div className='max-w-3xl mb-16 space-y-4'>
-          <div className='inline-block px-4 py-1 rounded-full bg-accent/20 text-accent-foreground text-sm font-bold font-heading uppercase tracking-wider'>
+          <div 
+            data-aos='fade-down'
+            className='inline-block px-4 py-1 rounded-full bg-accent/20 text-accent-foreground text-sm font-bold font-heading uppercase tracking-wider'
+          >
             {t('badge')}
           </div>
-          <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
+          <h2 
+            data-aos='fade-right'
+            className='text-4xl md:text-5xl font-heading font-bold text-foreground'
+          >
             {t('title')}
           </h2>
-          <p className='text-xl text-muted-foreground font-sans'>
+          <p 
+            data-aos='fade-up'
+            data-aos-delay='200'
+            className='text-xl text-muted-foreground font-sans'
+          >
             {t('description')}
           </p>
         </div>
@@ -71,6 +81,8 @@ const HowWeHelp = () => {
           {services.map((service, index) => (
             <div
               key={index}
+              data-aos='fade-up'
+              data-aos-delay={index * 100}
               className={`${service.span} group relative p-8 rounded-[2.5rem] bg-card border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 flex flex-col justify-between overflow-hidden`}
             >
               {/* Hover Background Effect */}

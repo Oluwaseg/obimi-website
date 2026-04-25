@@ -33,11 +33,17 @@ const FAQPage = () => {
         </div>
 
         <div className='container mx-auto text-center max-w-4xl space-y-8 relative z-10'>
-          <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
+          <div 
+            data-aos='fade-down'
+            className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'
+          >
             <HelpCircle className='w-4 h-4' />
             <span>{t('badge')}</span>
           </div>
-          <h1 className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'>
+          <h1 
+            data-aos='fade-up'
+            className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'
+          >
             {t('titlePrefix')}{' '}
             <span className='text-primary'>{t('titleHighlight')}</span>
           </h1>
@@ -46,7 +52,11 @@ const FAQPage = () => {
           </p>
 
           {/* Search Bar (Visual) */}
-          <div className='max-w-2xl mx-auto relative mt-12'>
+          <div 
+            data-aos='fade-up'
+            data-aos-delay='200'
+            className='max-w-2xl mx-auto relative mt-12'
+          >
             <div className='absolute inset-y-0 left-6 flex items-center pointer-events-none'>
               <Search className='w-6 h-6 text-muted-foreground' />
             </div>
@@ -66,6 +76,8 @@ const FAQPage = () => {
             {faqs.map((faq, index) => (
               <div
                 key={index}
+                data-aos='fade-up'
+                data-aos-delay={index * 50}
                 className={`group rounded-[2rem] border-2 transition-all duration-300 ${openIndex === index ? 'border-primary bg-primary/5 shadow-xl shadow-primary/5' : 'border-border bg-background hover:border-primary/30'}`}
               >
                 <button

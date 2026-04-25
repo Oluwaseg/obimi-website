@@ -45,10 +45,10 @@ export function KnowledgeHubCategory({
         </Link>
 
         <div className='max-w-3xl'>
-          <h1 className='text-5xl md:text-6xl font-bold font-heading text-brand-deep mb-6'>
+          <h1 data-aos='fade-right' className='text-5xl md:text-6xl font-bold font-heading text-brand-deep mb-6'>
             {category.title}
           </h1>
-          <p className='text-xl text-gray-600 leading-relaxed'>
+          <p data-aos='fade-right' data-aos-delay='200' className='text-xl text-gray-600 leading-relaxed'>
             {category.desc}
           </p>
         </div>
@@ -56,7 +56,7 @@ export function KnowledgeHubCategory({
 
       {/* Search & Filter Bar */}
       <section className='max-w-[1440px] mx-auto px-6 md:px-12 mb-12'>
-        <div className='flex flex-col md:flex-row gap-4 items-center justify-between p-4 bg-gray-50 rounded-[2rem] border border-gray-100'>
+        <div data-aos='fade-up' className='flex flex-col md:flex-row gap-4 items-center justify-between p-4 bg-gray-50 rounded-[2rem] border border-gray-100'>
           <div className='relative w-full md:max-w-md group'>
             <Search className='absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-brand-purple transition-colors' />
             <input
@@ -87,6 +87,8 @@ export function KnowledgeHubCategory({
             <Link
               key={idx}
               href={article.href}
+              data-aos='fade-up'
+              data-aos-delay={idx * 100}
               className='group flex flex-col md:flex-row md:items-center justify-between p-8 md:p-10 bg-white border border-gray-100 rounded-[2.5rem] hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:border-brand-purple/20 transition-all duration-500'
             >
               <div className='max-w-2xl'>

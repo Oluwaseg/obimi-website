@@ -13,7 +13,10 @@ const CommunityCTA = () => {
 
       <div className='container mx-auto relative z-10'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-16 items-center'>
-          <div className='space-y-8 text-white'>
+          <div 
+            data-aos='fade-right'
+            className='space-y-8 text-white'
+          >
             <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
               <Users className='w-4 h-4' />
               <span>{t('badge')}</span>
@@ -41,7 +44,11 @@ const CommunityCTA = () => {
             </div>
           </div>
 
-          <div className='relative hidden lg:block'>
+          <div 
+            data-aos='zoom-in'
+            data-aos-delay='400'
+            className='relative hidden lg:block'
+          >
             <div className='relative w-full aspect-square flex items-center justify-center'>
               <div className='w-32 h-32 rounded-[2.5rem] bg-primary flex items-center justify-center shadow-2xl shadow-primary/40 z-20 animate-pulse'>
                 <Users className='w-16 h-16 text-white' />

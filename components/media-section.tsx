@@ -62,7 +62,10 @@ const MediaSection = () => {
     <section className='py-24 px-6 md:px-12 lg:px-24 bg-background relative overflow-hidden'>
       <div className='container mx-auto space-y-24 relative z-10'>
         {/* Header */}
-        <div className='text-center max-w-2xl mx-auto space-y-4'>
+        <div 
+          data-aos='fade-up'
+          className='text-center max-w-2xl mx-auto space-y-4'
+        >
           <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
             {t('title')}
           </h2>
@@ -73,7 +76,10 @@ const MediaSection = () => {
 
         {/* Image Gallery Block */}
         <div className='space-y-8'>
-          <div className='flex items-center gap-3 border-b border-border pb-4'>
+          <div 
+            data-aos='fade-right'
+            className='flex items-center gap-3 border-b border-border pb-4'
+          >
             <ImageIcon className='w-6 h-6 text-primary' />
             <h3 className='text-2xl font-heading font-bold'>
               {t('photoGallery')}
@@ -85,6 +91,8 @@ const MediaSection = () => {
               <div
                 key={index}
                 onClick={() => setSelectedImage(img.src)}
+                data-aos='zoom-in'
+                data-aos-delay={index * 100}
                 className={`${img.span} relative group overflow-hidden rounded-[2rem] border-4 border-background shadow-lg cursor-pointer`}
               >
                 <img
@@ -104,7 +112,10 @@ const MediaSection = () => {
 
         {/* Video Showcase Block */}
         <div className='space-y-8'>
-          <div className='flex items-center gap-3 border-b border-border pb-4'>
+          <div 
+            data-aos='fade-right'
+            className='flex items-center gap-3 border-b border-border pb-4'
+          >
             <Video className='w-6 h-6 text-secondary-foreground' />
             <h3 className='text-2xl font-heading font-bold'>
               {t('videoStories')}
@@ -113,7 +124,12 @@ const MediaSection = () => {
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {videos.map((video, index) => (
-              <div key={index} className='group space-y-4'>
+              <div 
+                key={index} 
+                data-aos='fade-up'
+                data-aos-delay={index * 200}
+                className='group space-y-4'
+              >
                 <div className='relative aspect-video rounded-[2.5rem] overflow-hidden shadow-xl border-4 border-background group-hover:shadow-primary/10 transition-all duration-500 bg-muted'>
                   {activeVideo === video.id ? (
                     <iframe

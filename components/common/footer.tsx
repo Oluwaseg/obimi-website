@@ -66,7 +66,7 @@ export function Footer() {
         <div className='grid grid-cols-1 md:grid-cols-12 gap-8 mb-12'>
           {/* Brand Section - Compact */}
           <div className='md:col-span-4 lg:col-span-3 space-y-6'>
-            <div className='space-y-4'>
+            <div data-aos='fade-up' className='space-y-4'>
               <Image
                 src={IMAGES.PRIMARY_LOGO}
                 alt='Obimi'
@@ -80,7 +80,7 @@ export function Footer() {
             </div>
 
             {/* Social Links */}
-            <div className='flex gap-2'>
+            <div data-aos='fade-up' data-aos-delay='200' className='flex gap-2'>
               {SOCIAL_LINKS.map((social) => (
                 <a
                   key={social.href}
@@ -98,8 +98,8 @@ export function Footer() {
 
           {/* Navigation Links - Compact Grid */}
           <div className='md:col-span-8 lg:col-span-9 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6'>
-            {footerSections.map((section) => (
-              <div key={section.title} className='space-y-3'>
+            {footerSections.map((section, idx) => (
+              <div key={section.title} data-aos='fade-up' data-aos-delay={idx * 50} className='space-y-3'>
                 <h3 className='text-xs font-bold font-heading uppercase tracking-widest text-white/40 hover:text-primary transition-colors'>
                   {section.title}
                 </h3>
