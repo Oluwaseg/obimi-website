@@ -99,7 +99,12 @@ export function Footer() {
           {/* Navigation Links - Compact Grid */}
           <div className='md:col-span-8 lg:col-span-9 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6'>
             {footerSections.map((section, idx) => (
-              <div key={section.title} data-aos='fade-up' data-aos-delay={idx * 50} className='space-y-3'>
+              <div
+                key={section.title}
+                data-aos='fade-up'
+                data-aos-delay={idx * 50}
+                className='space-y-3'
+              >
                 <h3 className='text-xs font-bold font-heading uppercase tracking-widest text-white/40 hover:text-primary transition-colors'>
                   {section.title}
                 </h3>
@@ -126,9 +131,14 @@ export function Footer() {
         {/* Bottom Bar: Clean & Minimal */}
         <div className='flex flex-col font-heading sm:flex-row items-center justify-between gap-4 text-xs text-white/40'>
           <div className='flex flex-col sm:flex-row items-center gap-3 sm:gap-6'>
-            <p>
-              &copy; {currentYear} Obimi. {footerT('rights')}
-            </p>
+            <div className='flex flex-col items-center sm:items-start gap-1'>
+              <p className='font-heading text-white/80'>
+                {footerT('companyRegistration')}
+              </p>
+              <p>
+                &copy; {currentYear} Obimi. {footerT('rights')}
+              </p>
+            </div>
             <div className='hidden sm:block w-px h-3 bg-white/10' />
             <div className='flex items-center gap-2'>
               <span>Made with</span>
