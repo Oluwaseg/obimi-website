@@ -213,3 +213,77 @@
 .animate-reverse-spin-slow {
   animation: reverse-spin-slow 15s linear infinite;
 }
+
+/* ==========================================================================
+   ACCESSIBILITY OVERRIDES
+   ========================================================================== */
+
+:root {
+  --acc-text-scale: 1;
+}
+
+/* Text Scaling */
+.acc-scaled-text {
+  font-size: calc(100% * var(--acc-text-scale));
+}
+
+/* High Contrast Mode */
+.acc-high-contrast {
+  --background: #000000 !important;
+  --foreground: #ffffff !important;
+  --primary: #ffff00 !important;
+  --primary-foreground: #000000 !important;
+  --secondary: #0000ff !important;
+  --secondary-foreground: #ffffff !important;
+  --accent: #ffff00 !important;
+  --accent-foreground: #000000 !important;
+  --muted: #1a1a1a !important;
+  --muted-foreground: #ffffff !important;
+  --card: #000000 !important;
+  --card-foreground: #ffffff !important;
+  --popover: #000000 !important;
+  --popover-foreground: #ffffff !important;
+  --border: #ffffff !important;
+  --input: #ffffff !important;
+  --ring: #ffff00 !important;
+  --brand-deep: #000000 !important;
+}
+
+.acc-high-contrast img {
+  filter: grayscale(1) contrast(1.5) !important;
+}
+
+/* Readable Font */
+.acc-readable-font, 
+.acc-readable-font * {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+}
+
+/* Disable Animations */
+.acc-disable-animations, 
+.acc-disable-animations * {
+  animation: none !important;
+  transition: none !important;
+  transition-duration: 0s !important;
+  scroll-behavior: auto !important;
+}
+
+/* Highlight Links & Buttons */
+.acc-highlight-links a, 
+.acc-highlight-links button {
+  outline: 3px solid #ff00ff !important;
+  outline-offset: 2px !important;
+  text-decoration: underline !important;
+}
+
+/* Mark Titles */
+.acc-mark-titles h1, 
+.acc-mark-titles h2, 
+.acc-mark-titles h3, 
+.acc-mark-titles h4, 
+.acc-mark-titles h5, 
+.acc-mark-titles h6 {
+  border-bottom: 4px solid #ffff00 !important;
+  padding-bottom: 4px !important;
+  width: fit-content !important;
+}

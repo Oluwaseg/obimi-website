@@ -1,6 +1,8 @@
 import { Footer } from '@/components/common/footer';
 import { Navbar } from '@/components/common/navbar';
+import { AccessibilityToolbar } from '@/components/common/accessibility-toolbar';
 import FloatingSideTab from '@/components/floating-side-tab';
+import { AccessibilityProvider } from '@/context/accessibility-context';
 import { routing } from '@/i18n/routing';
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
@@ -50,10 +52,13 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <Navbar />
-      {children}
-      <Footer />
-      <FloatingSideTab />
+      <AccessibilityProvider>
+        <Navbar />
+        {children}
+        <Footer />
+        <FloatingSideTab />
+        <AccessibilityToolbar />
+      </AccessibilityProvider>
     </NextIntlClientProvider>
   );
 }
