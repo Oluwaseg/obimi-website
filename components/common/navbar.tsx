@@ -40,6 +40,7 @@ export function Navbar() {
         { label: t('ourTeam'), href: '/our-team' },
         { label: t('press'), href: '/press' },
         { label: t('faq'), href: '/faq' },
+        { label: t('magazine'), href: '/magazine' },
       ],
     },
     { label: t('ourServices'), href: '/services' },

@@ -10,6 +10,7 @@
     "knowledgeHub": "Knowledge Hub",
     "ourTeam": "Our Team",
     "press": "Press",
+    "magazine": "Magazine",
     "ourServices": "Our Services",
     "shop": "Shop",
     "donate": "Donate",
@@ -618,5 +619,30 @@
       "title": "Press & Media | Obimi",
       "description": "Read the latest news, press releases, and media coverage about Obimi and our mission to support SEND families."
     }
+  },
+  "MagazinePage": {
+    "backToHome": "Back to Home",
+    "badge": "Press Feature",
+    "titlePrefix": "Featured in",
+    "titleHighlight": "Life In Orpington",
+    "titleSuffix": "Magazine.",
+    "dateLabel": "May 2026 Edition",
+    "locationLabel": "Bromley & Orpington",
+    "description": "Obimi was highlighted for its impact and innovation in the local business community, recognized for our dedication to supporting SEND families.",
+    "ctaReadMagazine": "Read Full Digital Magazine",
+    "ctaShare": "Share Feature",
+    "insideTitle": "Inside the Feature",
+    "insideDescription": "A closer look at the article highlighting Obimi's mission and the impact we're making for parents and caregivers.",
+    "articlePageLabel": "Article Page 1: The Mission",
+    "highlightsTitle": "What the feature says about Obimi",
+    "highlight1": "Recognized for innovative support systems for SEND families.",
+    "highlight2": "Highlighted as a key contributor to the local Bromley community.",
+    "highlight3": "Praised for the \"lived experience\" approach to social work.",
+    "highlight4": "Noted for excellence in business and community leadership.",
+    "quoteText": "Obimi is setting a new standard for how we support parents navigating complex systems.",
+    "quoteSource": "— Life In Orpington Magazine",
+    "ctaTitle": "Inspired by our story?",
+    "ctaDescription": "Join us in making a difference for SEND families.",
+    "ctaGetInvolved": "Get Involved"
   }
 }

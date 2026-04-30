@@ -10,6 +10,7 @@
     "community": "Gemeinschaft",
     "ourTeam": "Unser Team",
     "press": "Presse",
+    "magazine": "Magazin",
     "ourServices": "Unsere Leistungen",
     "shop": "Shop",
     "donate": "Spenden",
@@ -618,5 +619,30 @@
       "title": "Presse & Medien | Obimi",
       "description": "Lesen Sie die neuesten Nachrichten, Pressemitteilungen und Medienberichte über Obimi und unsere Mission, SEND-Familien zu unterstützen."
     }
+  },
+  "MagazinePage": {
+    "backToHome": "Zurück zur Startseite",
+    "badge": "Presse-Beitrag",
+    "titlePrefix": "Vorgestellt in",
+    "titleHighlight": "Life In Orpington",
+    "titleSuffix": "Magazin.",
+    "dateLabel": "Mai 2026 Ausgabe",
+    "locationLabel": "Bromley & Orpington",
+    "description": "Obimi wurde für seine Wirkung und Innovation in der lokalen Geschäftswelt hervorgehoben, anerkannt für unser Engagement zur Unterstützung von SEND-Familien.",
+    "ctaReadMagazine": "Vollständiges Digitalmagazin lesen",
+    "ctaShare": "Beitrag teilen",
+    "insideTitle": "Im Beitrag",
+    "insideDescription": "Ein genauerer Blick auf den Artikel, der Obimis Mission und die Auswirkungen hervorhebt, die wir für Eltern und Betreuer erzielen.",
+    "articlePageLabel": "Artikel Seite 1: Die Mission",
+    "highlightsTitle": "Was der Beitrag über Obimi sagt",
+    "highlight1": "Anerkannt für innovative Unterstützungssysteme für SEND-Familien.",
+    "highlight2": "Als wichtiger Beitrag zur lokalen Bromley-Gemeinschaft hervorgehoben.",
+    "highlight3": "Gelobt für den \"gelebte Erfahrung\"-Ansatz in der Sozialarbeit.",
+    "highlight4": "Ausgezeichnet für Exzellenz in Unternehmens- und Gemeinschaftsführung.",
+    "quoteText": "Obimi setzt einen neuen Standard dafür, wie wir Eltern bei der Navigation durch komplexe Systeme unterstützen.",
+    "quoteSource": "— Life In Orpington Magazin",
+    "ctaTitle": "Von unserer Geschichte inspiriert?",
+    "ctaDescription": "Schließen Sie sich uns an, um einen Unterschied für SEND-Familien zu machen.",
+    "ctaGetInvolved": "Mitmachen"
   }
 }
