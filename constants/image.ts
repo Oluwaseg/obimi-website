@@ -14,6 +14,13 @@ import helen from '../public/assets/images/helen-ewumi.jpeg';
 // Social Media Manager
 import funmi from '../public/assets/images/funmi.jpeg';
 
+// Events
+import event from '../public/assets/events/event-a.jpg';
+import event2 from '../public/assets/events/event-b.jpg';
+import event3 from '../public/assets/events/event-c.jpg';
+import event4 from '../public/assets/events/event-d.jpg';
+import event5 from '../public/assets/events/event-e.jpg';
+
 export const IMAGES = {
   PRIMARY_LOGO: primary_logo,
   SECONDARY_LOGO: secondary_logo,
@@ -22,4 +29,9 @@ export const IMAGES = {
   HELEN_EWUMI: helen,
   HELEN_EWUMI_2: helen2,
   FUNMI: funmi,
+  EVENT_A: event,
+  EVENT_B: event2,
+  EVENT_C: event3,
+  EVENT_D: event4,
+  EVENT_E: event5,
 };

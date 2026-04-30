@@ -347,6 +347,9 @@
     "formMessageLabel": "Nachricht",
     "formMessagePlaceholder": "Wie können wir Ihnen helfen?",
     "formSubmit": "Nachricht senden",
+    "formSuccess": "Vielen Dank! Sie wurden zu unserer Mailingliste hinzugefügt.",
+    "formError": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut.",
+    "formSubmitting": "Wird gesendet...",
     "finalCtaTitle": "Suchen Sie nach sofortiger Unterstützung?",
     "finalCtaPrimary": "Unterstützung erhalten",
     "finalCtaSecondary": "Der Gemeinschaft beitreten"

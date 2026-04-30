@@ -1,4 +1,5 @@
 'use client';
+import { IMAGES } from '@/constants/image';
 import { Calendar, ChevronLeft, ChevronRight, Heart, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
@@ -28,20 +29,20 @@ const COMMUNITY_GALLERIES = [
     description: 'Highlights from our cozy coffee gatherings',
     images: [
       {
-        src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663594899785/f6BeSEvWAji7G5hxiLtCro/featured-event-1-DvcCuCgC6JydVo4xfvd7k2.webp',
+        src: IMAGES.EVENT_A.src,
         alt: 'Coffee meetup 1',
         title: 'Coffee Morning Meetup',
       },
       {
-        src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663594899785/f6BeSEvWAji7G5hxiLtCro/featured-event-1-DvcCuCgC6JydVo4xfvd7k2.webp',
+        src: IMAGES.EVENT_B.src,
         alt: 'Coffee meetup 2',
       },
       {
-        src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663594899785/f6BeSEvWAji7G5hxiLtCro/featured-event-1-DvcCuCgC6JydVo4xfvd7k2.webp',
+        src: IMAGES.EVENT_C.src,
         alt: 'Coffee meetup 3',
       },
       {
-        src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663594899785/f6BeSEvWAji7G5hxiLtCro/featured-event-1-DvcCuCgC6JydVo4xfvd7k2.webp',
+        src: IMAGES.EVENT_D.src,
         alt: 'Coffee meetup 4',
       },
     ],
@@ -51,20 +52,20 @@ const COMMUNITY_GALLERIES = [
     description: 'Moments of learning, connection, and empowerment',
     images: [
       {
-        src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663594899785/f6BeSEvWAji7G5hxiLtCro/featured-event-2-9vo5nsWaxUtMAcQfA993JV.webp',
+        src: IMAGES.EVENT_B.src,
         alt: 'Workshop 1',
         title: 'Parent Support Workshop',
       },
       {
-        src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663594899785/f6BeSEvWAji7G5hxiLtCro/featured-event-2-9vo5nsWaxUtMAcQfA993JV.webp',
+        src: IMAGES.EVENT_C.src,
         alt: 'Workshop 2',
       },
       {
-        src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663594899785/f6BeSEvWAji7G5hxiLtCro/featured-event-2-9vo5nsWaxUtMAcQfA993JV.webp',
+        src: IMAGES.EVENT_D.src,
         alt: 'Workshop 3',
       },
       {
-        src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663594899785/f6BeSEvWAji7G5hxiLtCro/featured-event-2-9vo5nsWaxUtMAcQfA993JV.webp',
+        src: IMAGES.EVENT_E.src,
         alt: 'Workshop 4',
       },
     ],
@@ -74,20 +75,20 @@ const COMMUNITY_GALLERIES = [
     description: 'Celebrating togetherness and building stronger families',
     images: [
       {
-        src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663594899785/f6BeSEvWAji7G5hxiLtCro/featured-event-3-PL7395Y7F285AxfbW5XXSK.webp',
+        src: IMAGES.EVENT_C.src,
         alt: 'Gathering 1',
         title: 'Community Gathering',
       },
       {
-        src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663594899785/f6BeSEvWAji7G5hxiLtCro/featured-event-3-PL7395Y7F285AxfbW5XXSK.webp',
+        src: IMAGES.EVENT_D.src,
         alt: 'Gathering 2',
       },
       {
-        src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663594899785/f6BeSEvWAji7G5hxiLtCro/featured-event-3-PL7395Y7F285AxfbW5XXSK.webp',
+        src: IMAGES.EVENT_E.src,
         alt: 'Gathering 3',
       },
       {
-        src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663594899785/f6BeSEvWAji7G5hxiLtCro/featured-event-3-PL7395Y7F285AxfbW5XXSK.webp',
+        src: IMAGES.EVENT_A.src,
         alt: 'Gathering 4',
       },
     ],
@@ -139,7 +140,7 @@ function Lightbox({
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className='relative bg-card rounded-2xl overflow-hidden shadow-2xl'>
+        <div className='relative bg-primary rounded-2xl overflow-hidden shadow-2xl'>
           <img
             src={currentImage.src}
             alt={currentImage.alt}
@@ -156,7 +157,7 @@ function Lightbox({
 
           <button
             onClick={onClose}
-            className='absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 backdrop-blur-sm'
+            className='cursor-pointer absolute top-4 right-4 p-2 bg-accent rounded-full transition-all duration-300 backdrop-blur-sm'
           >
             <X className='w-6 h-6 text-white' />
           </button>
@@ -165,14 +166,14 @@ function Lightbox({
             <>
               <button
                 onClick={() => handleNavigation('prev')}
-                className='absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 backdrop-blur-sm'
+                className='cursor-pointer absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-accent rounded-full transition-all duration-300 backdrop-blur-sm'
               >
                 <ChevronLeft className='w-6 h-6 text-white' />
               </button>
 
               <button
                 onClick={() => handleNavigation('next')}
-                className='absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 backdrop-blur-sm'
+                className='cursor-pointer absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-accent rounded-full transition-all duration-300 backdrop-blur-sm'
               >
                 <ChevronRight className='w-6 h-6 text-white' />
               </button>

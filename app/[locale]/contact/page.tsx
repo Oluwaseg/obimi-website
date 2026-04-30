@@ -1,11 +1,16 @@
+'use client';
 import { SOCIAL_ICON_MAP, SOCIAL_LINKS } from '@/constants/socials';
 import { Clock, Mail, MessageCircle, Send } from 'lucide-react';
-import type { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { useState } from 'react';
 
 const ContactPage = () => {
   const t = useTranslations('ContactPage');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error';
+    message: string;
+  } | null>(null);
 
   return (
     <div className='bg-background min-h-screen'>
@@ -126,7 +131,61 @@ const ContactPage = () => {
                     </p>
                   </div>
 
-                  <form className='space-y-6'>
+                  <form
+                    className='space-y-6'
+                    onSubmit={async (e) => {
+                      e.preventDefault();
+                      const formData = new FormData(e.currentTarget);
+                      setIsSubmitting(true);
+                      setSubmitStatus(null);
+
+                      try {
+                        const response = await fetch('/api/contact', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({
+                            name: formData.get('name'),
+                            email: formData.get('email'),
+                            phone: formData.get('phone'),
+                            message: formData.get('message'),
+                          }),
+                        });
+
+                        const data = await response.json();
+
+                        if (response.ok) {
+                          setSubmitStatus({
+                            type: 'success',
+                            message: t('formSuccess'),
+                          });
+                          (e.target as HTMLFormElement).reset();
+                        } else {
+                          setSubmitStatus({
+                            type: 'error',
+                            message: data.error || t('formError'),
+                          });
+                        }
+                      } catch {
+                        setSubmitStatus({
+                          type: 'error',
+                          message: t('formError'),
+                        });
+                      } finally {
+                        setIsSubmitting(false);
+                      }
+                    }}
+                  >
+                    {submitStatus && (
+                      <div
+                        className={`p-4 rounded-lg ${
+                          submitStatus.type === 'success'
+                            ? 'bg-green-100 text-green-800'
+                            : 'bg-red-100 text-red-800'
+                        }`}
+                      >
+                        {submitStatus.message}
+                      </div>
+                    )}
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                       <div className='space-y-2'>
                         <label className='text-sm font-bold font-heading text-foreground ml-2'>
@@ -134,6 +193,8 @@ const ContactPage = () => {
                         </label>
                         <input
                           type='text'
+                          name='name'
+                          required
                           placeholder={t('formNamePlaceholder')}
                           className='w-full px-6 py-4 bg-muted/50 border-2 border-transparent rounded-full font-sans focus:outline-none focus:border-primary focus:bg-background transition-all'
                         />
@@ -144,6 +205,8 @@ const ContactPage = () => {
                         </label>
                         <input
                           type='email'
+                          name='email'
+                          required
                           placeholder={t('formEmailPlaceholder')}
                           className='w-full px-6 py-4 bg-muted/50 border-2 border-transparent rounded-full font-sans focus:outline-none focus:border-primary focus:bg-background transition-all'
                         />
@@ -155,6 +218,7 @@ const ContactPage = () => {
                       </label>
                       <input
                         type='tel'
+                        name='phone'
                         placeholder={t('formPhonePlaceholder')}
                         className='w-full px-6 py-4 bg-muted/50 border-2 border-transparent rounded-full font-sans focus:outline-none focus:border-primary focus:bg-background transition-all'
                       />
@@ -164,13 +228,20 @@ const ContactPage = () => {
                         {t('formMessageLabel')}
                       </label>
                       <textarea
+                        name='message'
                         rows={5}
                         placeholder={t('formMessagePlaceholder')}
                         className='w-full px-6 py-4 bg-muted/50 border-2 border-transparent rounded-2xl font-sans focus:outline-none focus:border-primary focus:bg-background transition-all resize-none'
                       ></textarea>
                     </div>
-                    <button className='w-full group py-5 bg-primary text-primary-foreground rounded-full font-heading font-bold text-xl shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-3'>
-                      <span>{t('formSubmit')}</span>
+                    <button
+                      type='submit'
+                      disabled={isSubmitting}
+                      className='w-full group py-5 bg-primary text-primary-foreground rounded-full font-heading font-bold text-xl shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed'
+                    >
+                      <span>
+                        {isSubmitting ? t('formSubmitting') : t('formSubmit')}
+                      </span>
                       <Send className='w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform' />
                     </button>
                   </form>
@@ -209,17 +280,3 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'SEO.Contact' });
-
-  return {
-    title: t('title'),
-    description: t('description'),
-  };
-}
