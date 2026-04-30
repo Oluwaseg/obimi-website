@@ -68,6 +68,35 @@
     "service5Title": "Beratung",
     "service5Description": "Schulungen und Vorträge zur Unterstützung von Fachleuten und Organisationen, die mit SEND-Familien arbeiten."
   },
+  "RecognitionSection": {
+    "badge": "Anerkennung & Wirkung",
+    "title": "Anerkannt für unser",
+    "titleHighlight": "Engagement",
+    "titleSuffix": "für Familien.",
+    "description": "Obimi ist stolz darauf, für unsere Innovation und unser Engagement für die SEND-Gemeinschaft vorgestellt und ausgezeichnet worden zu sein.",
+    "magazineBadge": "Magazin-Beitrag",
+    "magazineTitle": "Vorgestellt in Life In Orpington",
+    "magazineDescription": "Obimi wurde für seine Wirkung und Innovation in der lokalen Geschäftswelt hervorgehoben. Anerkannt für Beiträge zur Gemeinschaft und Geschäftsexzellenz.",
+    "magazineCta": "Vollen Beitrag lesen",
+    "awardMomentTitle": "Moment der Anerkennung",
+    "awardMomentSubtitle": "Gemeinschaftswirkung feiern",
+    "awardCardTitle": "Gemeinschaftswirkungspreis",
+    "awardCardSubtitle": "Preisträger 2025",
+    "awardCardDescription": "Anerkannt für herausragende Unterstützung für SEND-Familien.",
+    "viewAllPress": "Alle Pressemitteilungen ansehen"
+  },
+  "NewsletterSignup": {
+    "title": "Bleiben Sie auf dem Laufenden",
+    "description": "Erhalten Sie exklusive Updates, Ressourcen und Einblicke direkt in Ihren Posteingang.",
+    "placeholder": "ihre@email.de",
+    "buttonLoading": "Abonniert...",
+    "buttonSuccess": "Abonniert!",
+    "buttonIdle": "Abonnieren",
+    "buttonError": "Erneut versuchen",
+    "successMessage": "Vielen Dank für Ihr Abonnement!",
+    "errorMessage": "Abonnement fehlgeschlagen. Bitte erneut versuchen.",
+    "privacyText": "✓ Kein Spam, jederzeit abmeldbar. Wir respektieren Ihre Privatsphäre."
+  },
   "KnowledgeHub": {
     "badge": "Wissensdatenbank",
     "title": "Ressourcen & Anleitungen",

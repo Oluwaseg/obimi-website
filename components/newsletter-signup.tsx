@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, Mail, Sparkles } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 interface NewsletterSignupProps {
@@ -9,6 +10,7 @@ interface NewsletterSignupProps {
 }
 
 export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
+  const t = useTranslations('NewsletterSignup');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<
     'idle' | 'loading' | 'success' | 'error'
@@ -32,7 +34,7 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
 
       if (response.ok) {
         setStatus('success');
-        setMessage(data.message);
+        setMessage(t('successMessage'));
         setEmail('');
         setTimeout(() => {
           setStatus('idle');
@@ -40,7 +42,7 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
         }, 5000);
       } else {
         setStatus('error');
-        setMessage(data.error || 'Something went wrong');
+        setMessage(data.error || t('errorMessage'));
         setTimeout(() => {
           setStatus('idle');
           setMessage('');
@@ -48,7 +50,7 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
       }
     } catch {
       setStatus('error');
-      setMessage('Failed to subscribe. Please try again.');
+      setMessage(t('errorMessage'));
       setTimeout(() => {
         setStatus('idle');
         setMessage('');
@@ -59,10 +61,11 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
   return (
     <section
       className={`py-16 px-4 sm:px-6 lg:px-8 ${className} overflow-hidden`}
+      data-aos='fade-up'
     >
       <div className='max-w-4xl mx-auto'>
         {/* Background gradient accent */}
-        <div className='absolute inset-0 -z-10 bg-gradient-to-b from-primary to-transparent opacity-40 blur-3xl' />
+        <div className='absolute inset-0 -z-10 bg-primary/30' />
 
         <div className='relative'>
           {/* Card Container */}
@@ -82,13 +85,12 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
                 <div>
                   <div className='flex items-center gap-2 mb-2'>
                     <h2 className='text-2xl sm:text-3xl font-heading font-bold text-foreground'>
-                      Stay in the Loop
+                      {t('title')}
                     </h2>
                     <Sparkles className='w-6 h-6 text-accent animate-pulse' />
                   </div>
                   <p className='text-sm text-muted-foreground'>
-                    Get exclusive updates, resources, and insights delivered to
-                    your inbox.
+                    {t('description')}
                   </p>
                 </div>
               </div>
@@ -101,7 +103,7 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
                       type='email'
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder='your@email.com'
+                      placeholder={t('placeholder')}
                       required
                       disabled={status === 'success'}
                       className='w-full px-6 py-3 bg-background/70 backdrop-blur-sm border border-primary/20 hover:border-primary/40 rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
@@ -115,17 +117,17 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
                     {status === 'loading' && (
                       <span className='flex items-center gap-2'>
                         <span className='w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin' />
-                        Subscribing...
+                        {t('buttonLoading')}
                       </span>
                     )}
                     {status === 'success' && (
                       <span className='flex items-center gap-2'>
                         <CheckCircle2 className='w-4 h-4' />
-                        Subscribed!
+                        {t('buttonSuccess')}
                       </span>
                     )}
-                    {status === 'idle' && 'Subscribe'}
-                    {status === 'error' && 'Try Again'}
+                    {status === 'idle' && t('buttonIdle')}
+                    {status === 'error' && t('buttonError')}
                   </Button>
                 </div>
 
@@ -151,7 +153,7 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
 
               {/* Trust badge */}
               <p className='text-xs text-muted-foreground mt-6 text-center'>
-                ✓ No spam, unsubscribe anytime. We respect your privacy.
+                {t('privacyText')}
               </p>
             </div>
           </div>

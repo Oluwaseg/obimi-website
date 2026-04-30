@@ -68,6 +68,35 @@
     "service5Title": "Consultancy",
     "service5Description": "Training and speaking engagements to support professionals and organisations working with SEND families."
   },
+  "RecognitionSection": {
+    "badge": "Recognition & Impact",
+    "title": "Recognized for our",
+    "titleHighlight": "commitment",
+    "titleSuffix": "to families.",
+    "description": "Obimi is proud to be featured and awarded for our innovation and dedication to the SEND community.",
+    "magazineBadge": "Magazine Feature",
+    "magazineTitle": "Featured in Life In Orpington",
+    "magazineDescription": "Obimi was highlighted for its impact and innovation in the local business community. Recognized for contributions to community and business excellence.",
+    "magazineCta": "Read Full Feature",
+    "awardMomentTitle": "Moment of Recognition",
+    "awardMomentSubtitle": "Celebrating Community Impact",
+    "awardCardTitle": "Community Impact Award",
+    "awardCardSubtitle": "Award Winner 2025",
+    "awardCardDescription": "Recognized for outstanding support to SEND families.",
+    "viewAllPress": "View All Press"
+  },
+  "NewsletterSignup": {
+    "title": "Stay in the Loop",
+    "description": "Get exclusive updates, resources, and insights delivered to your inbox.",
+    "placeholder": "your@email.com",
+    "buttonLoading": "Subscribing...",
+    "buttonSuccess": "Subscribed!",
+    "buttonIdle": "Subscribe",
+    "buttonError": "Try Again",
+    "successMessage": "Thank you for subscribing!",
+    "errorMessage": "Failed to subscribe. Please try again.",
+    "privacyText": "✓ No spam, unsubscribe anytime. We respect your privacy."
+  },
   "KnowledgeHub": {
     "badge": "Knowledge Hub",
     "title": "Resources & Guidance",

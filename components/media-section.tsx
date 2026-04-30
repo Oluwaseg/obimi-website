@@ -1,26 +1,28 @@
 'use client';
+import { IMAGES } from '@/constants';
 import { ExternalLink, Image as ImageIcon, Play, Video, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import Image, { StaticImageData } from 'next/image';
 import { useState } from 'react';
 
-const images = [
+const images: { src: StaticImageData; alt: string; span: string }[] = [
   {
-    src: 'https://images.unsplash.com/photo-1536640712247-c45474762b4b?q=80&w=1200&auto=format&fit=crop',
+    src: IMAGES.EVENT_A,
     alt: 'Community Event 1',
     span: 'md:col-span-2 md:row-span-2',
   },
   {
-    src: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=800&auto=format&fit=crop',
+    src: IMAGES.EVENT_B,
     alt: 'Community Event 2',
     span: 'md:col-span-1 md:row-span-1',
   },
   {
-    src: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=800&auto=format&fit=crop',
+    src: IMAGES.EVENT_C,
     alt: 'Community Event 3',
     span: 'md:col-span-1 md:row-span-1',
   },
   {
-    src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop',
+    src: IMAGES.EVENT_D,
     alt: 'Community Event 4',
     span: 'md:col-span-2 md:row-span-1',
   },
@@ -49,8 +51,14 @@ const videos = [
 
 const MediaSection = () => {
   const t = useTranslations('MediaSection');
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<
+    StaticImageData | string | null
+  >(null);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
+  const getImageSrc = (img: StaticImageData | string): string => {
+    return typeof img === 'string' ? img : img.src;
+  };
 
   const videoTitles = [
     { title: t('video1Title'), description: t('video1Description') },
@@ -62,7 +70,7 @@ const MediaSection = () => {
     <section className='py-24 px-6 md:px-12 lg:px-24 bg-background relative overflow-hidden'>
       <div className='container mx-auto space-y-24 relative z-10'>
         {/* Header */}
-        <div 
+        <div
           data-aos='fade-up'
           className='text-center max-w-2xl mx-auto space-y-4'
         >
@@ -76,7 +84,7 @@ const MediaSection = () => {
 
         {/* Image Gallery Block */}
         <div className='space-y-8'>
-          <div 
+          <div
             data-aos='fade-right'
             className='flex items-center gap-3 border-b border-border pb-4'
           >
@@ -95,10 +103,11 @@ const MediaSection = () => {
                 data-aos-delay={index * 100}
                 className={`${img.span} relative group overflow-hidden rounded-[2rem] border-4 border-background shadow-lg cursor-pointer`}
               >
-                <img
+                <Image
                   src={img.src}
                   alt={img.alt}
-                  className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
+                  fill
+                  className='object-cover transition-transform duration-700 group-hover:scale-110'
                 />
                 <div className='absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center'>
                   <div className='bg-white/90 p-3 rounded-full shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300'>
@@ -112,7 +121,7 @@ const MediaSection = () => {
 
         {/* Video Showcase Block */}
         <div className='space-y-8'>
-          <div 
+          <div
             data-aos='fade-right'
             className='flex items-center gap-3 border-b border-border pb-4'
           >
@@ -124,8 +133,8 @@ const MediaSection = () => {
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {videos.map((video, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 data-aos='fade-up'
                 data-aos-delay={index * 200}
                 className='group space-y-4'
@@ -181,11 +190,14 @@ const MediaSection = () => {
           <button className='absolute top-8 right-8 text-white hover:text-primary transition-colors'>
             <X className='w-10 h-10' />
           </button>
-          <img
-            src={selectedImage}
-            alt='Enlarged view'
-            className='max-w-full max-h-full rounded-2xl shadow-2xl animate-in zoom-in-95 duration-300'
-          />
+          <div className='relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-300'>
+            <Image
+              src={getImageSrc(selectedImage)}
+              alt='Enlarged view'
+              fill
+              className='object-contain'
+            />
+          </div>
         </div>
       )}
 
