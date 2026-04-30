@@ -57,7 +57,9 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
   };
 
   return (
-    <section className={`py-16 px-4 sm:px-6 lg:px-8 ${className}`}>
+    <section
+      className={`py-16 px-4 sm:px-6 lg:px-8 ${className} overflow-hidden`}
+    >
       <div className='max-w-4xl mx-auto'>
         {/* Background gradient accent */}
         <div className='absolute inset-0 -z-10 bg-gradient-to-b from-primary to-transparent opacity-40 blur-3xl' />

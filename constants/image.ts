@@ -21,6 +21,13 @@ import event3 from '../public/assets/events/event-c.jpg';
 import event4 from '../public/assets/events/event-d.jpg';
 import event5 from '../public/assets/events/event-e.jpg';
 
+// Awards
+import award from '../public/assets/images/award.png';
+
+// Magazine
+import magazine from '../public/assets/magazine/cover1.png';
+import magazine2 from '../public/assets/magazine/cover2.png';
+
 export const IMAGES = {
   PRIMARY_LOGO: primary_logo,
   SECONDARY_LOGO: secondary_logo,
@@ -34,4 +41,7 @@ export const IMAGES = {
   EVENT_C: event3,
   EVENT_D: event4,
   EVENT_E: event5,
+  AWARD: award,
+  MAGAZINE: magazine,
+  MAGAZINE_2: magazine2,
 };

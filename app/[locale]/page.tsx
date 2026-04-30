@@ -4,6 +4,7 @@ import HowWeHelp from '@/components/how-we-help';
 import KnowledgeHub from '@/components/knowledge-hub';
 import MediaSection from '@/components/media-section';
 import { NewsletterSignup } from '@/components/newsletter-signup';
+import { RecognitionSection } from '@/components/recognition-section';
 import WhyObimi from '@/components/why-obimi';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
@@ -15,12 +16,10 @@ export default function Home() {
       <HowWeHelp />
       <WhyObimi />
       <MediaSection />
+      <RecognitionSection />
       <CommunityCTA />
       <KnowledgeHub />
-      {/* Newsletter Signup */}
-      <div data-aos='fade-up' data-aos-delay='300'>
-        <NewsletterSignup />
-      </div>
+      <NewsletterSignup />
     </main>
   );
 }
