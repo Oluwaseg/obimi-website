@@ -260,12 +260,10 @@
     "description": "Einblicke in unsere Gemeinschaft und die Wirkung, die wir gemeinsam erzielen.",
     "photoGallery": "Fotogalerie",
     "videoStories": "Videogeschichten",
-    "video1Title": "Gemeinschaftliche Wirkung",
-    "video1Description": "Sehen Sie unser neuestes Update zur gemeinschaftlichen Wirkung.",
-    "video2Title": "Eltern-Feedback",
-    "video2Description": "Sehen Sie unser neuestes Update zum Eltern-Feedback.",
-    "video3Title": "Fachliche Beratung",
-    "video3Description": "Sehen Sie unser neuestes Update zur fachlichen Beratung."
+    "video1Title": "Obimi Gründer",
+    "video1Description": "Hören Sie von unserem Gründer, wie Obimi einen Unterschied macht.",
+    "video2Title": "Obimi Testimonial",
+    "video2Description": "Hören Sie von unseren Gemeinschaftsmitgliedern über ihre Erfahrung mit Obimi."
   },
   "Mission": {
     "badge": "Unser Zweck",

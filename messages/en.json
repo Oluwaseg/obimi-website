@@ -260,12 +260,10 @@
     "description": "Glimpses of our community and the impact we're making together.",
     "photoGallery": "Photo Gallery",
     "videoStories": "Video Stories",
-    "video1Title": "Community Impact",
-    "video1Description": "Watch our latest update on community impact.",
-    "video2Title": "Parent Testimonial",
-    "video2Description": "Watch our latest update on parent testimonial.",
-    "video3Title": "Expert Advice",
-    "video3Description": "Watch our latest update on expert advice."
+    "video1Title": "Obimi Founder",
+    "video1Description": "Hear from our founder about how Obimi is making a difference.",
+    "video2Title": "Obimi Testimonial",
+    "video2Description": "Hear from our community members about their experience with Obimi."
   },
   "Mission": {
     "badge": "Our Purpose",

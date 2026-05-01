@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import Image, { StaticImageData } from 'next/image';
 import { useState } from 'react';
 
-const images: { src: StaticImageData; alt: string; span: string }[] = [
+const images: { src: StaticImageData | string; alt: string; span: string }[] = [
   {
     src: IMAGES.EVENT_A,
     alt: 'Community Event 1',
@@ -26,26 +26,50 @@ const images: { src: StaticImageData; alt: string; span: string }[] = [
     alt: 'Community Event 4',
     span: 'md:col-span-2 md:row-span-1',
   },
+  {
+    src: IMAGES.EVENT_E,
+    alt: 'Community Event 5',
+    span: 'md:col-span-1 md:row-span-2',
+  },
+  {
+    src: IMAGES.EVENT_F,
+    alt: 'Community Event 6',
+    span: 'md:col-span-1 md:row-span-1',
+  },
+  {
+    src: IMAGES.EVENT_G,
+    alt: 'Community Event 7',
+    span: 'md:col-span-1 md:row-span-1',
+  },
+  {
+    src: IMAGES.EVENT_H,
+    alt: 'Community Event 8',
+    span: 'md:col-span-1 md:row-span-1',
+  },
+  {
+    src: IMAGES.EVENT_I,
+    alt: 'Community Event 9',
+    span: 'md:col-span-1 md:row-span-1',
+  },
+  {
+    src: IMAGES.EVENT_J,
+    alt: 'Community Event 10',
+    span: 'md:col-span-1 md:row-span-1',
+  },
 ];
 
 const videos = [
   {
-    id: '-KpH19AFT3E',
-    title: 'Community Impact',
+    id: 'jQSAj6qpv3U',
+    title: 'Obimi Founder',
     thumbnail:
       'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800&auto=format&fit=crop',
   },
   {
-    id: 'dQw4w9WgXcQ',
-    title: 'Parent Testimonial',
+    id: 'R5VDe2QzyDE',
+    title: 'Obimi Testimonial',
     thumbnail:
       'https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    id: '3JZ_D3ELwOQ',
-    title: 'Expert Advice',
-    thumbnail:
-      'https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=800&auto=format&fit=crop',
   },
 ];
 
@@ -63,7 +87,6 @@ const MediaSection = () => {
   const videoTitles = [
     { title: t('video1Title'), description: t('video1Description') },
     { title: t('video2Title'), description: t('video2Description') },
-    { title: t('video3Title'), description: t('video3Description') },
   ];
 
   return (
@@ -103,12 +126,20 @@ const MediaSection = () => {
                 data-aos-delay={index * 100}
                 className={`${img.span} relative group overflow-hidden rounded-[2rem] border-4 border-background shadow-lg cursor-pointer`}
               >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className='object-cover transition-transform duration-700 group-hover:scale-110'
-                />
+                {typeof img.src === 'string' ? (
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
+                  />
+                ) : (
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className='object-cover transition-transform duration-700 group-hover:scale-110'
+                  />
+                )}
                 <div className='absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center'>
                   <div className='bg-white/90 p-3 rounded-full shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300'>
                     <ExternalLink className='w-5 h-5 text-primary' />
@@ -184,7 +215,7 @@ const MediaSection = () => {
       {/* Image Lightbox Overlay */}
       {selectedImage && (
         <div
-          className='fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 md:p-12 animate-in fade-in duration-300'
+          className='fixed inset-0 z-100 bg-black/90 flex items-center justify-center p-4 md:p-12 animate-in fade-in duration-300'
           onClick={() => setSelectedImage(null)}
         >
           <button className='absolute top-8 right-8 text-white hover:text-primary transition-colors'>
