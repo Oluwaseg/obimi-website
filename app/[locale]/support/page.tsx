@@ -13,12 +13,10 @@ import {
   Sparkles,
   Users,
 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 const Support = () => {
-  const t = useTranslations('Support');
   const router = useRouter();
 
   const handleCTAClick = () => {
@@ -31,28 +29,28 @@ const Support = () => {
 
   const impactPoints = [
     {
-      title: t('impact1Title'),
-      description: t('impact1Description'),
+      title: 'Create Free Resources',
+      description: 'Helping parents understand their rights and take action.',
       icon: <FileText className='w-6 h-6 text-primary' />,
     },
     {
-      title: t('impact2Title'),
-      description: t('impact2Description'),
+      title: 'Support Safe Communities',
+      description: 'Providing spaces where parents can connect and share.',
       icon: <Users className='w-6 h-6 text-accent-foreground' />,
     },
     {
-      title: t('impact3Title'),
-      description: t('impact3Description'),
+      title: 'Host Events & Workshops',
+      description: 'Bringing families and experts together globally.',
       icon: <Globe className='w-6 h-6 text-secondary-foreground' />,
     },
     {
-      title: t('impact4Title'),
-      description: t('impact4Description'),
+      title: 'Provide Affordable Support',
+      description: 'Making guidance accessible to families who need it most.',
       icon: <Heart className='w-6 h-6 text-primary' />,
     },
     {
-      title: t('impact5Title'),
-      description: t('impact5Description'),
+      title: 'Expand Our Reach',
+      description: 'Connecting with underserved communities worldwide.',
       icon: <Megaphone className='w-6 h-6 text-accent-foreground' />,
     },
   ];
@@ -81,35 +79,35 @@ const Support = () => {
               className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-accent text-sm font-bold font-heading uppercase tracking-wider'
             >
               <Heart className='w-4 h-4' />
-              <span>{t('badge')}</span>
+              <span>{'Support Our Mission'}</span>
             </div>
             <h1
               data-aos='fade-right'
               className='text-5xl md:text-7xl font-heading font-bold leading-tight'
             >
-              {t('title')} <br />
-              <span className='text-accent'>{t('titleHighlight')}</span>
+              {'Support Obimi.'} <br />
+              <span className='text-accent'>{'Empower Families.'}</span>
             </h1>
             <p
               data-aos='fade-right'
               data-aos-delay='200'
               className='text-xl md:text-2xl text-white/80 font-sans leading-relaxed max-w-xl'
             >
-              {t('heroDescription')}
+              {'Your support helps parents and caregivers navigate the SEND journey with confidence, clarity, and community.'}
             </p>
             <div className='flex flex-col sm:flex-row gap-4 pt-4'>
               <button
                 onClick={handleDonateClick}
                 className='group px-10 py-5 bg-accent text-accent-foreground rounded-full font-heading font-bold text-xl shadow-xl shadow-accent/20 hover:shadow-accent/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-3'
               >
-                <span>{t('ctaPrimary')}</span>
+                <span>{'Donate Now'}</span>
                 <ArrowRight className='w-6 h-6 group-hover:translate-x-1 transition-transform' />
               </button>
               <button
                 onClick={handleCTAClick}
                 className='px-10 py-5 bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 rounded-full font-heading font-bold text-xl transition-all flex items-center justify-center gap-3'
               >
-                <span>{t('ctaSecondary')}</span>
+                <span>{'Get Involved'}</span>
               </button>
             </div>
           </div>
@@ -126,7 +124,7 @@ const Support = () => {
               />
               <div className='absolute inset-0 bg-gradient-to-t from-ring/30 to-transparent flex items-end p-12'>
                 <p className='text-2xl font-heading font-bold italic'>
-                  "{t('quote')}"
+                  "{'Obimi exists to ensure no parent has to walk that journey alone.'}"
                 </p>
               </div>
             </div>
@@ -142,10 +140,10 @@ const Support = () => {
             className='text-center max-w-3xl mx-auto mb-20 space-y-6'
           >
             <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
-              {t('impactTitle')}
+              {'How Your Support Makes a Difference'}
             </h2>
             <p className='text-lg text-muted-foreground font-sans'>
-              {t('impactDescription')}
+              {'Every contribution directly impacts the lives of SEND families globally.'}
             </p>
           </div>
 
@@ -179,7 +177,7 @@ const Support = () => {
         <div className='container mx-auto'>
           <div className='text-center max-w-3xl mx-auto mb-20 space-y-4'>
             <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
-              {t('waysTitle')}
+              {'Ways You Can Help'}
             </h2>
           </div>
 
@@ -194,17 +192,17 @@ const Support = () => {
                   <Heart className='w-8 h-8 text-white' />
                 </div>
                 <h3 className='text-3xl font-heading font-bold text-foreground'>
-                  {t('donationTitle')}
+                  {'Make a Donation'}
                 </h3>
                 <p className='text-lg text-muted-foreground font-sans leading-relaxed'>
-                  {t('donationDescription')}
+                  {'Your contribution directly supports families and keeps our resources accessible.'}
                 </p>
                 <div className='flex flex-wrap gap-3'>
                   <span className='px-4 py-2 rounded-full bg-white border border-primary/20 text-primary font-bold text-sm'>
-                    {t('donationTag1')}
+                    {'One-time donation'}
                   </span>
                   <span className='px-4 py-2 rounded-full bg-white border border-primary/20 text-primary font-bold text-sm'>
-                    {t('donationTag2')}
+                    {'Monthly support'}
                   </span>
                 </div>
               </div>
@@ -212,7 +210,7 @@ const Support = () => {
                 onClick={handleDonateClick}
                 className='w-full py-5 bg-primary text-primary-foreground rounded-full font-heading font-bold text-xl shadow-lg shadow-primary/20 hover:shadow-xl transition-all hover:-translate-y-1'
               >
-                {t('donationButton')}
+                {'Donate Now'}
               </button>
             </div>
 
@@ -227,10 +225,10 @@ const Support = () => {
                   <Users className='w-8 h-8 text-accent-foreground' />
                 </div>
                 <h3 className='text-3xl font-heading font-bold text-foreground'>
-                  {t('volunteerTitle')}
+                  {'Volunteer Your Skills'}
                 </h3>
                 <p className='text-lg text-muted-foreground font-sans leading-relaxed'>
-                  {t('volunteerDescription')}
+                  {"Use your skills to make a real impact. We're looking for help in:"}
                 </p>
                 <div className='grid grid-cols-2 gap-4'>
                   {volunteerSkills.map((skill) => (
@@ -248,7 +246,7 @@ const Support = () => {
                 onClick={handleCTAClick}
                 className='w-full py-5 bg-accent text-accent-foreground rounded-full font-heading font-bold text-xl shadow-lg shadow-accent/20 hover:shadow-xl transition-all hover:-translate-y-1'
               >
-                {t('volunteerButton')}
+                {'Join as a Volunteer'}
               </button>
             </div>
 
@@ -263,17 +261,17 @@ const Support = () => {
                   <Handshake className='w-8 h-8 text-secondary-foreground' />
                 </div>
                 <h3 className='text-3xl font-heading font-bold text-foreground'>
-                  {t('partnerTitle')}
+                  {'Partner With Us'}
                 </h3>
                 <p className='text-lg text-muted-foreground font-sans leading-relaxed'>
-                  {t('partnerDescription')}
+                  {'Collaborate with us to create meaningful impact and reach more families globally.'}
                 </p>
               </div>
               <button
                 onClick={handleCTAClick}
                 className='w-full py-5 bg-secondary text-secondary-foreground rounded-full font-heading font-bold text-xl shadow-lg shadow-secondary/20 hover:shadow-xl transition-all hover:-translate-y-1'
               >
-                {t('partnerButton')}
+                {'Become a Partner'}
               </button>
             </div>
 
@@ -288,23 +286,23 @@ const Support = () => {
                   <Share2 className='w-8 h-8 text-white' />
                 </div>
                 <h3 className='text-3xl font-heading font-bold text-foreground'>
-                  {t('spreadTitle')}
+                  {'Spread the Word'}
                 </h3>
                 <p className='text-lg text-muted-foreground font-sans leading-relaxed'>
-                  {t('spreadDescription')}
+                  {'Help us reach more families by sharing our mission with your network.'}
                 </p>
                 <ul className='space-y-3 text-muted-foreground font-sans'>
                   <li className='flex items-center gap-2'>
                     <CheckCircle2 className='w-4 h-4 text-ring' />{' '}
-                    {t('spreadList1')}
+                    {'Share on social media'}
                   </li>
                   <li className='flex items-center gap-2'>
                     <CheckCircle2 className='w-4 h-4 text-ring' />{' '}
-                    {t('spreadList2')}
+                    {'Tell someone who needs support'}
                   </li>
                   <li className='flex items-center gap-2'>
                     <CheckCircle2 className='w-4 h-4 text-ring' />{' '}
-                    {t('spreadList3')}
+                    {'Introduce Obimi to your network'}
                   </li>
                 </ul>
               </div>
@@ -312,7 +310,7 @@ const Support = () => {
                 onClick={handleCTAClick}
                 className='w-full py-5 bg-ring text-white rounded-full font-heading font-bold text-xl shadow-lg shadow-ring/20 hover:shadow-xl transition-all hover:-translate-y-1'
               >
-                {t('spreadButton')}
+                {'Contact Us'}
               </button>
             </div>
           </div>
@@ -333,20 +331,20 @@ const Support = () => {
             data-aos-delay='200'
             className='text-4xl md:text-6xl font-heading font-bold leading-tight'
           >
-            {t('finalTitle')}
+            {'Together, we can ensure no parent walks the SEND journey alone.'}
           </h2>
           <div className='flex flex-col sm:flex-row gap-6 justify-center pt-8'>
             <button
               onClick={handleDonateClick}
               className='px-12 py-6 bg-accent text-accent-foreground rounded-full font-heading font-bold text-2xl shadow-2xl hover:shadow-accent/40 transition-all hover:-translate-y-2'
             >
-              {t('finalCtaPrimary')}
+              {'Donate Now'}
             </button>
             <button
               onClick={handleCTAClick}
               className='px-12 py-6 bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 rounded-full font-heading font-bold text-2xl transition-all hover:-translate-y-2'
             >
-              {t('finalCtaSecondary')}
+              {'Contact Us'}
             </button>
           </div>
         </div>

@@ -1,11 +1,9 @@
 'use client';
 import { SOCIAL_ICON_MAP, SOCIAL_LINKS } from '@/constants/socials';
 import { Clock, Mail, MessageCircle, Send } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 const ContactPage = () => {
-  const t = useTranslations('ContactPage');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: 'success' | 'error';
@@ -23,17 +21,17 @@ const ContactPage = () => {
             className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'
           >
             <MessageCircle className='w-4 h-4' />
-            <span>{t('badge')}</span>
+            <span>{'Get in Touch'}</span>
           </div>
           <h1
             data-aos='fade-up'
             className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'
           >
-            {t('titlePrefix')}{' '}
-            <span className='text-primary'>{t('titleHighlight')}</span>
+            {'Contact'}{' '}
+            <span className='text-primary'>{'Us'}</span>
           </h1>
           <p className='text-xl md:text-2xl text-muted-foreground font-sans leading-relaxed'>
-            {t('description')}
+            {"Have a question or need support? We're here to help — reach out and we'll get back to you."}
           </p>
         </div>
       </section>
@@ -46,10 +44,10 @@ const ContactPage = () => {
             <div data-aos='fade-right' className='lg:col-span-5 space-y-12'>
               <div className='space-y-6'>
                 <h2 className='text-4xl font-heading font-bold text-foreground'>
-                  {t('contactInfoTitle')}
+                  {'Get in Touch'}
                 </h2>
                 <p className='text-lg text-muted-foreground font-sans leading-relaxed'>
-                  {t('contactInfoDescription')}
+                  {"We'd love to hear from you. Whether you have a question about our services, community, or just want to say hello, our team is ready to support you."}
                 </p>
               </div>
 
@@ -61,7 +59,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <p className='text-sm font-bold font-heading uppercase tracking-widest text-primary'>
-                      {t('emailTitle')}
+                      {'Email Us'}
                     </p>
                     <a
                       href='mailto:info@obimii.com'
@@ -75,7 +73,7 @@ const ContactPage = () => {
                 {/* Socials */}
                 <div className='space-y-6 pt-4'>
                   <p className='text-sm font-bold font-heading uppercase tracking-widest text-primary'>
-                    {t('socialTitle')}
+                    {'Follow Us'}
                   </p>
                   <div className='flex gap-4'>
                     {SOCIAL_LINKS.map((social) => {
@@ -105,8 +103,8 @@ const ContactPage = () => {
                 </div>
 
                 <p className='text-sm sm:text-lg font-sans font-medium text-accent-foreground leading-snug'>
-                  {t('trustBadgeText')}{' '}
-                  <span className='font-bold'>{t('trustBadgeHighlight')}</span>.
+                  {'We typically respond within'}{' '}
+                  <span className='font-bold'>{'24–48 hours'}</span>.
                 </p>
               </div>
             </div>
@@ -124,10 +122,10 @@ const ContactPage = () => {
                 <div className='space-y-8'>
                   <div className='space-y-2'>
                     <h3 className='text-3xl font-heading font-bold text-foreground'>
-                      {t('formTitle')}
+                      {'Send Us a Message'}
                     </h3>
                     <p className='text-muted-foreground font-sans'>
-                      {t('formDescription')}
+                      {"Fill out the form below and we'll get back to you shortly."}
                     </p>
                   </div>
 
@@ -156,19 +154,19 @@ const ContactPage = () => {
                         if (response.ok) {
                           setSubmitStatus({
                             type: 'success',
-                            message: t('formSuccess'),
+                            message: 'Message received! We will get back to you soon.',
                           });
                           (e.target as HTMLFormElement).reset();
                         } else {
                           setSubmitStatus({
                             type: 'error',
-                            message: data.error || t('formError'),
+                            message: data.error || 'Something went wrong. Please try again.',
                           });
                         }
                       } catch {
                         setSubmitStatus({
                           type: 'error',
-                          message: t('formError'),
+                          message: 'Something went wrong. Please try again.',
                         });
                       } finally {
                         setIsSubmitting(false);
@@ -189,48 +187,48 @@ const ContactPage = () => {
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                       <div className='space-y-2'>
                         <label className='text-sm font-bold font-heading text-foreground ml-2'>
-                          {t('formNameLabel')}
+                          {'Name'}
                         </label>
                         <input
                           type='text'
                           name='name'
                           required
-                          placeholder={t('formNamePlaceholder')}
+                          placeholder={'Your full name'}
                           className='w-full px-6 py-4 bg-muted/50 border-2 border-transparent rounded-full font-sans focus:outline-none focus:border-primary focus:bg-background transition-all'
                         />
                       </div>
                       <div className='space-y-2'>
                         <label className='text-sm font-bold font-heading text-foreground ml-2'>
-                          {t('formEmailLabel')}
+                          {'Email Address'}
                         </label>
                         <input
                           type='email'
                           name='email'
                           required
-                          placeholder={t('formEmailPlaceholder')}
+                          placeholder={'your@email.com'}
                           className='w-full px-6 py-4 bg-muted/50 border-2 border-transparent rounded-full font-sans focus:outline-none focus:border-primary focus:bg-background transition-all'
                         />
                       </div>
                     </div>
                     <div className='space-y-2'>
                       <label className='text-sm font-bold font-heading text-foreground ml-2'>
-                        {t('formPhoneLabel')}
+                        {'Phone Number (optional)'}
                       </label>
                       <input
                         type='tel'
                         name='phone'
-                        placeholder={t('formPhonePlaceholder')}
+                        placeholder={'+44 0000 000000'}
                         className='w-full px-6 py-4 bg-muted/50 border-2 border-transparent rounded-full font-sans focus:outline-none focus:border-primary focus:bg-background transition-all'
                       />
                     </div>
                     <div className='space-y-2'>
                       <label className='text-sm font-bold font-heading text-foreground ml-2'>
-                        {t('formMessageLabel')}
+                        {'Message'}
                       </label>
                       <textarea
                         name='message'
                         rows={5}
-                        placeholder={t('formMessagePlaceholder')}
+                        placeholder={'How can we help you?'}
                         className='w-full px-6 py-4 bg-muted/50 border-2 border-transparent rounded-2xl font-sans focus:outline-none focus:border-primary focus:bg-background transition-all resize-none'
                       ></textarea>
                     </div>
@@ -240,7 +238,7 @@ const ContactPage = () => {
                       className='w-full group py-5 bg-primary text-primary-foreground rounded-full font-heading font-bold text-xl shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed'
                     >
                       <span>
-                        {isSubmitting ? t('formSubmitting') : t('formSubmit')}
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
                       </span>
                       <Send className='w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform' />
                     </button>

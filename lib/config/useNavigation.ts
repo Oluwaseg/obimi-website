@@ -1,89 +1,83 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import { FooterSection, NavItem, SocialLink } from './types';
 
 export function useNavItems(): NavItem[] {
-  const t = useTranslations('Navigation');
-
   return [
-    { label: t('home'), href: '/' },
+    { label: 'Home', href: '/' },
     {
-      label: t('about'),
+      label: 'About',
       items: [
-        { label: t('mission'), href: '/about' },
-        { label: t('team'), href: '/team' },
-        { label: t('whyUs'), href: '/why-obimi' },
+        { label: 'Mission', href: '/mission' },
+        { label: 'Our Team', href: '/our-team' },
+        { label: 'Why Obimi', href: '/mission' },
       ],
     },
     {
-      label: t('services'),
+      label: 'Services',
       items: [
-        { label: t('education'), href: '/services/education' },
-        { label: t('health'), href: '/services/health' },
-        { label: t('benefits'), href: '/services/social-care' },
-        { label: t('wellness'), href: '/services/community' },
-        { label: t('consulting'), href: '/services/consultancy' },
+        { label: 'Education Support', href: '/services' },
+        { label: 'Health Navigation', href: '/services' },
+        { label: 'Social Care & Benefits', href: '/services' },
+        { label: 'Community & Wellbeing', href: '/services' },
+        { label: 'Consultancy', href: '/services' },
       ],
     },
-    { label: t('faq'), href: '/faq' },
+    { label: 'FAQ', href: '/faq' },
     {
-      label: t('community'),
+      label: 'Community',
       items: [
-        { label: t('forums'), href: '/community/forums' },
-        { label: t('events'), href: '/community/events' },
-        { label: t('support'), href: '/community/support-groups' },
+        { label: 'Forums', href: '/community' },
+        { label: 'Events', href: '/events' },
+        { label: 'Support Groups', href: '/community' },
       ],
     },
     {
-      label: t('knowledge'),
+      label: 'Knowledge Hub',
       items: [
-        { label: t('articles'), href: '/knowledge/articles' },
-        { label: t('resources'), href: '/knowledge/resources' },
-        { label: t('guides'), href: '/knowledge/guides' },
+        { label: 'Articles', href: '/knowledge-hub' },
+        { label: 'Resources', href: '/knowledge-hub' },
+        { label: 'Guides', href: '/knowledge-hub' },
       ],
     },
-    { label: t('contact'), href: '/contact' },
+    { label: 'Contact', href: '/contact' },
   ];
 }
 
 export function useFooterSections(): FooterSection[] {
-  const t = useTranslations('Navigation');
-  const footerT = useTranslations('Footer');
-
   return [
     {
-      title: footerT('quickLinks'),
+      title: 'Quick Links',
       links: [
-        { label: t('home'), href: '/' },
-        { label: t('faq'), href: '/faq' },
-        { label: t('contact'), href: '/contact' },
+        { label: 'Home', href: '/' },
+        { label: 'FAQ', href: '/faq' },
+        { label: 'Contact', href: '/contact' },
         { label: 'Sitemap', href: '/sitemap' },
       ],
     },
     {
-      title: t('services'),
+      title: 'Services',
       links: [
-        { label: 'Education Support', href: '/services/education' },
-        { label: 'Health Navigation', href: '/services/health' },
-        { label: 'Benefits Support', href: '/services/social-care' },
-        { label: t('wellness'), href: '/services/community' },
+        { label: 'Education Support', href: '/services' },
+        { label: 'Health Navigation', href: '/services' },
+        { label: 'Social Care & Benefits', href: '/services' },
+        { label: 'Community & Wellbeing', href: '/services' },
       ],
     },
     {
-      title: t('community'),
+      title: 'Community',
       links: [
-        { label: t('forums'), href: '/community/forums' },
-        { label: t('events'), href: '/community/events' },
-        { label: t('support'), href: '/community/support-groups' },
+        { label: 'Forums', href: '/community' },
+        { label: 'Events', href: '/events' },
+        { label: 'Support Groups', href: '/community' },
         { label: 'Newsletter', href: '/newsletter' },
       ],
     },
     {
-      title: footerT('legal'),
+      title: 'Legal',
       links: [
-        { label: footerT('privacy'), href: '/privacy' },
-        { label: footerT('terms'), href: '/terms' },
+        { label: 'Privacy Policy', href: '/privacy-policy' },
+        { label: 'Terms of Service', href: '/terms' },
         { label: 'Accessibility', href: '/accessibility' },
         { label: 'Cookie Policy', href: '/cookies' },
       ],

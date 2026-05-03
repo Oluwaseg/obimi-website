@@ -1,7 +1,6 @@
 'use client';
 
 import { KnowledgeHubCategory } from '@/components/knowledge-hub-category';
-import { useTranslations } from 'next-intl';
 import { use } from 'react';
 
 export default function Page({
@@ -10,71 +9,70 @@ export default function Page({
   params: Promise<{ category: string }>;
 }) {
   const { category: categorySlug } = use(params);
-  const t = useTranslations('KnowledgeHub');
 
-  const categoryMap: Record<string, { titleKey: string; descKey: string }> = {
+  const categoryMap: Record<string, { title: string; desc: string }> = {
     education: {
-      titleKey: 'categoryEducationTitle',
-      descKey: 'categoryEducationDesc',
+      title: 'Education',
+      desc: 'Guidance on EHCPs, school support, and navigating the education system.',
     },
     health: {
-      titleKey: 'categoryHealthTitle',
-      descKey: 'categoryHealthDesc',
+      title: 'Health & Diagnosis',
+      desc: "Understand diagnoses, therapies, and how to support your child's development.",
     },
   };
 
   const match = categoryMap[categorySlug] ?? categoryMap.education;
 
   const category = {
-    title: t(match.titleKey as Parameters<typeof t>[0]),
-    desc: t(match.descKey as Parameters<typeof t>[0]),
+    title: match.title,
+    desc: match.desc,
     slug: categorySlug,
   };
 
   const educationArticles = [
     {
-      title: t('catArticle1Title'),
-      desc: t('catArticle1Desc'),
+      title: 'Annual Reviews of EHCPs: What Parents Need to Know',
+      desc: 'A simple guide to understanding annual reviews and how to prepare effectively.',
       date: 'October 8, 2025',
-      readTime: t('catArticle1ReadTime'),
+      readTime: '5 min read',
       href: `/knowledge-hub/${category.slug}/annual-reviews`,
     },
     {
-      title: t('catArticle2Title'),
-      desc: t('catArticle2Desc'),
+      title: 'Education, Health and Care Plans (EHCPs): A Step-by-Step Guide',
+      desc: 'Navigating the Education, Health and Care Plan process from start to finish.',
       date: 'September 24, 2025',
-      readTime: t('catArticle2ReadTime'),
+      readTime: '8 min read',
       href: `/knowledge-hub/${category.slug}/ehcp-guide`,
     },
     {
-      title: t('catArticle3Title'),
-      desc: t('catArticle3Desc'),
+      title: 'Understanding the SEN Support System',
+      desc: 'How schools provide additional support for children with special educational needs.',
       date: 'August 15, 2025',
-      readTime: t('catArticle3ReadTime'),
+      readTime: '6 min read',
       href: `/knowledge-hub/${category.slug}/sen-support`,
     },
     {
-      title: t('catArticle4Title'),
-      desc: t('catArticle4Desc'),
+      title: 'Choosing the Right School for Your Child',
+      desc: "Factors to consider when looking for a school that meets your child's unique needs.",
       date: 'July 20, 2025',
-      readTime: t('catArticle4ReadTime'),
+      readTime: '7 min read',
       href: `/knowledge-hub/${category.slug}/choosing-school`,
     },
   ];
 
   const healthArticles = [
     {
-      title: t('healthArticle1Title'),
-      desc: t('healthArticle1Desc'),
+      title: 'Understanding Common SEND Diagnoses: What Parents Need to Know',
+      desc: 'A guide to help you understand what a diagnosis means and how to support your child.',
       date: 'April 20, 2026',
-      readTime: t('healthArticle1ReadTime'),
+      readTime: '6 min read',
       href: `/knowledge-hub/${category.slug}/diagnoses-guide`,
     },
     {
-      title: t('healthArticle2Title'),
-      desc: t('healthArticle2Desc'),
+      title: 'Navigating Therapy and Support Services (SALT, OT, CAMHS)',
+      desc: 'A simple breakdown of different therapies and services to help you make informed decisions.',
       date: 'April 22, 2026',
-      readTime: t('healthArticle2ReadTime'),
+      readTime: '5 min read',
       href: `/knowledge-hub/${category.slug}/therapies-guide`,
     },
   ];

@@ -7,11 +7,9 @@ import {
   Sparkles,
   Users,
 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 
 const MissionPage = () => {
-  const t = useTranslations('Mission');
   const router = useRouter();
 
   const handleCTAClick = () => {
@@ -20,26 +18,26 @@ const MissionPage = () => {
 
   const supportBlocks = [
     {
-      title: t('block1Title'),
-      description: t('block1Description'),
+      title: 'Wellbeing Support',
+      description: 'Safe spaces, peer groups, and tools to help you take care of yourself.',
       icon: <Heart className='w-8 h-8 text-primary' />,
       bg: 'bg-primary/5',
     },
     {
-      title: t('block2Title'),
-      description: t('block2Description'),
+      title: 'Practical Guidance',
+      description: 'Clear, easy-to-understand resources on SEND processes and your rights.',
       icon: <Lightbulb className='w-8 h-8 text-accent-foreground' />,
       bg: 'bg-accent/10',
     },
     {
-      title: t('block3Title'),
-      description: t('block3Description'),
+      title: 'Advocacy & Support',
+      description: 'Standing with you as you navigate complex systems.',
       icon: <ShieldCheck className='w-8 h-8 text-secondary-foreground' />,
       bg: 'bg-secondary/20',
     },
     {
-      title: t('block4Title'),
-      description: t('block4Description'),
+      title: 'Community Connection',
+      description: 'Bringing parents together so no one feels alone.',
       icon: <Users className='w-8 h-8 text-brand-deep' />,
       bg: 'bg-brand-deep/5',
     },
@@ -57,21 +55,21 @@ const MissionPage = () => {
               className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'
             >
               <Sparkles className='w-4 h-4' />
-              <span>{t('badge')}</span>
+              <span>{'Our Purpose'}</span>
             </div>
             <h1
               data-aos='fade-right'
               className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'
             >
-              {t('title')}{' '}
-              <span className='text-primary'>{t('titleHighlight')}</span>
+              {'Our Mission'}{' '}
+              <span className='text-primary'>{'Mission'}</span>
             </h1>
             <p
               data-aos='fade-up'
               data-aos-delay='200'
               className='text-2xl text-foreground font-sans leading-relaxed font-medium'
             >
-              {t('heroDescription')}
+              {'At Obimi, our mission is to support, empower, and connect parents and caregivers of children with additional needs.'}
             </p>
             <div
               data-aos='fade-up'
@@ -79,7 +77,7 @@ const MissionPage = () => {
               className='p-6 border-l-4 border-primary bg-muted/30 rounded-r-3xl'
             >
               <p className='text-lg text-muted-foreground font-sans italic'>
-                "{t('quote')}"
+                "{"Raising a child with SEND is deeply meaningful, but it can also be overwhelming and isolating. That's why we place parent wellbeing at the heart of everything we do."}"
               </p>
             </div>
           </div>
@@ -101,7 +99,7 @@ const MissionPage = () => {
               className='absolute -bottom-8 -left-8 bg-accent text-accent-foreground p-8 rounded-[2.5rem] shadow-xl max-w-[240px] -rotate-6'
             >
               <p className='font-heading font-bold text-xl leading-tight'>
-                {t('floatingBadge')}
+                {'When parents are supported, families thrive.'}
               </p>
             </div>
           </div>
@@ -116,10 +114,10 @@ const MissionPage = () => {
             className='text-center max-w-3xl mx-auto mb-16 space-y-4'
           >
             <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
-              {t('sectionTitle')}
+              {'How We Support You'}
             </h2>
             <p className='text-lg text-muted-foreground font-sans'>
-              {t('sectionDescription')}
+              {'We provide holistic support across every stage of your journey.'}
             </p>
           </div>
 
@@ -162,7 +160,7 @@ const MissionPage = () => {
             data-aos-delay='200'
             className='text-3xl md:text-4xl font-heading font-bold text-foreground leading-relaxed'
           >
-            "{t('closingMessage')}"
+            "{'At Obimi, we remind every parent: your wellbeing matters too. Supporting you means strengthening the entire family.'}"
           </h2>
         </div>
         {/* Decorative Blobs */}
@@ -178,20 +176,20 @@ const MissionPage = () => {
               data-aos='fade-right'
               className='text-4xl md:text-6xl font-heading font-bold'
             >
-              {t('visionTitle')}
+              {'Our Vision'}
             </h2>
             <p
               data-aos='fade-right'
               data-aos-delay='200'
               className='text-xl md:text-2xl text-white/80 font-sans leading-relaxed'
             >
-              {t('visionDescription')}
+              {'A world where every SEND parent and caregiver feels confident, informed, and supported — able to advocate for their child and thrive as a family.'}
             </p>
             <button
               onClick={handleCTAClick}
               className='group px-10 py-5 bg-accent text-accent-foreground rounded-full font-heading font-bold text-xl shadow-xl hover:shadow-accent/20 transition-all hover:-translate-y-1 flex items-center gap-3'
             >
-              <span>{t('cta')}</span>
+              <span>{'Join Our Journey'}</span>
               <ArrowRight className='w-6 h-6 group-hover:translate-x-1 transition-transform' />
             </button>
           </div>

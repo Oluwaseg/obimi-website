@@ -7,18 +7,50 @@ import {
   Plus,
   Search,
 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 const FAQPage = () => {
-  const t = useTranslations('FAQPage');
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const router = useRouter();
-  const faqs = Array.from({ length: 9 }).map((_, i) => ({
-    question: t(`faq${i + 1}Question`),
-    answer: t(`faq${i + 1}Answer`),
-  }));
+  const faqs = [
+    {
+      question: 'What does SEND mean?',
+      answer: 'SEND stands for Special Educational Needs and Disabilities. It refers to children who need additional support in learning, development, or daily life.',
+    },
+    {
+      question: 'Who is Obimi for?',
+      answer: "Obimi supports parents, carers, and guardians raising children with SEND — whether you're just starting out or already navigating the system.",
+    },
+    {
+      question: 'What kind of support does Obimi provide?',
+      answer: 'We offer guidance across education, health, and social care, including one-to-one support, workshops, resources, and community connection.',
+    },
+    {
+      question: 'Do I need to pay for support?',
+      answer: 'Some services are free, while others (like personalised sessions) may have a cost. We aim to keep support accessible for all families.',
+    },
+    {
+      question: 'How do I join the community?',
+      answer: 'You can join our community through our platform to connect with other parents, access support, and take part in events.',
+    },
+    {
+      question: "I'm new to SEND — where should I start?",
+      answer: "Start with our Knowledge Hub for simple guides, or reach out for support — we'll help you take the next step.",
+    },
+    {
+      question: 'Does Obimi replace legal or medical advice?',
+      answer: 'No. We provide guidance and support, but we do not replace professional legal or medical services.',
+    },
+    {
+      question: 'Can I get involved or share my story?',
+      answer: 'Yes. You can volunteer, partner with us, or share your experience to support others in the community.',
+    },
+    {
+      question: 'How do I contact Obimi?',
+      answer: "You can reach us through our contact page or email. We're here to help.",
+    },
+  ];
 
   const getInvolved = () => {
     router.push('/contact');
@@ -43,17 +75,17 @@ const FAQPage = () => {
             className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold font-heading uppercase tracking-wider'
           >
             <HelpCircle className='w-4 h-4' />
-            <span>{t('badge')}</span>
+            <span>{'Help Center'}</span>
           </div>
           <h1
             data-aos='fade-up'
             className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'
           >
-            {t('titlePrefix')}{' '}
-            <span className='text-primary'>{t('titleHighlight')}</span>
+            {'Frequently Asked'}{' '}
+            <span className='text-primary'>{'Questions'}</span>
           </h1>
           <p className='text-xl md:text-2xl text-muted-foreground font-sans leading-relaxed'>
-            {t('description')}
+            {'Quick answers to help you understand how Obimi works and how we can support you.'}
           </p>
 
           {/* Search Bar (Visual) */}
@@ -67,7 +99,7 @@ const FAQPage = () => {
             </div>
             <input
               type='text'
-              placeholder={t('searchPlaceholder')}
+              placeholder={'Search for a question...'}
               className='w-full py-6 pl-16 pr-8 bg-background border-2 border-border rounded-[2rem] text-lg font-sans focus:outline-none focus:border-primary transition-colors shadow-xl shadow-primary/5'
             />
           </div>
@@ -125,16 +157,16 @@ const FAQPage = () => {
             <MessageCircle className='w-12 h-12 text-primary' />
           </div>
           <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
-            {t('finalCtaTitle')}
+            {'Still have questions?'}
           </h2>
           <p className='text-xl text-muted-foreground font-sans'>
-            {t('finalCtaDescription')}
+            {"We're here to help. Reach out to us and we'll get back to you as soon as possible."}
           </p>
           <button
             onClick={getInvolved}
             className='group px-12 py-6 bg-primary text-primary-foreground rounded-full font-heading font-bold text-2xl shadow-2xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-2 flex items-center gap-3 mx-auto'
           >
-            <span>{t('finalCtaButton')}</span>
+            <span>{'Contact Us'}</span>
             <ArrowRight className='w-6 h-6 group-hover:translate-x-1 transition-transform' />
           </button>
         </div>

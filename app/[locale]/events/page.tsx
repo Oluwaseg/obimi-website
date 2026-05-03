@@ -1,7 +1,6 @@
 'use client';
 import { IMAGES } from '@/constants/image';
 import { Calendar, ChevronLeft, ChevronRight, Heart, X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 const HERO_BG = IMAGES.EVENT_C.src;
@@ -221,7 +220,6 @@ function Lightbox({
 
 // ============ MAIN EVENTS PAGE ============
 export default function Events() {
-  const t = useTranslations('PressPage');
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImages, setLightboxImages] = useState<
     Array<{ src: string; alt: string; title?: string }>
@@ -247,23 +245,23 @@ export default function Events() {
 
   const communityGalleries = [
     // {
-    //   title: t('gallery1Title'),
-    //   description: t('gallery1Description'),
+    //   title: 'Coffee Morning Meetup',
+    //   description: 'Highlights from our cozy coffee gatherings',
     //   images: COMMUNITY_GALLERIES[0].images,
     // },
     // {
-    //   title: t('gallery2Title'),
-    //   description: t('gallery2Description'),
+    //   title: 'Parent Support Workshop',
+    //   description: 'Moments of learning, connection, and empowerment',
     //   images: COMMUNITY_GALLERIES[1].images,
     // },
     {
-      title: t('gallery3Title'),
-      description: t('gallery3Description'),
+      title: 'Community Gathering',
+      description: 'Celebrating togetherness and building stronger families',
       images: COMMUNITY_GALLERIES[0].images,
     },
   ];
 
-  const features = [t('feature1'), t('feature2'), t('feature3')];
+  const features = ['Connect with like-minded parents and caregivers', 'Learn practical strategies and tools', 'Build meaningful relationships in a safe space'];
 
   return (
     <div className='min-h-screen bg-background'>
@@ -285,14 +283,14 @@ export default function Events() {
               data-aos='fade-up'
               className='text-5xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight'
             >
-              {t('heroTitle')}
+              {'Events'}
             </h1>
             <p
               data-aos='fade-up'
               data-aos-delay='200'
               className='text-xl md:text-2xl text-white/90 font-light'
             >
-              {t('heroDescription')}
+              {'Bringing parents and caregivers together through support, learning, and community.'}
             </p>
           </div>
         </div>
@@ -307,7 +305,7 @@ export default function Events() {
             data-aos='fade-down'
             className='text-4xl md:text-5xl font-heading font-bold text-primary mb-4 text-center animate-fade-in-up'
           >
-            {t('upcomingTitle')}
+            {'Upcoming Events'}
           </h2>
 
           <div
@@ -320,19 +318,19 @@ export default function Events() {
             </div>
 
             <h3 className='text-2xl font-heading font-bold text-foreground mb-3'>
-              {t('upcomingCardTitle')}
+              {"We're currently planning our next events."}
             </h3>
 
             <p className='text-lg text-muted-foreground mb-8'>
-              {t('upcomingCardDescription')}
+              {'Stay connected to be the first to know when new sessions are announced.'}
             </p>
 
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <button className='px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full transition-all duration-300 hover:shadow-lg'>
-                {t('joinCommunity')}
+                {'Join Community'}
               </button>
               <button className='px-8 py-3 border-2 border-primary text-primary hover:bg-primary/10 font-semibold rounded-full transition-all duration-300'>
-                {t('getUpdates')}
+                {'Get Updates'}
               </button>
             </div>
           </div>
@@ -347,10 +345,10 @@ export default function Events() {
               data-aos='fade-right'
               className='text-4xl md:text-5xl font-heading font-bold text-primary mb-4'
             >
-              {t('featuredTitle')}
+              {'Featured Events'}
             </h2>
             <p className='text-lg text-muted-foreground'>
-              {t('featuredDescription')}
+              {'Explore our most anticipated community events'}
             </p>
           </div>
 
@@ -390,10 +388,10 @@ export default function Events() {
               data-aos='fade-right'
               className='text-4xl md:text-5xl font-heading font-bold text-primary mb-4'
             >
-              {t('communityMomentsTitle')}
+              {'Community Moments'}
             </h2>
             <p className='text-lg text-muted-foreground'>
-              {t('communityMomentsDescription')}
+              {'Highlights from past Obimi events and gatherings'}
             </p>
           </div>
 
@@ -446,10 +444,10 @@ export default function Events() {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center'>
             <div className='animate-fade-in-up'>
               <h2 className='text-4xl md:text-5xl font-heading font-bold text-primary mb-6 leading-tight'>
-                {t('finalCtaTitle')}
+                {'Join Our Next Event'}
               </h2>
               <p className='text-xl text-muted-foreground mb-8 leading-relaxed'>
-                {t('finalCtaDescription')}
+                {'Be part of a supportive community that understands your journey. Connect with other parents and caregivers, learn from experts, and grow together.'}
               </p>
 
               <div className='space-y-4 mb-8'>
@@ -472,10 +470,10 @@ export default function Events() {
 
             <div className='flex flex-col gap-4 animate-fade-in-up'>
               <button className='px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full transition-all duration-300 hover:shadow-lg text-lg'>
-                {t('getInvolved')}
+                {'Get Involved'}
               </button>
               <button className='px-8 py-4 border-2 border-primary text-primary hover:bg-primary/10 font-semibold rounded-full transition-all duration-300 text-lg'>
-                {t('joinCommunity')}
+                {'Join Community'}
               </button>
             </div>
           </div>

@@ -12,61 +12,59 @@ import {
   Shield,
   UserCheck,
 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 export default function PrivacyPolicyPage() {
-  const t = useTranslations('PrivacyPolicyPage');
 
   const sections = [
     {
       id: 'who-we-are',
-      title: t('section1Title'),
+      title: '1. Who We Are',
       icon: <UserCheck className='w-5 h-5' />,
     },
     {
       id: 'info-collect',
-      title: t('section2Title'),
+      title: '2. Information We Collect',
       icon: <Database className='w-5 h-5' />,
     },
     {
       id: 'how-use',
-      title: t('section3Title'),
+      title: '3. How We Use Your Data',
       icon: <Eye className='w-5 h-5' />,
     },
     {
       id: 'legal-basis',
-      title: t('section4Title'),
+      title: '4. Legal Basis',
       icon: <Shield className='w-5 h-5' />,
     },
     {
       id: 'sharing',
-      title: t('section5Title'),
+      title: '5. Sharing Your Data',
       icon: <Share2 className='w-5 h-5' />,
     },
     {
       id: 'retention',
-      title: t('section6Title'),
+      title: '6. Data Retention',
       icon: <Clock className='w-5 h-5' />,
     },
     {
       id: 'rights',
-      title: t('section7Title'),
+      title: '7. Your Rights',
       icon: <Lock className='w-5 h-5' />,
     },
     {
       id: 'cookies',
-      title: t('section8Title'),
+      title: '8. Cookies',
       icon: <Database className='w-5 h-5' />,
     },
     {
       id: 'security',
-      title: t('section9Title'),
+      title: '9. Security',
       icon: <Shield className='w-5 h-5' />,
     },
     {
       id: 'contact',
-      title: t('section10Title'),
+      title: '10. Contact',
       icon: <Mail className='w-5 h-5' />,
     },
   ];
@@ -80,27 +78,27 @@ export default function PrivacyPolicyPage() {
           className='inline-flex items-center gap-2 text-gray-500 hover:text-brand-deep font-bold mb-8 transition-colors group'
         >
           <ArrowLeft className='w-5 h-5 group-hover:-translate-x-1 transition-transform' />
-          <span>{t('backHome')}</span>
+          <span>{'Back to Home'}</span>
         </Link>
 
         <div className='max-w-4xl'>
           <div data-aos='fade-down' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-deep/5 text-brand-deep text-sm font-bold mb-6'>
             <Shield className='w-4 h-4' />
-            <span>{t('badge')}</span>
+            <span>{'Privacy Policy'}</span>
           </div>
           <h1 data-aos='fade-right' className='text-5xl md:text-7xl font-bold font-heading text-brand-deep mb-8 leading-[1.1]'>
-            {t('titlePrefix')}{' '}
-            <span className='text-brand-deep'>{t('titleHighlight')}</span>
-            {t('titleSuffix')}
+            {'Your Privacy '}{' '}
+            <span className='text-brand-deep'>{'Matters'}</span>
+            {'.'}
           </h1>
           <div data-aos='fade-up' data-aos-delay='200' className='flex flex-wrap items-center gap-6 text-gray-500 font-medium'>
             <div className='flex items-center gap-2'>
               <Clock className='w-5 h-5 text-brand-deep' />
-              <span>{t('effectiveDate')}</span>
+              <span>{'Effective Date: September 16, 2025'}</span>
             </div>
             <div className='flex items-center gap-2'>
               <Clock className='w-5 h-5 text-brand-deep' />
-              <span>{t('lastUpdated')}</span>
+              <span>{'Last Updated: September 16, 2025'}</span>
             </div>
           </div>
         </div>
@@ -113,7 +111,7 @@ export default function PrivacyPolicyPage() {
           <aside className='hidden lg:block lg:col-span-4'>
             <div data-aos='fade-right' className='sticky top-32 p-8 bg-gray-50 rounded-[2.5rem] border border-gray-100'>
               <h4 className='text-xl font-bold font-heading text-brand-deep mb-6'>
-                {t('contentsTitle')}
+                {'Contents'}
               </h4>
               <nav className='space-y-2'>
                 {sections.map((section) => (
@@ -136,7 +134,7 @@ export default function PrivacyPolicyPage() {
           <div className='lg:col-span-8'>
             <div data-aos='fade-left' className='bg-brand-deep/5 p-8 md:p-10 rounded-[2.5rem] mb-16 border-l-4 border-brand-deep'>
               <p className='text-xl text-brand-deep font-medium leading-relaxed italic'>
-                {t('introQuote')}
+                {'"At Obimi, we are committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information when you use our website or services."'}
               </p>
             </div>
 
@@ -147,20 +145,20 @@ export default function PrivacyPolicyPage() {
                   <span className='w-10 h-10 text-brand-deep flex items-center justify-center'>
                     1
                   </span>
-                  {t('section1Title').replace('1. ', '')}
+                  {'1. Who We Are'.replace('1. ', '')}
                 </h2>
                 <div className='prose prose-lg max-w-none text-gray-600 leading-relaxed'>
-                  <p>{t('section1Content1')}</p>
+                  <p>{'Obimi is a community initiative supporting parents and caregivers of children with additional educational needs.'}</p>
                   <ul className='list-none space-y-2 mt-4'>
                     <li className='flex items-center gap-2'>
                       <span className='font-bold text-brand-deep'>
-                        {t('section1Website')}
+                        {'Website:'}
                       </span>{' '}
                       obimi.org
                     </li>
                     <li className='flex items-center gap-2'>
                       <span className='font-bold text-brand-deep'>
-                        {t('section1Email')}
+                        {'Email:'}
                       </span>{' '}
                       info@obimii.com
                     </li>
@@ -174,17 +172,17 @@ export default function PrivacyPolicyPage() {
                   <span className='w-10 h-10 text-brand-deep flex items-center justify-center'>
                     2
                   </span>
-                  {t('section2Title').replace('2. ', '')}
+                  {'2. Information We Collect'.replace('2. ', '')}
                 </h2>
                 <div className='prose prose-lg max-w-none text-gray-600 leading-relaxed'>
-                  <p>{t('section2Content1')}</p>
+                  <p>{'We may collect the following information:'}</p>
                   <ul className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-6'>
                     {[
-                      t('section2List1'),
-                      t('section2List2'),
-                      t('section2List3'),
-                      t('section2List4'),
-                      t('section2List5'),
+                      'Personal details (name, email, phone number)',
+                      'Event registrations',
+                      'Newsletter subscriptions',
+                      'Messages you send us',
+                      'Website usage data (cookies, analytics)',
                     ].map((item, i) => (
                       <li
                         key={i}
@@ -204,17 +202,17 @@ export default function PrivacyPolicyPage() {
                   <span className='w-10 h-10 text-brand-deep flex items-center justify-center'>
                     3
                   </span>
-                  {t('section3Title').replace('3. ', '')}
+                  {'3. How We Use Your Data'.replace('3. ', '')}
                 </h2>
                 <div className='prose prose-lg max-w-none text-gray-600 leading-relaxed'>
-                  <p>{t('section3Content1')}</p>
+                  <p>{'We use your data to:'}</p>
                   <ul className='space-y-4 mt-6'>
                     {[
-                      t('section3List1'),
-                      t('section3List2'),
-                      t('section3List3'),
-                      t('section3List4'),
-                      t('section3List5'),
+                      'Register you for events and support services',
+                      'Send updates and resources',
+                      'Respond to enquiries',
+                      'Improve our website and services',
+                      'Meet legal requirements',
                     ].map((item, i) => (
                       <li key={i} className='flex items-center gap-4 text-lg'>
                         <ChevronRight className='w-5 h-5 text-brand-deep' />
@@ -231,20 +229,20 @@ export default function PrivacyPolicyPage() {
                   <span className='w-10 h-10 text-brand-deep flex items-center justify-center'>
                     5
                   </span>
-                  {t('section5Title').replace('5. ', '')}
+                  {'5. Sharing Your Data'.replace('5. ', '')}
                 </h2>
                 <div className='prose prose-lg max-w-none text-gray-600 leading-relaxed'>
                   <div className='p-6 bg-brand-yellow/10 rounded-2xl border border-brand-yellow/20 mb-8'>
                     <p className='text-brand-deep font-bold text-xl mb-0'>
-                      {t('section5Highlight')}
+                      {'We do not sell your data.'}
                     </p>
                   </div>
-                  <p>{t('section5Content1')}</p>
+                  <p>{'We may share it with:'}</p>
                   <ul className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-6'>
                     {[
-                      t('section5List1'),
-                      t('section5List2'),
-                      t('section5List3'),
+                      'Event platforms (e.g. Eventbrite)',
+                      'Email providers (e.g. Mailchimp)',
+                      'Service providers supporting our website',
                     ].map((item, i) => (
                       <li
                         key={i}
@@ -256,7 +254,7 @@ export default function PrivacyPolicyPage() {
                     ))}
                   </ul>
                   <p className='mt-8 italic text-gray-500'>
-                    {t('section5Note')}
+                    {'All partners must protect your data.'}
                   </p>
                 </div>
               </section>
@@ -267,27 +265,27 @@ export default function PrivacyPolicyPage() {
                   <span className='w-10 h-10 text-brand-deep flex items-center justify-center'>
                     7
                   </span>
-                  {t('section7Title').replace('7. ', '')}
+                  {'7. Your Rights'.replace('7. ', '')}
                 </h2>
                 <div className='prose prose-lg max-w-none text-gray-600 leading-relaxed'>
-                  <p>{t('section7Content1')}</p>
+                  <p>{'You have the right to:'}</p>
                   <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-8'>
                     {[
                       {
-                        title: t('section7Right1Title'),
-                        desc: t('section7Right1Desc'),
+                        title: 'Access',
+                        desc: 'Request a copy of your data',
                       },
                       {
-                        title: t('section7Right2Title'),
-                        desc: t('section7Right2Desc'),
+                        title: 'Correction',
+                        desc: 'Request corrections or deletion',
                       },
                       {
-                        title: t('section7Right3Title'),
-                        desc: t('section7Right3Desc'),
+                        title: 'Withdraw',
+                        desc: 'Withdraw your consent at any time',
                       },
                       {
-                        title: t('section7Right4Title'),
-                        desc: t('section7Right4Desc'),
+                        title: 'Object',
+                        desc: 'Object to data processing',
                       },
                     ].map((item, i) => (
                       <div
@@ -305,7 +303,7 @@ export default function PrivacyPolicyPage() {
                   </div>
                   <div className='mt-10 p-6 bg-gray-50 rounded-2xl border border-gray-100'>
                     <p className='text-sm mb-0'>
-                      {t('section7IcoPrefix')}
+                      {'File a complaint with the UK ICO: '}
                       <Link
                         href='https://www.ico.org.uk'
                         className='text-brand-deep font-bold underline'
@@ -323,10 +321,10 @@ export default function PrivacyPolicyPage() {
                   <div className='absolute top-0 right-0 w-64 h-64 bg-brand-deep/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2' />
                   <div className='relative z-10'>
                     <h2 className='text-3xl font-bold font-heading mb-6'>
-                      {t('section10Heading')}
+                      {'Questions?'}
                     </h2>
                     <p className='text-xl text-white/70 mb-8'>
-                      {t('section10Desc')}
+                      {'If you have any questions about this policy or how we handle your data, please reach out.'}
                     </p>
                     <Link
                       href='mailto:info@obimii.com'
