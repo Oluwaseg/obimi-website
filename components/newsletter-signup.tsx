@@ -2,7 +2,6 @@
 
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, Mail, Sparkles } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 interface NewsletterSignupProps {
@@ -10,7 +9,6 @@ interface NewsletterSignupProps {
 }
 
 export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
-  const t = useTranslations('NewsletterSignup');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<
     'idle' | 'loading' | 'success' | 'error'
@@ -34,7 +32,7 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
 
       if (response.ok) {
         setStatus('success');
-        setMessage(t('successMessage'));
+        setMessage('Thank you for subscribing!');
         setEmail('');
         setTimeout(() => {
           setStatus('idle');
@@ -42,7 +40,7 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
         }, 5000);
       } else {
         setStatus('error');
-        setMessage(data.error || t('errorMessage'));
+        setMessage(data.error || 'Failed to subscribe. Please try again.');
         setTimeout(() => {
           setStatus('idle');
           setMessage('');
@@ -50,7 +48,7 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
       }
     } catch {
       setStatus('error');
-      setMessage(t('errorMessage'));
+      setMessage('Failed to subscribe. Please try again.');
       setTimeout(() => {
         setStatus('idle');
         setMessage('');
@@ -85,12 +83,13 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
                 <div>
                   <div className='flex items-center gap-2 mb-2'>
                     <h2 className='text-2xl sm:text-3xl font-heading font-bold text-foreground'>
-                      {t('title')}
+                      Stay in the Loop
                     </h2>
                     <Sparkles className='w-6 h-6 text-accent animate-pulse' />
                   </div>
                   <p className='text-sm text-muted-foreground'>
-                    {t('description')}
+                    Get exclusive updates, resources, and insights delivered to
+                    your inbox.
                   </p>
                 </div>
               </div>
@@ -103,7 +102,7 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
                       type='email'
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder={t('placeholder')}
+                      placeholder='your@email.com'
                       required
                       disabled={status === 'success'}
                       className='w-full px-6 py-3 bg-background/70 backdrop-blur-sm border border-primary/20 hover:border-primary/40 rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:border-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
@@ -117,17 +116,17 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
                     {status === 'loading' && (
                       <span className='flex items-center gap-2'>
                         <span className='w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin' />
-                        {t('buttonLoading')}
+                        Subscribing...
                       </span>
                     )}
                     {status === 'success' && (
                       <span className='flex items-center gap-2'>
                         <CheckCircle2 className='w-4 h-4' />
-                        {t('buttonSuccess')}
+                        Subscribed!
                       </span>
                     )}
-                    {status === 'idle' && t('buttonIdle')}
-                    {status === 'error' && t('buttonError')}
+                    {status === 'idle' && 'Subscribe'}
+                    {status === 'error' && 'Try Again'}
                   </Button>
                 </div>
 
@@ -153,7 +152,7 @@ export function NewsletterSignup({ className = '' }: NewsletterSignupProps) {
 
               {/* Trust badge */}
               <p className='text-xs text-muted-foreground mt-6 text-center'>
-                {t('privacyText')}
+                ✓ No spam, unsubscribe anytime. We respect your privacy.
               </p>
             </div>
           </div>

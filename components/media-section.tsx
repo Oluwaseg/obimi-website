@@ -1,7 +1,6 @@
 'use client';
 import { IMAGES } from '@/constants';
 import { ExternalLink, Image as ImageIcon, Play, Video, X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import Image, { StaticImageData } from 'next/image';
 import { useState } from 'react';
 
@@ -72,7 +71,6 @@ const videos = [
 ];
 
 const MediaSection = () => {
-  const t = useTranslations('MediaSection');
   const [selectedImage, setSelectedImage] = useState<
     StaticImageData | string | null
   >(null);
@@ -83,8 +81,16 @@ const MediaSection = () => {
   };
 
   const videoTitles = [
-    { title: t('video1Title'), description: t('video1Description') },
-    { title: t('video2Title'), description: t('video2Description') },
+    {
+      title: 'Obimi Founder',
+      description:
+        'Hear from our founder about how Obimi is making a difference.',
+    },
+    {
+      title: 'Obimi Testimonial',
+      description:
+        'Hear from our community members about their experience with Obimi.',
+    },
   ];
 
   return (
@@ -96,10 +102,10 @@ const MediaSection = () => {
           className='text-center max-w-2xl mx-auto space-y-4'
         >
           <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
-            {t('title')}
+            Our Media
           </h2>
           <p className='text-lg text-muted-foreground font-sans'>
-            {t('description')}
+            Glimpses of our community and the impact we're making together.
           </p>
         </div>
 
@@ -110,9 +116,7 @@ const MediaSection = () => {
             className='flex items-center gap-3 border-b border-border pb-4'
           >
             <ImageIcon className='w-6 h-6 text-primary' />
-            <h3 className='text-2xl font-heading font-bold'>
-              {t('photoGallery')}
-            </h3>
+            <h3 className='text-2xl font-heading font-bold'>Photo Gallery</h3>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]'>
@@ -155,9 +159,7 @@ const MediaSection = () => {
             className='flex items-center gap-3 border-b border-border pb-4'
           >
             <Video className='w-6 h-6 text-secondary-foreground' />
-            <h3 className='text-2xl font-heading font-bold'>
-              {t('videoStories')}
-            </h3>
+            <h3 className='text-2xl font-heading font-bold'>Video Stories</h3>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>

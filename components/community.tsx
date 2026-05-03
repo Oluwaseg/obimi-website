@@ -1,11 +1,9 @@
 'use client';
 import { ArrowRight, Heart, Users } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 
 const CommunityCTA = () => {
   const router = useRouter();
-  const t = useTranslations('Community');
 
   const handleCtaClick = () => {
     router.push('/contact');
@@ -23,16 +21,19 @@ const CommunityCTA = () => {
           <div data-aos='fade-right' className='space-y-8 text-white'>
             <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-primary text-sm font-bold font-heading uppercase tracking-wider'>
               <Users className='w-4 h-4' />
-              <span>{t('badge')}</span>
+              <span>Join Our Family</span>
             </div>
 
             <h2 className='text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight'>
-              {t('title')} <br />
-              <span className='text-primary italic'>{t('titleHighlight')}</span>
+              You Don't Have to <br />
+              <span className='text-primary italic'>Do This Alone</span>
             </h2>
 
             <p className='text-xl text-white/80 font-sans leading-relaxed max-w-xl'>
-              {t('description')}
+              Raising a child with SEND comes with unique challenges — but you
+              don't have to face them by yourself. Join a community of parents
+              who understand, share, and support each other every step of the
+              way.
             </p>
 
             <div className='flex flex-col sm:flex-row gap-4 pt-4'>
@@ -40,7 +41,7 @@ const CommunityCTA = () => {
                 onClick={handleCtaClick}
                 className='group px-8 py-4 bg-accent text-accent-foreground rounded-2xl font-heading font-bold text-lg shadow-xl shadow-accent/20 hover:shadow-accent/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-2'
               >
-                <span>{t('ctaPrimary')}</span>
+                <span>Join the Community</span>
                 <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
               </button>
 
@@ -49,7 +50,7 @@ const CommunityCTA = () => {
                 className='px-8 py-4 bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 rounded-full font-heading font-bold text-lg transition-all flex items-center justify-center gap-2'
               >
                 <Heart className='w-5 h-5' />
-                <span>{t('ctaSecondary')}</span>
+                <span>Get Support</span>
               </button>
             </div>
           </div>

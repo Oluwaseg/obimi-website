@@ -11,7 +11,6 @@ import {
   Share2,
   Sparkles,
 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 export type SectionType = 'text' | 'list' | 'steps' | 'alert';
@@ -42,7 +41,6 @@ interface ArticleProps {
 }
 
 export function KnowledgeHubArticle({ article }: ArticleProps) {
-  const t = useTranslations('KnowledgeHub');
   return (
     <article className='bg-white min-h-screen pt-32 pb-24'>
       <div className='max-w-[1440px] mx-auto px-6 md:px-12 mb-12'>
@@ -51,7 +49,7 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
             href='/knowledge-hub'
             className='hover:text-brand-purple transition-colors'
           >
-            {t('articleKnowledgeHub')}
+            {'Knowledge Hub'}
           </Link>
           <ChevronRight className='w-4 h-4' />
           <Link
@@ -177,7 +175,7 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
               <div className='relative z-10'>
                 <h3 className='text-2xl font-bold font-heading mb-4 flex items-center gap-3'>
                   <Sparkles className='w-6 h-6 text-brand-yellow' />
-                  {t('articleKeyTakeaway')}
+                  {'Key Takeaway'}
                 </h3>
                 <p className='text-xl text-white/80 leading-relaxed'>
                   {article.takeaway}
@@ -192,7 +190,7 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
                   {article.cta.text}
                 </h3>
                 <p className='text-brand-deep/70 font-medium'>
-                  {t('articleResponseTime')}
+                  {'We typically respond within 24–48 hours.'}
                 </p>
               </div>
               <Link
@@ -211,7 +209,7 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
               {/* Table of Contents */}
               <div className='p-8 bg-gray-50 rounded-[2.5rem] border border-gray-100'>
                 <h4 className='text-xl font-bold font-heading text-brand-deep mb-6'>
-                  {t('articleInThisGuide')}
+                  {'In this guide'}
                 </h4>
                 <nav className='space-y-4'>
                   {article.sections.map((section, idx) => (
@@ -231,7 +229,7 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
               {/* Related Articles */}
               <div className='p-8 bg-brand-purple/5 rounded-[2.5rem] border border-brand-purple/10'>
                 <h4 className='text-xl font-bold font-heading text-brand-deep mb-6'>
-                  {t('articleRelatedResources')}
+                  {'Related Resources'}
                 </h4>
                 <div className='space-y-6'>
                   <Link href='#' className='group block'>

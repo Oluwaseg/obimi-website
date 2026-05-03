@@ -1,10 +1,8 @@
 'use client';
 import { ArrowRight, Heart, Sparkles, Users } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 
 export function Hero() {
-  const t = useTranslations('Hero');
   const router = useRouter();
 
   const handleCtaClick = () => {
@@ -25,16 +23,16 @@ export function Hero() {
             className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/30 border border-secondary/50 text-secondary-foreground text-sm font-medium animate-in fade-in slide-in-from-left-4 duration-700'
           >
             <Sparkles className='w-4 h-4 text-primary' />
-            <span>{t('badge')}</span>
+            <span>Empowering SEND Families</span>
           </div>
 
           <h1
             data-aos='fade-right'
             className='text-5xl md:text-6xl lg:text-7xl font-heading font-bold leading-[1.1] text-foreground tracking-tight'
           >
-            {t('title')} <br />
+            Support for Parents <br />
             <span className='text-primary relative'>
-              {t('titleHighlight')}
+              Raising Children
               <svg
                 className='absolute -bottom-2 left-0 w-full h-3 text-accent/60'
                 viewBox='0 0 100 10'
@@ -49,7 +47,7 @@ export function Hero() {
                 />
               </svg>
             </span>
-            <span className='block'>{t('titleSuffix')}</span>
+            <span className='block'>with SEND</span>
           </h1>
 
           <p
@@ -57,7 +55,9 @@ export function Hero() {
             data-aos-delay='200'
             className='text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed font-sans'
           >
-            {t('description')}
+            Navigating education, health, and care systems can feel
+            overwhelming. Obimi gives you the guidance, resources, and community
+            you need to support your child with confidence.
           </p>
 
           <div
@@ -69,7 +69,7 @@ export function Hero() {
               onClick={handleCtaClick}
               className='group relative px-8 py-4 bg-primary text-primary-foreground font-heading font-bold text-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-1 flex items-center justify-center gap-2 overflow-hidden rounded-full hover:shadow-md transition-all'
             >
-              <span className='relative z-10'>{t('ctaPrimary')}</span>
+              <span className='relative z-10'>Get Support</span>
               <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10' />
               <div className='absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300' />
             </button>
@@ -79,7 +79,7 @@ export function Hero() {
               className='px-8 py-4 bg-transparent border-2 border-primary/20 text-primary hover:bg-primary/5 font-heading font-bold text-lg flex items-center justify-center gap-2 rounded-full hover:shadow-md transition-all'
             >
               <Users className='w-5 h-5' />
-              <span>{t('ctaSecondary')}</span>
+              <span>Join Community</span>
             </button>
           </div>
 
@@ -103,10 +103,8 @@ export function Hero() {
               ))}
             </div>
             <p className='text-sm text-muted-foreground font-sans'>
-              <span className='font-bold text-foreground'>
-                {t('trustNumber')}
-              </span>{' '}
-              {t('trustText')}
+              <span className='font-bold text-foreground'>500+</span> parents
+              already joined
             </p>
           </div>
         </div>
@@ -162,10 +160,10 @@ export function Hero() {
                 <Users className='w-6 h-6 text-accent' />
               </div>
               <span className='text-2xl font-heading font-bold'>
-                {t('cardTitle')}
+                Expert Guidance
               </span>
               <span className='text-xs opacity-80 font-sans'>
-                {t('cardSubtitle')}
+                From SEND professionals
               </span>
             </div>
           </div>

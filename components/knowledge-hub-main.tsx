@@ -9,25 +9,22 @@ import {
   Search,
   Stethoscope,
 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 export function KnowledgeHubMain() {
-  const t = useTranslations('KnowledgeHub');
-
   const categories = [
     {
       id: 'education',
-      title: t('categoryEducationTitle'),
-      desc: t('categoryEducationDesc'),
+      title: 'Education',
+      desc: 'Guidance on EHCPs, school support, and navigating the education system.',
       icon: <GraduationCap className='w-8 h-8' />,
       color: 'bg-brand-purple/10 text-brand-purple',
       href: '/knowledge-hub/education',
     },
     {
       id: 'health',
-      title: t('categoryHealthTitle'),
-      desc: t('categoryHealthDesc'),
+      title: 'Health & Diagnosis',
+      desc: "Understand diagnoses, therapies, and how to support your child's development.",
       icon: <Stethoscope className='w-8 h-8' />,
       color: 'bg-brand-yellow/10 text-brand-yellow-dark',
       href: '/knowledge-hub/health',
@@ -36,27 +33,27 @@ export function KnowledgeHubMain() {
 
   const featuredArticles = [
     {
-      title: t('article1Title'),
-      desc: t('article1Excerpt'),
+      title: 'Annual Reviews of EHCPs: What Parents Need to Know',
+      desc: 'A simple guide to understanding annual reviews and how to prepare effectively.',
       date: 'Oct 8, 2025',
-      readTime: t('article1ReadTime'),
-      category: t('article1Category'),
+      readTime: '5 min read',
+      category: 'Education',
       href: '/knowledge-hub/education/annual-reviews',
     },
     {
-      title: t('article2Title'),
-      desc: t('article2Excerpt'),
+      title: 'Education, Health and Care Plans (EHCPs): A Step-by-Step Guide',
+      desc: 'Navigating the Education, Health and Care Plan process from start to finish.',
       date: 'Sep 24, 2025',
-      readTime: t('article2ReadTime'),
-      category: t('article2Category'),
+      readTime: '8 min read',
+      category: 'Guidance',
       href: '/knowledge-hub/education/ehcp-guide',
     },
     {
-      title: t('article3Title'),
-      desc: t('article3Excerpt'),
+      title: 'Understanding the SEN Support System',
+      desc: 'How schools provide additional support for children with special educational needs.',
       date: 'Aug 15, 2025',
-      readTime: t('article3ReadTime'),
-      category: t('article3Category'),
+      readTime: '6 min read',
+      category: 'Support',
       href: '/knowledge-hub/education/sen-support',
     },
   ];
@@ -66,27 +63,34 @@ export function KnowledgeHubMain() {
       {/* Hero Section */}
       <section className='max-w-[1440px] mx-auto px-6 md:px-12 mb-20'>
         <div className='max-w-3xl'>
-<div data-aos='fade-down' className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-purple/5 text-brand-purple text-sm font-bold mb-6'>
+          <div
+            data-aos='fade-down'
+            className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-purple/5 text-brand-purple text-sm font-bold mb-6'
+          >
             <BookOpen className='w-4 h-4' />
-            <span>{t('badge')}</span>
+            <span>Knowledge Hub</span>
           </div>
-          <h1 data-aos='fade-right' className='text-5xl md:text-7xl font-bold font-heading text-brand-deep mb-8 leading-[1.1]'>
-            {t('mainHeroTitle')}{' '}
-            <span className='text-brand-purple'>
-              {t('mainHeroTitleHighlight')}
-            </span>
-            .
+          <h1
+            data-aos='fade-right'
+            className='text-5xl md:text-7xl font-bold font-heading text-brand-deep mb-8 leading-[1.1]'
+          >
+            Clear, practical resources to help you{' '}
+            <span className='text-brand-purple'>understand SEND</span>.
           </h1>
           <p className='text-xl text-gray-600 leading-relaxed mb-10'>
-            {t('mainHeroDescription')}
+            Clear, practical resources to help you understand SEND and
+            confidently support your child.
           </p>
-
           {/* Search Bar */}
-          <div data-aos='fade-up' data-aos-delay='200' className='relative max-w-2xl group'>
+          <div
+            data-aos='fade-up'
+            data-aos-delay='200'
+            className='relative max-w-2xl group'
+          >
             <Search className='absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400 group-focus-within:text-brand-purple transition-colors' />
             <input
               type='text'
-              placeholder={t('mainSearchPlaceholder')}
+              placeholder='Search for guides, articles, or topics...'
               className='w-full pl-16 pr-8 py-6 bg-gray-50 border border-gray-100 rounded-[2rem] text-lg focus:outline-none focus:ring-4 focus:ring-brand-purple/10 focus:bg-white transition-all'
             />
           </div>
@@ -98,9 +102,11 @@ export function KnowledgeHubMain() {
         <div className='flex items-end justify-between mb-12'>
           <div>
             <h2 className='text-4xl font-bold font-heading text-brand-deep mb-4'>
-              {t('mainCategoriesTitle')}
+              Explore by Category
             </h2>
-            <p className='text-gray-500'>{t('mainCategoriesDescription')}</p>
+            <p className='text-gray-500'>
+              Find the specific support you need across different areas.
+            </p>
           </div>
         </div>
 
@@ -125,7 +131,7 @@ export function KnowledgeHubMain() {
                 {cat.desc}
               </p>
               <div className='flex items-center gap-2 text-brand-purple font-bold group-hover:gap-4 transition-all'>
-                <span>{t('mainViewArticles')}</span>
+                <span>View Articles</span>
                 <ArrowRight className='w-5 h-5' />
               </div>
 
@@ -147,17 +153,17 @@ export function KnowledgeHubMain() {
             <div className='flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16'>
               <div>
                 <h2 className='text-4xl md:text-5xl font-bold font-heading text-white mb-4'>
-                  {t('mainFeaturedTitle')}
+                  Featured Resources
                 </h2>
                 <p className='text-white/60 text-lg'>
-                  {t('mainFeaturedDescription')}
+                  Our most helpful guides, handpicked for you.
                 </p>
               </div>
               <Link
                 href='/knowledge-hub/all'
                 className='inline-flex items-center gap-3 px-8 py-4 bg-white text-brand-deep font-bold rounded-full hover:bg-brand-yellow transition-colors'
               >
-                <span>{t('mainViewAllResources')}</span>
+                <span>{'View All Resources'}</span>
                 <ArrowRight className='w-5 h-5' />
               </Link>
             </div>

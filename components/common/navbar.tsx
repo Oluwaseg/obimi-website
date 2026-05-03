@@ -3,15 +3,12 @@
 import { IMAGES } from '@/constants';
 import { routing } from '@/i18n/routing';
 import { ChevronDown, Heart, LayoutGrid, X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export function Navbar() {
-  const t = useTranslations('Navigation');
-  const commonT = useTranslations('Common');
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -31,22 +28,22 @@ export function Navbar() {
   };
 
   const navItems = [
-    { label: t('home'), href: '/' },
+    { label: 'Home', href: '/' },
     {
-      label: t('aboutUs'),
+      label: 'About Us',
       items: [
-        { label: t('support'), href: '/support' },
-        { label: t('mission'), href: '/mission' },
-        { label: t('ourTeam'), href: '/our-team' },
-        { label: t('event'), href: '/events' },
-        { label: t('faq'), href: '/faq' },
-        { label: t('magazine'), href: '/magazine' },
+        { label: 'Support', href: '/support' },
+        { label: 'Mission', href: '/mission' },
+        { label: 'Our Team', href: '/our-team' },
+        { label: 'Events', href: '/events' },
+        { label: 'FAQ', href: '/faq' },
+        { label: 'Magazine', href: '/magazine' },
       ],
     },
-    { label: t('ourServices'), href: '/services' },
-    { label: t('shop'), href: '/shop' },
-    { label: t('community'), href: '/community' },
-    { label: t('knowledgeHub'), href: '/knowledge-hub' },
+    { label: 'Our Services', href: '/services' },
+    { label: 'Shop', href: '/shop' },
+    { label: 'Community', href: '/community' },
+    { label: 'Knowledge Hub', href: '/knowledge-hub' },
   ];
 
   useEffect(() => {
@@ -168,7 +165,7 @@ export function Navbar() {
               `}
             >
               <Heart className='w-4 h-4 fill-current' />
-              <span>{commonT('donate')}</span>
+              <span>{'Donate'}</span>
             </Link>
 
             {/* Mobile Trigger - Modern Burger */}

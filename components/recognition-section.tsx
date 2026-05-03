@@ -10,7 +10,6 @@ import {
   Star,
   X,
 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -28,7 +27,6 @@ import { useEffect, useState } from 'react';
  */
 
 export function RecognitionSection() {
-  const t = useTranslations('RecognitionSection');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   // Prevent scroll when lightbox is open
@@ -50,15 +48,15 @@ export function RecognitionSection() {
         <div className='max-w-3xl mb-16' data-aos='fade-right'>
           <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-purple text-brand-deep text-sm font-bold mb-6'>
             <Star className='w-4 h-4' />
-            <span>{t('badge')}</span>
+            <span>Recognition & Impact</span>
           </div>
           <h2 className='text-4xl md:text-6xl font-bold font-heading text-brand-deep mb-6 leading-tight'>
-            {t('title')}{' '}
-            <span className='text-brand-purple'>{t('titleHighlight')}</span>{' '}
-            {t('titleSuffix')}
+            Recognized for our{' '}
+            <span className='text-brand-purple'>commitment</span> to families.
           </h2>
           <p className='text-xl text-gray-600 leading-relaxed'>
-            {t('description')}
+            Obimi is proud to be featured and awarded for our innovation and
+            dedication to the SEND community.
           </p>
         </div>
 
@@ -98,20 +96,22 @@ export function RecognitionSection() {
             <div className='relative z-10 w-full md:w-1/2'>
               <div className='inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-accent text-xs font-bold mb-6'>
                 <BookOpen className='w-3.5 h-3.5' />
-                <span>{t('magazineBadge')}</span>
+                <span>Magazine Feature</span>
               </div>
               <h3 className='text-3xl font-bold font-heading text-white mb-4'>
-                {t('magazineTitle')}
+                Featured in Life In Orpington
               </h3>
               <p className='text-white/70 text-lg mb-8 leading-relaxed'>
-                {t('magazineDescription')}
+                Obimi was highlighted for its impact and innovation in the local
+                business community. Recognized for contributions to community
+                and business excellence.
               </p>
               <Link
                 href='https://lifeinmagazines.co.uk/pdfs/life-in-magazines-bromley/#pdf-life-in-magazines-bromley/36/'
                 target='_blank'
                 className='inline-flex items-center gap-3 px-8 py-4 bg-accent text-brand-deep font-bold rounded-full hover:bg-white transition-all group/btn'
               >
-                <span>{t('magazineCta')}</span>
+                <span>Read Full Feature</span>
                 <ExternalLink className='w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform' />
               </Link>
             </div>
@@ -142,11 +142,11 @@ export function RecognitionSection() {
                 <div className='flex items-center gap-2 mb-2'>
                   <Award className='w-5 h-5 text-accent' />
                   <span className='text-accent font-bold text-sm uppercase tracking-wider'>
-                    {t('awardMomentTitle')}
+                    Moment of Recognition
                   </span>
                 </div>
                 <h4 className='text-2xl font-bold font-heading text-white'>
-                  {t('awardMomentSubtitle')}
+                  Celebrating Community Impact
                 </h4>
               </div>
               <div className='absolute top-6 right-6 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white'>
@@ -165,13 +165,13 @@ export function RecognitionSection() {
               </div>
               <div>
                 <div className='text-brand-purple font-bold text-sm mb-1'>
-                  {t('awardCardSubtitle')}
+                  Award Winner 2025
                 </div>
                 <h4 className='text-lg font-bold font-heading text-brand-deep mb-1'>
-                  {t('awardCardTitle')}
+                  Community Impact Award
                 </h4>
                 <p className='text-gray-500 text-xs'>
-                  {t('awardCardDescription')}
+                  Recognized for outstanding support to SEND families.
                 </p>
               </div>
             </div>
@@ -184,7 +184,7 @@ export function RecognitionSection() {
               data-aos-delay='400'
             >
               <span className='text-lg font-bold font-heading text-brand-deep group-hover:text-white transition-colors'>
-                {t('viewAllPress')}
+                View All Press
               </span>
               <div className='w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-purple group-hover:bg-accent group-hover:text-brand-deep transition-all'>
                 <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />

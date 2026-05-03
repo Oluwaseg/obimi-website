@@ -3,7 +3,6 @@
 import { IMAGES } from '@/constants';
 import { SOCIAL_LINKS } from '@/constants/socials';
 import { Heart } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaFacebook, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa';
@@ -16,40 +15,38 @@ const SOCIAL_ICON_MAP: Record<string, React.ReactNode> = {
 };
 
 export function Footer() {
-  const t = useTranslations('Navigation');
-  const footerT = useTranslations('Footer');
   const currentYear = new Date().getFullYear();
 
   const footerSections = [
     {
-      title: t('aboutUs'),
+      title: 'About Us',
       links: [
-        { label: t('support'), href: '/support' },
-        { label: t('mission'), href: '/mission' },
-        { label: t('ourTeam'), href: '/team' },
-        { label: t('event'), href: '/events' },
-        { label: t('faq'), href: '/faq' },
+        { label: 'Support', href: '/support' },
+        { label: 'Mission', href: '/mission' },
+        { label: 'Our Team', href: '/team' },
+        { label: 'Events', href: '/events' },
+        { label: 'FAQ', href: '/faq' },
       ],
     },
     {
-      title: t('ourServices'),
-      links: [{ label: t('ourServices'), href: '/services' }],
+      title: 'Our Services',
+      links: [{ label: 'Our Services', href: '/services' }],
     },
     {
-      title: t('shop'),
-      links: [{ label: t('shop'), href: '/shop' }],
+      title: 'Shop',
+      links: [{ label: 'Shop', href: '/shop' }],
     },
     {
-      title: t('community'),
-      links: [{ label: t('community'), href: '/community' }],
+      title: 'Community',
+      links: [{ label: 'Community', href: '/community' }],
     },
     {
-      title: t('knowledgeHub'),
-      links: [{ label: t('knowledgeHub'), href: '/knowledge-hub' }],
+      title: 'Knowledge Hub',
+      links: [{ label: 'Knowledge Hub', href: '/knowledge-hub' }],
     },
     {
-      title: t('contact'),
-      links: [{ label: t('contact'), href: '/contact' }],
+      title: 'Contact',
+      links: [{ label: 'Contact', href: '/contact' }],
     },
   ];
 
@@ -75,7 +72,7 @@ export function Footer() {
                 className='w-auto h-10 brightness-0 invert'
               />
               <p className='text-sm leading-relaxed text-white/60 font-sans'>
-                {footerT('subText')}
+                Empowering parents and caregivers through expert guidance, community support, and practical resources.
               </p>
             </div>
 
@@ -133,10 +130,10 @@ export function Footer() {
           <div className='flex flex-col sm:flex-row items-center gap-3 sm:gap-6'>
             <div className='flex flex-col items-center sm:items-start gap-1'>
               <p className='font-heading text-white/80'>
-                {footerT('companyRegistration')}
+                Obimi is a registered CIC Company Number: 16754782
               </p>
               <p>
-                &copy; {currentYear} Obimi. {footerT('rights')}
+                &copy; {currentYear} Obimi. All rights reserved.
               </p>
             </div>
             <div className='hidden sm:block w-px h-3 bg-white/10' />

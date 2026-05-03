@@ -1,31 +1,33 @@
 'use client';
 import { ArrowRight, Heart, LayoutGrid, Lightbulb, Users } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 
 const WhyObimi = () => {
-  const t = useTranslations('WhyObimi');
   const router = useRouter();
 
   const values = [
     {
-      title: t('value1Title'),
-      description: t('value1Description'),
+      title: 'By SEND Parents & Caregivers',
+      description:
+        'Built from real experience, so you get support that truly understands your challenges.',
       icon: <Heart className='w-6 h-6 text-primary' />,
     },
     {
-      title: t('value2Title'),
-      description: t('value2Description'),
+      title: 'Clear, Actionable Guidance',
+      description:
+        'We break down complex systems into simple steps you can actually follow.',
       icon: <Lightbulb className='w-6 h-6 text-accent-foreground' />,
     },
     {
-      title: t('value3Title'),
-      description: t('value3Description'),
+      title: 'All-in-One Support',
+      description:
+        'From education to health to social care, everything you need is in one place.',
       icon: <LayoutGrid className='w-6 h-6 text-secondary-foreground' />,
     },
     {
-      title: t('value4Title'),
-      description: t('value4Description'),
+      title: 'A Community That Cares',
+      description:
+        'Connect with others who understand your journey and support you every step of the way.',
       icon: <Users className='w-6 h-6 text-brand-deep' />,
     },
   ];
@@ -40,10 +42,12 @@ const WhyObimi = () => {
         {/* Section Header */}
         <div data-aos='fade-right' className='max-w-3xl mb-20 space-y-6'>
           <h2 className='text-4xl md:text-5xl font-heading font-bold text-foreground'>
-            {t('title')}
+            Why Obimi
           </h2>
           <p className='text-xl text-muted-foreground font-sans leading-relaxed'>
-            {t('description')}
+            Obimi was created by people who understand the journey firsthand. We
+            combine lived experience with practical support to help you navigate
+            every step with clarity and confidence.
           </p>
         </div>
 
@@ -68,13 +72,14 @@ const WhyObimi = () => {
               <div className='absolute bottom-6 left-6 bg-primary/90 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 shadow-lg'>
                 <div className='w-2 h-2 rounded-full bg-red-500 animate-pulse' />
                 <span className='text-xs font-bold font-heading text-brand-deep uppercase tracking-wider'>
-                  {t('videoBadge')}
+                  Watch Our Story
                 </span>
               </div>
             </div>
 
             <p className='text-sm text-muted-foreground font-heading italic pl-4 border-l-2 border-primary/30'>
-              {t('videoDescription')}
+              Hear from our founder and community about how Obimi is making a
+              difference.
             </p>
           </div>
 
@@ -110,7 +115,7 @@ const WhyObimi = () => {
                 className='w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground rounded-full font-heading font-bold text-sm sm:text-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2'
               >
                 <span className='text-center leading-tight'>
-                  {t('ctaPrimary')}
+                  Learn More About Us
                 </span>
                 <ArrowRight className='w-5 h-5 shrink-0' />
               </button>

@@ -6,43 +6,45 @@ import {
   Stethoscope,
   Users,
 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 
 const HowWeHelp = () => {
-  const t = useTranslations('HowWeHelp');
-
   const services = [
     {
-      title: t('service1Title'),
-      description: t('service1Description'),
+      title: 'Education Support',
+      description:
+        "From EHCP processes to school placement and reviews, we help you advocate for your child's education.",
       icon: <GraduationCap className='w-8 h-8' />,
       color: 'bg-primary/10 text-primary',
       span: 'md:col-span-2 lg:col-span-4',
     },
     {
-      title: t('service2Title'),
-      description: t('service2Description'),
+      title: 'Health Navigation',
+      description:
+        'Understand diagnoses, work with therapists, and manage appointments with clarity and confidence.',
       icon: <Stethoscope className='w-8 h-8' />,
       color: 'bg-accent/10 text-accent-foreground',
       span: 'md:col-span-2 lg:col-span-4',
     },
     {
-      title: t('service3Title'),
-      description: t('service3Description'),
+      title: 'Social Care & Benefits',
+      description:
+        "Get help accessing DLA, Carer's Allowance, and local authority support.",
       icon: <HeartHandshake className='w-8 h-8' />,
       color: 'bg-secondary/20 text-secondary-foreground',
       span: 'md:col-span-2 lg:col-span-4',
     },
     {
-      title: t('service4Title'),
-      description: t('service4Description'),
+      title: 'Community & Wellbeing',
+      description:
+        'Connect with other parents, join safe spaces, and take care of your own wellbeing too.',
       icon: <Users className='w-8 h-8' />,
       color: 'bg-brand-deep/10 text-brand-deep',
       span: 'md:col-span-3 lg:col-span-6',
     },
     {
-      title: t('service5Title'),
-      description: t('service5Description'),
+      title: 'Consultancy',
+      description:
+        'Training and speaking engagements to support professionals and organisations working with SEND families.',
       icon: <Presentation className='w-8 h-8' />,
       color: 'bg-primary/5 text-primary',
       span: 'md:col-span-3 lg:col-span-6',
@@ -56,24 +58,24 @@ const HowWeHelp = () => {
 
       <div className='container mx-auto relative z-10'>
         <div className='max-w-3xl mb-16 space-y-4'>
-          <div 
+          <div
             data-aos='fade-down'
             className='inline-block px-4 py-1 rounded-full bg-accent/20 text-accent-foreground text-sm font-bold font-heading uppercase tracking-wider'
           >
-            {t('badge')}
+            Our Services
           </div>
-          <h2 
+          <h2
             data-aos='fade-right'
             className='text-4xl md:text-5xl font-heading font-bold text-foreground'
           >
-            {t('title')}
+            How We Can Help
           </h2>
-          <p 
+          <p
             data-aos='fade-up'
             data-aos-delay='200'
             className='text-xl text-muted-foreground font-sans'
           >
-            {t('description')}
+            Practical support across every part of your journey.
           </p>
         </div>
 
@@ -107,7 +109,7 @@ const HowWeHelp = () => {
 
               <div className='mt-8 flex items-center justify-between relative z-10'>
                 <button className='text-sm font-bold font-heading text-primary flex items-center gap-1 group/btn'>
-                  {t('learnMore')}
+                  Learn More
                   <ArrowUpRight className='w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform' />
                 </button>
 

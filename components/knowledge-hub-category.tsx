@@ -8,7 +8,6 @@ import {
   Filter,
   Search,
 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 interface CategoryPageProps {
@@ -30,7 +29,6 @@ export function KnowledgeHubCategory({
   category,
   articles,
 }: CategoryPageProps) {
-  const t = useTranslations('KnowledgeHub');
 
   return (
     <div className='bg-white min-h-screen pt-32 pb-24'>
@@ -41,7 +39,7 @@ export function KnowledgeHubCategory({
           className='inline-flex items-center gap-2 text-gray-500 hover:text-brand-purple font-bold mb-8 transition-colors group'
         >
           <ArrowLeft className='w-5 h-5 group-hover:-translate-x-1 transition-transform' />
-          <span>{t('categoryBackLink')}</span>
+          <span>{'Back to Knowledge Hub'}</span>
         </Link>
 
         <div className='max-w-3xl'>
@@ -71,20 +69,18 @@ export function KnowledgeHubCategory({
             <Search className='absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-brand-purple transition-colors' />
             <input
               type='text'
-              placeholder={t('categorySearchPlaceholder', {
-                category: category.title,
-              })}
+              placeholder={`Search in ${category.title}...`}
               className='w-full pl-14 pr-6 py-4 bg-white border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/60 transition-all'
             />
           </div>
           <div className='flex items-center gap-3 w-full md:w-auto'>
             <button className='flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-4 font-bold text-gray-600 hover:border-brand-purple hover:text-brand-purple transition-all'>
               <Filter className='w-5 h-5' />
-              <span>{t('categoryFilter')}</span>
+              <span>{'Filter'}</span>
             </button>
             <div className='hidden md:block h-8 w-px bg-gray-200 mx-2' />
             <p className='hidden md:block text-sm font-bold text-gray-400'>
-              {t('categoryShowingArticles', { count: articles.length })}
+              {`Showing ${articles.length} articles`}
             </p>
           </div>
         </div>
@@ -122,7 +118,7 @@ export function KnowledgeHubCategory({
               </div>
 
               <div className='mt-8 md:mt-0 flex items-center gap-3 text-brand-purple font-bold group-hover:gap-5 transition-all'>
-                <span className='text-lg'>{t('categoryReadMore')}</span>
+                <span className='text-lg'>{'Read More'}</span>
                 <div className='w-12 h-12 rounded-full bg-brand-purple/5 flex items-center justify-center group-hover:bg-brand-purple group-hover:text-white transition-all'>
                   <ArrowRight className='w-6 h-6' />
                 </div>
@@ -134,7 +130,7 @@ export function KnowledgeHubCategory({
         {/* Pagination Placeholder */}
         {/* <div className='mt-16 flex justify-center'>
           <button className='px-10 py-4 bg-gray-50 text-gray-500 font-bold rounded-full hover:bg-brand-purple hover:text-white transition-all'>
-            {t('categoryLoadMore')}
+            {'Load More Articles'}
           </button>
         </div> */}
       </section>

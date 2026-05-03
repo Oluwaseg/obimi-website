@@ -3,7 +3,6 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ChevronDown, Send, X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import React, { useEffect, useRef, useState } from 'react';
 
 type TabType = 'faq' | 'contact';
@@ -58,14 +57,64 @@ interface FAQTabProps {
 }
 
 function FAQTab({ onClose }: FAQTabProps) {
-  const t = useTranslations('FAQPage');
   const [openId, setOpenId] = useState<string | null>('1');
 
-  const faqData = Array.from({ length: 9 }).map((_, i) => ({
-    id: (i + 1).toString(),
-    question: t(`faq${i + 1}Question`),
-    answer: t(`faq${i + 1}Answer`),
-  }));
+  const faqData: FAQItem[] = [
+    {
+      id: '1',
+      question: 'What does SEND mean?',
+      answer:
+        'SEND stands for Special Educational Needs and Disabilities. It refers to children who need additional support in learning, development, or daily life.',
+    },
+    {
+      id: '2',
+      question: 'Who is Obimi for?',
+      answer:
+        'Obimi supports parents, carers, and guardians raising children with SEND — whether you’re just starting out or already navigating the system.',
+    },
+    {
+      id: '3',
+      question: 'What kind of support does Obimi provide?',
+      answer:
+        'We offer guidance across education, health, and social care, including one-to-one support, workshops, resources, and community connection.',
+    },
+    {
+      id: '4',
+      question: 'Do I need to pay for support?',
+      answer:
+        'Some services are free, while others (like personalised sessions) may have a cost. We aim to keep support accessible for all families.',
+    },
+    {
+      id: '5',
+      question: 'How do I join the community?',
+      answer:
+        'You can join our community through our platform to connect with other parents, access support, and take part in events.',
+    },
+    {
+      id: '6',
+      question: 'I’m new to SEND — where should I start?',
+      answer:
+        'Start with our Knowledge Hub for simple guides, or reach out for support — we’ll help you take the next step.',
+    },
+    {
+      id: '7',
+      question: 'Does Obimi replace legal or medical advice?',
+      answer:
+        'No. We provide guidance and support, but we do not replace professional legal or medical services.',
+    },
+    {
+      id: '8',
+      question: 'Can I get involved or share my story?',
+      answer:
+        'Yes. You can volunteer, partner with us, or share your experience to support others in the community.',
+    },
+    {
+      id: '9',
+      question: 'How do I contact Obimi?',
+      answer:
+        'You can reach us through our contact page or email. We’re here to help.',
+    },
+  ];
 
   return (
     <div className='flex flex-col h-full'>
@@ -88,8 +137,6 @@ interface ContactTabProps {
 }
 
 function ContactTab({ onClose }: ContactTabProps) {
-  const t = useTranslations('ContactPage');
-  const commonT = useTranslations('Common');
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -142,7 +189,7 @@ function ContactTab({ onClose }: ContactTabProps) {
     <form onSubmit={handleSubmit} className='flex flex-col h-full gap-4'>
       {submitSuccess && (
         <div className='p-3 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800/40 rounded text-sm text-green-700 dark:text-green-400 font-medium animate-in fade-in duration-200'>
-          {t('trustBadgeText')} {t('trustBadgeHighlight')}
+          {'We typically respond within'} {'24–48 hours'}
         </div>
       )}
 
@@ -152,13 +199,13 @@ function ContactTab({ onClose }: ContactTabProps) {
             htmlFor='name'
             className='block text-xs font-semibold text-foreground/70 mb-1.5'
           >
-            {t('formNameLabel')}
+            {'Name'}
           </label>
           <Input
             id='name'
             name='name'
             type='text'
-            placeholder={t('formNamePlaceholder')}
+            placeholder={'Your full name'}
             value={formData.name}
             onChange={handleChange}
             required
@@ -171,13 +218,13 @@ function ContactTab({ onClose }: ContactTabProps) {
             htmlFor='email'
             className='block text-xs font-semibold text-foreground/70 mb-1.5'
           >
-            {t('formEmailLabel')}
+            {'Email Address'}
           </label>
           <Input
             id='email'
             name='email'
             type='email'
-            placeholder={t('formEmailPlaceholder')}
+            placeholder={'your@email.com'}
             value={formData.email}
             onChange={handleChange}
             required
@@ -190,12 +237,12 @@ function ContactTab({ onClose }: ContactTabProps) {
             htmlFor='message'
             className='block text-xs font-semibold text-foreground/70 mb-1.5'
           >
-            {t('formMessageLabel')}
+            {'Message'}
           </label>
           <textarea
             id='message'
             name='message'
-            placeholder={t('formMessagePlaceholder')}
+            placeholder={'How can we help you?'}
             value={formData.message}
             onChange={handleChange}
             required
@@ -212,12 +259,12 @@ function ContactTab({ onClose }: ContactTabProps) {
         {isSubmitting ? (
           <>
             <span className='inline-block animate-spin mr-2'>↻</span>
-            {commonT('submit')}
+            {'Submit'}
           </>
         ) : (
           <>
             <Send size={14} className='mr-2' />
-            {t('formSubmit')}
+            {'Send Message'}
           </>
         )}
       </Button>
@@ -226,9 +273,6 @@ function ContactTab({ onClose }: ContactTabProps) {
 }
 
 export default function FloatingSideTab() {
-  const t = useTranslations('Navigation');
-  const faqT = useTranslations('FAQPage');
-  const contactT = useTranslations('ContactPage');
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<TabType>('faq');
   const panelRef = useRef<HTMLDivElement>(null);
@@ -283,7 +327,7 @@ export default function FloatingSideTab() {
         aria-expanded={isOpen}
       >
         <span className='text-xs font-bold tracking-wider [writing-mode:vertical-rl] rotate-180 leading-tight'>
-          {t('contact')}
+          {'Contact'}
         </span>
       </button>
 
@@ -297,7 +341,7 @@ export default function FloatingSideTab() {
         <div className='flex items-center justify-between px-6 py-4 border-b border-border/50 bg-card shrink-0'>
           <div>
             <h2 className='text-lg font-semibold text-foreground'>
-              {t('support')}
+              {'Support'}
             </h2>
           </div>
           <button
@@ -319,7 +363,7 @@ export default function FloatingSideTab() {
                 : 'text-foreground/70 hover:text-foreground'
             }`}
           >
-            {faqT('badge')}
+            {'Knowledge Hub'}
           </button>
           <button
             onClick={() => setActiveTab('contact')}
@@ -329,7 +373,7 @@ export default function FloatingSideTab() {
                 : 'text-foreground/70 hover:text-foreground'
             }`}
           >
-            {contactT('badge')}
+            {'Knowledge Hub'}
           </button>
         </div>
 
