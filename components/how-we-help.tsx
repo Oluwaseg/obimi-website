@@ -3,7 +3,7 @@ import {
   GraduationCap,
   HeartHandshake,
   Presentation,
-  Stethoscope,
+  Sprout,
   Users,
 } from 'lucide-react';
 
@@ -21,7 +21,7 @@ const HowWeHelp = () => {
       title: 'Health Navigation',
       description:
         'Understand diagnoses, work with therapists, and manage appointments with clarity and confidence.',
-      icon: <Stethoscope className='w-8 h-8' />,
+      icon: <Sprout className='w-8 h-8' />,
       color: 'bg-accent/10 text-accent-foreground',
       span: 'md:col-span-2 lg:col-span-4',
     },

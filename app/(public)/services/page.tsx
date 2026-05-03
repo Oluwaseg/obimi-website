@@ -1,5 +1,6 @@
 'use client';
 
+import { IMAGES } from '@/constants';
 import {
   ArrowRight,
   BookOpen,
@@ -13,7 +14,6 @@ import {
 import { useRouter } from 'next/navigation';
 
 const ServicesPage = () => {
-
   const router = useRouter();
 
   const services = [
@@ -30,8 +30,7 @@ const ServicesPage = () => {
       cta: 'Book a Session',
       icon: <UserCircle className='w-10 h-10 text-primary' />,
       color: 'bg-primary/5 border-primary/20',
-      image:
-        'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop',
+      image: IMAGES.EVENT_F,
     },
     {
       id: 'workshops',
@@ -46,23 +45,17 @@ const ServicesPage = () => {
       cta: 'View Upcoming Sessions',
       icon: <Video className='w-10 h-10 text-accent-foreground' />,
       color: 'bg-accent/10 border-accent/20',
-      image:
-        'https://images.unsplash.com/photo-1591115765373-520b7a217294?q=80&w=800&auto=format&fit=crop',
+      image: IMAGES.EVENT_B.src,
     },
     {
       id: 'knowledge-hub',
       title: 'Knowledge Hub',
       text: 'Access a growing library of clear, practical resources designed to help you understand your rights and take action with confidence.',
-      benefits: [
-        'Guides & factsheets',
-        'Template letters',
-        'SEND glossary',
-      ],
+      benefits: ['Guides & factsheets', 'Template letters', 'SEND glossary'],
       cta: 'Explore Resources',
       icon: <BookOpen className='w-10 h-10 text-secondary-foreground' />,
       color: 'bg-secondary/20 border-secondary/30',
-      image:
-        'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop',
+      image: IMAGES.EVENT_C.src,
     },
     {
       id: 'peer-support',
@@ -76,8 +69,7 @@ const ServicesPage = () => {
       cta: 'Join the Community',
       icon: <Users className='w-10 h-10 text-brand-deep' />,
       color: 'bg-brand-deep/5 border-brand-deep/10',
-      image:
-        'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800&auto=format&fit=crop',
+      image: IMAGES.EVENT_J,
     },
   ];
 
@@ -99,11 +91,12 @@ const ServicesPage = () => {
             <span>{'Empowering Your Journey'}</span>
           </div>
           <h1 className='text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight'>
-            {'Our'}{' '}
-            <span className='text-primary'>{'Services'}</span>
+            {'Our'} <span className='text-primary'>{'Services'}</span>
           </h1>
           <p className='text-xl md:text-2xl text-muted-foreground font-sans leading-relaxed'>
-            {'Practical, empathetic support designed to meet you wherever you are on your SEND journey.'}
+            {
+              'Practical, empathetic support designed to meet you wherever you are on your SEND journey.'
+            }
           </p>
         </div>
       </section>
@@ -208,7 +201,9 @@ const ServicesPage = () => {
             {'Get the Support You Need'}
           </h2>
           <p className='text-xl text-white/80 font-sans leading-relaxed'>
-            {"Whether you're just starting out or navigating complex challenges, Obimi is here to support you every step of the way."}
+            {
+              "Whether you're just starting out or navigating complex challenges, Obimi is here to support you every step of the way."
+            }
           </p>
           <div className='flex flex-col sm:flex-row gap-6 justify-center pt-8'>
             <button

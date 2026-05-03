@@ -1,4 +1,5 @@
 'use client';
+import { IMAGES } from '@/constants';
 import { ArrowRight, Heart, Sparkles, Users } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
@@ -121,7 +122,7 @@ export function Hero() {
               <div className='absolute -inset-2 bg-gradient-to-r from-primary to-secondary rounded-[2.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000'></div>
               <div className='relative aspect-[4/3] rounded-[2rem] overflow-hidden border-4 border-background shadow-2xl'>
                 <img
-                  src='https://images.unsplash.com/photo-1594608661623-aa0bd3a69d98?q=80&w=1000&auto=format&fit=crop'
+                  src={IMAGES.EVENT_C.src}
                   alt='Happy family'
                   className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
                 />
@@ -144,7 +145,7 @@ export function Hero() {
               className='relative aspect-square rounded-[2rem] overflow-hidden border-4 border-background shadow-xl -mt-12 z-20 group'
             >
               <img
-                src='https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=600&auto=format&fit=crop'
+                src={IMAGES.EVENT_B.src}
                 alt='Child playing'
                 className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
               />

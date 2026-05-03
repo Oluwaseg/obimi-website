@@ -15,7 +15,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function MagazineDetailPage() {
-
   return (
     <div className='bg-background min-h-screen pt-32 pb-24'>
       {/* Breadcrumbs & Back Button */}
@@ -53,7 +52,9 @@ export default function MagazineDetailPage() {
               </div>
             </div>
             <p className='text-2xl text-gray-600 leading-relaxed mb-12'>
-              {'Obimi was highlighted for its impact and innovation in the local business community, recognized for our dedication to supporting SEND families.'}
+              {
+                'Obimi was highlighted for its impact and innovation in the local business community, recognized for our dedication to supporting SEND families.'
+              }
             </p>
             <div className='flex flex-wrap gap-4'>
               <Link
@@ -91,7 +92,11 @@ export default function MagazineDetailPage() {
             <h2 className='text-3xl md:text-4xl font-bold font-heading text-brand-deep mb-6'>
               {'Inside the Feature'}
             </h2>
-            <p className='text-lg text-gray-500'>{"A closer look at the article highlighting Obimi's mission and the impact we're making for parents and caregivers."}</p>
+            <p className='text-lg text-gray-500'>
+              {
+                "A closer look at the article highlighting Obimi's mission and the impact we're making for parents and caregivers."
+              }
+            </p>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
@@ -110,11 +115,11 @@ export default function MagazineDetailPage() {
                 {'Article Page 1: The Mission'}
               </p>
             </div>
-            {/* <div className='space-y-8'>
+            <div className='space-y-8'>
               <div className='relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-lg border border-gray-200 bg-white p-4'>
                 <div className='relative w-full h-full rounded-xl overflow-hidden'>
                   <Image
-                    src='/api/placeholder/800/1000'
+                    src={IMAGES.MAGAZINE_3}
                     alt='Article Page 2'
                     fill
                     className='object-cover'
@@ -124,7 +129,7 @@ export default function MagazineDetailPage() {
               <p className='text-center text-gray-500 font-medium italic'>
                 Article Page 2: Community Impact
               </p>
-            </div> */}
+            </div>
           </div>
         </div>
       </section>
@@ -157,9 +162,15 @@ export default function MagazineDetailPage() {
           <div className='bg-brand-deep rounded-[3rem] p-12 text-white relative overflow-hidden'>
             <div className='absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2' />
             <h3 className='text-2xl font-bold font-heading mb-6'>
-              "{'Obimi is setting a new standard for how we support parents navigating complex systems.'}"
+              "
+              {
+                'Obimi is setting a new standard for how we support parents navigating complex systems.'
+              }
+              "
             </h3>
-            <p className='text-white/70 text-lg'>{'— Life In Orpington Magazine'}</p>
+            <p className='text-white/70 text-lg'>
+              {'— Life In Orpington Magazine'}
+            </p>
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 'use client';
 
+import { IMAGES } from '@/constants';
 import {
   ArrowRight,
   Coffee,
@@ -22,25 +23,29 @@ const CommunityPage = () => {
   const communityOffers = [
     {
       title: 'A Safe, Private Space',
-      description: 'Our moderated members-only forum gives you a place to ask questions, share experiences, and speak freely in a supportive environment.',
+      description:
+        'Our moderated members-only forum gives you a place to ask questions, share experiences, and speak freely in a supportive environment.',
       icon: <ShieldCheck className='w-8 h-8 text-primary' />,
       bg: 'bg-primary/5',
     },
     {
       title: 'Virtual Meetups',
-      description: 'Join our relaxed online coffee mornings and connect with other parents from the comfort of your home.',
+      description:
+        'Join our relaxed online coffee mornings and connect with other parents from the comfort of your home.',
       icon: <Coffee className='w-8 h-8 text-accent-foreground' />,
       bg: 'bg-accent/10',
     },
     {
       title: 'In-Person Meetups',
-      description: 'Meet other parents and caregivers face-to-face, build real connections, and grow your support network.',
+      description:
+        'Meet other parents and caregivers face-to-face, build real connections, and grow your support network.',
       icon: <MapPin className='w-8 h-8 text-secondary-foreground' />,
       bg: 'bg-secondary/20',
     },
     {
       title: 'Shared Knowledge',
-      description: 'Learn from real experiences — from practical tips to everyday advice that makes your journey easier.',
+      description:
+        'Learn from real experiences — from practical tips to everyday advice that makes your journey easier.',
       icon: <Lightbulb className='w-8 h-8 text-brand-deep' />,
       bg: 'bg-brand-deep/5',
     },
@@ -72,7 +77,9 @@ const CommunityPage = () => {
               <span className='text-primary italic'>{'You Belong Here.'}</span>
             </h1>
             <p className='text-xl md:text-2xl text-muted-foreground font-sans leading-relaxed max-w-xl'>
-              {"The SEND journey can feel isolating, but you don't have to go through it alone. At Obimi, you're part of a supportive community that understands, listens, and cares."}
+              {
+                "The SEND journey can feel isolating, but you don't have to go through it alone. At Obimi, you're part of a supportive community that understands, listens, and cares."
+              }
             </p>
             <div className='flex flex-col sm:flex-row gap-4 pt-4'>
               <button
@@ -81,12 +88,6 @@ const CommunityPage = () => {
               >
                 <span>{'Join Now'}</span>
                 <ArrowRight className='w-6 h-6 group-hover:translate-x-1 transition-transform' />
-              </button>
-              <button
-                onClick={cta}
-                className='px-10 py-5 bg-white border-2 border-primary/20 text-primary hover:bg-primary/5 rounded-full font-heading font-bold text-xl transition-all flex items-center justify-center gap-3'
-              >
-                <span>{'Get Support'}</span>
               </button>
             </div>
           </div>
@@ -100,7 +101,7 @@ const CommunityPage = () => {
               {/* Central Image */}
               <div className='w-64 h-64 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-background z-20 rotate-3'>
                 <img
-                  src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800&auto=format&fit=crop'
+                  src={IMAGES.EVENT_B.src}
                   alt='Community Connection'
                   className='w-full h-full object-cover'
                 />
@@ -109,21 +110,21 @@ const CommunityPage = () => {
               {/* Floating Avatars */}
               <div className='absolute top-0 right-1/4 w-20 h-20 rounded-full border-4 border-white shadow-xl overflow-hidden animate-bounce-slow'>
                 <img
-                  src='https://i.pravatar.cc/150?u=11'
+                  src={IMAGES.EVENT_C.src}
                   alt='Member'
                   className='w-full h-full object-cover'
                 />
               </div>
               <div className='absolute bottom-10 left-1/4 w-24 h-24 rounded-full border-4 border-white shadow-xl overflow-hidden animate-bounce-slow delay-700'>
                 <img
-                  src='https://i.pravatar.cc/150?u=12'
+                  src={IMAGES.EVENT_A.src}
                   alt='Member'
                   className='w-full h-full object-cover'
                 />
               </div>
               <div className='absolute top-1/3 left-0 w-16 h-16 rounded-full border-4 border-white shadow-xl overflow-hidden animate-bounce-slow delay-300'>
                 <img
-                  src='https://i.pravatar.cc/150?u=13'
+                  src={IMAGES.EVENT_E.src}
                   alt='Member'
                   className='w-full h-full object-cover'
                 />
@@ -199,7 +200,7 @@ const CommunityPage = () => {
           <div className='relative'>
             <div className='aspect-video rounded-[3rem] overflow-hidden shadow-2xl border-8 border-background relative group'>
               <img
-                src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1000&auto=format&fit=crop'
+                src={IMAGES.EVENT_C.src}
                 alt='Understanding Space'
                 className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
               />
@@ -214,7 +215,9 @@ const CommunityPage = () => {
               {'A Space Built on Understanding'}
             </h2>
             <p className='text-xl text-muted-foreground font-sans leading-relaxed'>
-              {'Our community is built on empathy, respect, and shared experience — a place where every parent feels seen, heard, and supported.'}
+              {
+                'Our community is built on empathy, respect, and shared experience — a place where every parent feels seen, heard, and supported.'
+              }
             </p>
           </div>
         </div>

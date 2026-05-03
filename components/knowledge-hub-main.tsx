@@ -7,7 +7,7 @@ import {
   Clock,
   GraduationCap,
   Search,
-  Stethoscope,
+  Sprout,
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -25,7 +25,7 @@ export function KnowledgeHubMain() {
       id: 'health',
       title: 'Health & Diagnosis',
       desc: "Understand diagnoses, therapies, and how to support your child's development.",
-      icon: <Stethoscope className='w-8 h-8' />,
+      icon: <Sprout className='w-8 h-8' />,
       color: 'bg-brand-yellow/10 text-brand-yellow-dark',
       href: '/knowledge-hub/health',
     },

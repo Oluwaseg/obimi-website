@@ -363,7 +363,7 @@ export default function FloatingSideTab() {
                 : 'text-foreground/70 hover:text-foreground'
             }`}
           >
-            {'Knowledge Hub'}
+            {'FAQ'}
           </button>
           <button
             onClick={() => setActiveTab('contact')}
@@ -373,7 +373,7 @@ export default function FloatingSideTab() {
                 : 'text-foreground/70 hover:text-foreground'
             }`}
           >
-            {'Knowledge Hub'}
+            {'Contact Us'}
           </button>
         </div>
 

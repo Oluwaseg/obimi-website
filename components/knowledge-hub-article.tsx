@@ -42,19 +42,19 @@ interface ArticleProps {
 
 export function KnowledgeHubArticle({ article }: ArticleProps) {
   return (
-    <article className='bg-white min-h-screen pt-32 pb-24'>
+    <article className='bg-background min-h-screen pt-32 pb-24'>
       <div className='max-w-[1440px] mx-auto px-6 md:px-12 mb-12'>
         <div className='flex flex-wrap items-center gap-3 text-sm font-bold text-gray-400 mb-8'>
           <Link
             href='/knowledge-hub'
-            className='hover:text-brand-purple transition-colors'
+            className='hover:text-brand-deep transition-colors'
           >
             {'Knowledge Hub'}
           </Link>
           <ChevronRight className='w-4 h-4' />
           <Link
             href={`/knowledge-hub/${article.category.toLowerCase()}`}
-            className='hover:text-brand-purple transition-colors'
+            className='hover:text-brand-deep transition-colors'
           >
             {article.category}
           </Link>
@@ -65,25 +65,32 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
         </div>
 
         <div className='max-w-4xl'>
-          <h1 data-aos='fade-right' className='text-4xl md:text-6xl font-bold font-heading text-brand-deep mb-8 leading-tight'>
+          <h1
+            data-aos='fade-right'
+            className='text-4xl md:text-6xl font-bold font-heading text-brand-deep mb-8 leading-tight'
+          >
             {article.title}
           </h1>
 
-          <div data-aos='fade-up' data-aos-delay='200' className='flex flex-wrap items-center gap-6 pb-12 border-b border-gray-100'>
+          <div
+            data-aos='fade-up'
+            data-aos-delay='200'
+            className='flex flex-wrap items-center gap-6 pb-12 border-b border-gray-100'
+          >
             <div className='flex items-center gap-2 text-gray-500'>
-              <Calendar className='w-5 h-5 text-brand-purple' />
+              <Calendar className='w-5 h-5 text-brand-deep' />
               <span className='font-bold'>{article.date}</span>
             </div>
             <div className='flex items-center gap-2 text-gray-500'>
-              <Clock className='w-5 h-5 text-brand-purple' />
+              <Clock className='w-5 h-5 text-brand-deep' />
               <span className='font-bold'>{article.readTime}</span>
             </div>
             <div className='flex-1' />
             <div className='flex items-center gap-4'>
-              <button className='p-3 rounded-full bg-gray-50 text-gray-400 hover:bg-brand-purple hover:text-white transition-all'>
+              <button className='p-3 rounded-full bg-gray-50 text-gray-400 hover:bg-brand-deep hover:text-white transition-all'>
                 <Share2 className='w-5 h-5' />
               </button>
-              <button className='p-3 rounded-full bg-gray-50 text-gray-400 hover:bg-brand-purple hover:text-white transition-all'>
+              <button className='p-3 rounded-full bg-gray-50 text-gray-400 hover:bg-brand-deep hover:text-white transition-all'>
                 <Bookmark className='w-5 h-5' />
               </button>
             </div>
@@ -97,7 +104,10 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
           {/* Main Content */}
           <div className='lg:col-span-8'>
             {/* Intro */}
-            <div data-aos='fade-left' className='bg-brand-purple/5 p-8 md:p-10 rounded-[2.5rem] mb-16 border-l-4 border-brand-purple'>
+            <div
+              data-aos='fade-left'
+              className='bg-brand-deep/5 p-8 md:p-10 rounded-[2.5rem] mb-16 border-l-4 border-brand-deep'
+            >
               <p className='text-xl md:text-2xl text-brand-deep font-medium leading-relaxed italic'>
                 "{article.intro}"
               </p>
@@ -108,7 +118,7 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
               {article.sections.map((section, idx) => (
                 <section key={idx} data-aos='fade-up' className='scroll-mt-32'>
                   <h2 className='text-3xl font-bold font-heading text-brand-deep mb-8 flex items-center gap-4'>
-                    <span className='flex items-center justify-center w-10 h-10 rounded-xl bg-brand-purple text-white text-lg'>
+                    <span className='flex items-center justify-center w-10 h-10 rounded-xl bg-brand-deep text-white text-lg'>
                       {idx + 1}
                     </span>
                     {section.title}
@@ -121,7 +131,7 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
                           key={i}
                           className='flex items-start gap-4 text-lg text-gray-600 leading-relaxed'
                         >
-                          <CheckCircle2 className='w-6 h-6 text-brand-purple flex-shrink-0 mt-1' />
+                          <CheckCircle2 className='w-6 h-6 text-brand-deep flex-shrink-0 mt-1' />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -134,7 +144,7 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
                           key={i}
                           className='flex gap-6 p-6 bg-gray-50 rounded-2xl border border-gray-100'
                         >
-                          <span className='text-4xl font-bold text-brand-purple/20'>
+                          <span className='text-4xl font-bold text-brand-deep/20'>
                             {i + 1}
                           </span>
                           <p className='text-lg text-gray-700 font-medium pt-1'>
@@ -170,8 +180,11 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
             </div>
 
             {/* Key Takeaway */}
-            <div data-aos='zoom-in' className='mt-20 p-10 bg-brand-deep rounded-[3rem] text-white relative overflow-hidden'>
-              <div className='absolute top-0 right-0 w-64 h-64 bg-brand-purple/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2' />
+            <div
+              data-aos='zoom-in'
+              className='mt-20 p-10 bg-brand-deep rounded-[3rem] text-white relative overflow-hidden'
+            >
+              <div className='absolute top-0 right-0 w-64 h-64 bg-brand-deep/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2' />
               <div className='relative z-10'>
                 <h3 className='text-2xl font-bold font-heading mb-4 flex items-center gap-3'>
                   <Sparkles className='w-6 h-6 text-brand-yellow' />
@@ -195,7 +208,7 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
               </div>
               <Link
                 href={article.cta.href}
-                className='px-10 py-5 bg-brand-deep text-white font-bold rounded-full hover:bg-brand-purple transition-all flex items-center gap-3 group shadow-xl shadow-brand-deep/10'
+                className='px-10 py-5 bg-brand-deep text-white font-bold rounded-full hover:bg-brand-deep transition-all flex items-center gap-3 group shadow-xl shadow-brand-deep/10'
               >
                 <span>{article.cta.buttonText}</span>
                 <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
@@ -215,7 +228,7 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
                   {article.sections.map((section, idx) => (
                     <button
                       key={idx}
-                      className='flex items-center gap-3 text-gray-500 hover:text-brand-purple font-medium transition-colors text-left'
+                      className='flex items-center gap-3 text-gray-500 hover:text-brand-deep font-medium transition-colors text-left'
                     >
                       <span className='w-6 h-6 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-xs font-bold'>
                         {idx + 1}
@@ -227,24 +240,24 @@ export function KnowledgeHubArticle({ article }: ArticleProps) {
               </div>
 
               {/* Related Articles */}
-              <div className='p-8 bg-brand-purple/5 rounded-[2.5rem] border border-brand-purple/10'>
+              <div className='p-8 bg-brand-deep/5 rounded-[2.5rem] border border-brand-deep/10'>
                 <h4 className='text-xl font-bold font-heading text-brand-deep mb-6'>
                   {'Related Resources'}
                 </h4>
                 <div className='space-y-6'>
                   <Link href='#' className='group block'>
-                    <p className='text-sm font-bold text-brand-purple mb-1'>
+                    <p className='text-sm font-bold text-brand-deep mb-1'>
                       Education
                     </p>
-                    <h5 className='font-bold text-brand-deep group-hover:text-brand-purple transition-colors line-clamp-2'>
+                    <h5 className='font-bold text-brand-deep group-hover:text-brand-deep transition-colors line-clamp-2'>
                       Annual Reviews of EHCPs: What Parents Need to Know
                     </h5>
                   </Link>
                   <Link href='#' className='group block'>
-                    <p className='text-sm font-bold text-brand-purple mb-1'>
+                    <p className='text-sm font-bold text-brand-deep mb-1'>
                       Health
                     </p>
-                    <h5 className='font-bold text-brand-deep group-hover:text-brand-purple transition-colors line-clamp-2'>
+                    <h5 className='font-bold text-brand-deep group-hover:text-brand-deep transition-colors line-clamp-2'>
                       Understanding the SEN Support System
                     </h5>
                   </Link>
