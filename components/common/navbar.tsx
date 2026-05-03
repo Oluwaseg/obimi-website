@@ -1,31 +1,17 @@
 'use client';
 
 import { IMAGES } from '@/constants';
-import { routing } from '@/i18n/routing';
 import { ChevronDown, Heart, LayoutGrid, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export function Navbar() {
-  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(
     null
   );
-  const [isLangOpen, setIsLangOpen] = useState(false);
-
-  const currentLocale = pathname.split('/')[1] || routing.defaultLocale;
-
-  const switchLocale = (newLocale: string) => {
-    const segments = pathname.split('/').filter(Boolean);
-    const currentPath = '/' + (segments.slice(1).join('/') || '');
-    let newPath =
-      currentPath === '/' ? `/${newLocale}` : `/${newLocale}${currentPath}`;
-    window.location.href = newPath;
-  };
 
   const navItems = [
     { label: 'Home', href: '/' },
