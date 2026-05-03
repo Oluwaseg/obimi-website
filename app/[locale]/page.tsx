@@ -1,4 +1,3 @@
-import CommunityCTA from '@/components/community';
 import { Hero } from '@/components/hero';
 import HowWeHelp from '@/components/how-we-help';
 import KnowledgeHub from '@/components/knowledge-hub';
@@ -17,7 +16,7 @@ export default function Home() {
       <WhyObimi />
       <MediaSection />
       <RecognitionSection />
-      <CommunityCTA />
+      {/* <CommunityCTA /> */}
       <KnowledgeHub />
       <NewsletterSignup />
     </main>

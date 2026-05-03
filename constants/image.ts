@@ -20,6 +20,14 @@ import event2 from '../public/assets/events/event-b.jpg';
 import event3 from '../public/assets/events/event-c.jpg';
 import event4 from '../public/assets/events/event-d.jpg';
 import event5 from '../public/assets/events/event-e.jpg';
+import event6 from '../public/assets/events/event-k.jpg';
+import event7 from '../public/assets/events/event-l.jpeg';
+import event8 from '../public/assets/events/event-m.jpg';
+import event9 from '../public/assets/events/event-n.jpg';
+import event10 from '../public/assets/events/event-o.jpg';
+import event11 from '../public/assets/events/event-p.jpg';
+import event12 from '../public/assets/events/event-q.jpg';
+import event13 from '../public/assets/events/event-r.jpg';
 
 // Awards
 import award from '../public/assets/images/award.png';
@@ -46,6 +54,14 @@ export const IMAGES = {
   EVENT_H: 'https://obimi.org/wp-content/uploads/2025/09/Obimi-02.jpeg',
   EVENT_I: 'https://obimi.org/wp-content/uploads/2025/09/Obimi-07.jpeg',
   EVENT_J: 'https://obimi.org/wp-content/uploads/2025/09/Obimi-04.jpeg',
+  EVENT_K: event6,
+  EVENT_L: event7,
+  EVENT_M: event8,
+  EVENT_N: event9,
+  EVENT_O: event10,
+  EVENT_P: event11,
+  EVENT_Q: event12,
+  EVENT_R: event13,
   AWARD: award,
   MAGAZINE: magazine,
   MAGAZINE_2: magazine2,

@@ -2,7 +2,7 @@
 
 import { IMAGES } from '@/constants';
 import { routing } from '@/i18n/routing';
-import { ChevronDown, Globe, Heart, LayoutGrid, X } from 'lucide-react';
+import { ChevronDown, Heart, LayoutGrid, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -38,7 +38,7 @@ export function Navbar() {
         { label: t('support'), href: '/support' },
         { label: t('mission'), href: '/mission' },
         { label: t('ourTeam'), href: '/our-team' },
-        { label: t('press'), href: '/press' },
+        { label: t('event'), href: '/events' },
         { label: t('faq'), href: '/faq' },
         { label: t('magazine'), href: '/magazine' },
       ],
@@ -129,7 +129,7 @@ export function Navbar() {
           {/* Right: Actions */}
           <div className='flex items-center gap-2'>
             {/* Language - Minimalist Circle */}
-            <div className='relative hidden lg:block'>
+            {/* <div className='relative hidden lg:block'>
               <button
                 onClick={() => setIsLangOpen(!isLangOpen)}
                 className='w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 hover:border-primary hover:text-primary transition-all text-xs font-bold uppercase'
@@ -149,7 +149,7 @@ export function Navbar() {
                   ))}
                 </div>
               )}
-            </div>
+            </div> */}
 
             {/* <div className='hidden sm:block'>
               <Switch />
@@ -259,8 +259,8 @@ export function Navbar() {
             ))}
           </div>
 
-          <div className='pt-8 border-t border-gray-100 flex items-center justify-between'>
-            <div className='flex gap-4'>
+          {/* <div className='pt-8 border-t border-gray-100 flex items-center justify-between'> */}
+          {/* <div className='flex gap-4'>
               {routing.locales.map((locale) => (
                 <button
                   key={locale}
@@ -270,9 +270,9 @@ export function Navbar() {
                   {locale.toUpperCase()}
                 </button>
               ))}
-            </div>
-            {/* <Switch /> */}
-          </div>
+            </div> */}
+          {/* <Switch /> */}
+          {/* </div> */}
         </div>
       </div>
     </>

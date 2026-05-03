@@ -27,7 +27,7 @@ export function Footer() {
         { label: t('support'), href: '/support' },
         { label: t('mission'), href: '/mission' },
         { label: t('ourTeam'), href: '/team' },
-        { label: t('press'), href: '/press' },
+        { label: t('event'), href: '/events' },
         { label: t('faq'), href: '/faq' },
       ],
     },

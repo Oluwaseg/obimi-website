@@ -1,5 +1,6 @@
 'use client';
 
+import { IMAGES } from '@/constants';
 import {
   ArrowRight,
   CheckCircle2,
@@ -13,6 +14,7 @@ import {
   Users,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 const Support = () => {
@@ -117,12 +119,12 @@ const Support = () => {
             className='relative hidden lg:block'
           >
             <div className='aspect-video rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white/10 relative group'>
-              <img
-                src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop'
+              <Image
+                src={IMAGES.EVENT_C}
                 alt='Impact'
                 className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
               />
-              <div className='absolute inset-0 bg-gradient-to-t from-ring/80 to-transparent flex items-end p-12'>
+              <div className='absolute inset-0 bg-gradient-to-t from-ring/30 to-transparent flex items-end p-12'>
                 <p className='text-2xl font-heading font-bold italic'>
                   "{t('quote')}"
                 </p>

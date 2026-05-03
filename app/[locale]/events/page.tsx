@@ -4,8 +4,7 @@ import { Calendar, ChevronLeft, ChevronRight, Heart, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
-const HERO_BG =
-  'https://d2xsxph8kpxj0f.cloudfront.net/310519663594899785/f6BeSEvWAji7G5hxiLtCro/hero-background-2vYurhQm4HGmWtGqZjSYiR.webp';
+const HERO_BG = IMAGES.EVENT_C.src;
 
 const FEATURED_EVENTS = [
   {
@@ -25,55 +24,19 @@ const FEATURED_EVENTS = [
 
 const COMMUNITY_GALLERIES = [
   {
-    title: 'Coffee Morning Meetup',
-    description: 'Highlights from our cozy coffee gatherings',
-    images: [
-      {
-        src: IMAGES.EVENT_A.src,
-        alt: 'Coffee meetup 1',
-        title: 'Coffee Morning Meetup',
-      },
-      {
-        src: IMAGES.EVENT_B.src,
-        alt: 'Coffee meetup 2',
-      },
-      {
-        src: IMAGES.EVENT_C.src,
-        alt: 'Coffee meetup 3',
-      },
-      {
-        src: IMAGES.EVENT_D.src,
-        alt: 'Coffee meetup 4',
-      },
-    ],
-  },
-  {
-    title: 'Parent Support Workshop',
-    description: 'Moments of learning, connection, and empowerment',
-    images: [
-      {
-        src: IMAGES.EVENT_B.src,
-        alt: 'Workshop 1',
-        title: 'Parent Support Workshop',
-      },
-      {
-        src: IMAGES.EVENT_C.src,
-        alt: 'Workshop 2',
-      },
-      {
-        src: IMAGES.EVENT_D.src,
-        alt: 'Workshop 3',
-      },
-      {
-        src: IMAGES.EVENT_E.src,
-        alt: 'Workshop 4',
-      },
-    ],
-  },
-  {
     title: 'Community Gathering',
     description: 'Celebrating togetherness and building stronger families',
     images: [
+      {
+        src: IMAGES.EVENT_A.src,
+        alt: 'Gathering 1',
+        title: 'Community Gathering',
+      },
+      {
+        src: IMAGES.EVENT_B.src,
+        alt: 'Gathering 1',
+        title: 'Community Gathering',
+      },
       {
         src: IMAGES.EVENT_C.src,
         alt: 'Gathering 1',
@@ -82,14 +45,77 @@ const COMMUNITY_GALLERIES = [
       {
         src: IMAGES.EVENT_D.src,
         alt: 'Gathering 2',
+        title: 'Community Gathering',
       },
       {
         src: IMAGES.EVENT_E.src,
         alt: 'Gathering 3',
+        title: 'Community Gathering',
       },
       {
-        src: IMAGES.EVENT_A.src,
+        src: IMAGES.EVENT_F,
         alt: 'Gathering 4',
+        title: 'Community Gathering',
+      },
+      {
+        src: IMAGES.EVENT_G,
+        alt: 'Gathering 5',
+        title: 'Community Gathering',
+      },
+      {
+        src: IMAGES.EVENT_H,
+        alt: 'Gathering 6',
+        title: 'Community Gathering',
+      },
+      {
+        src: IMAGES.EVENT_I,
+        alt: 'Gathering 7',
+        title: 'Community Gathering',
+      },
+      {
+        src: IMAGES.EVENT_J,
+        alt: 'Gathering 8',
+        title: 'Community Gathering',
+      },
+      {
+        src: IMAGES.EVENT_K.src,
+        alt: 'Gathering 9',
+        title: 'Community Gathering',
+      },
+      {
+        src: IMAGES.EVENT_L.src,
+        alt: 'Gathering 10',
+        title: 'Community Gathering',
+      },
+      {
+        src: IMAGES.EVENT_M.src,
+        alt: 'Gathering 11',
+        title: 'Community Gathering',
+      },
+      {
+        src: IMAGES.EVENT_N.src,
+        alt: 'Gathering 12',
+        title: 'Community Gathering',
+      },
+      {
+        src: IMAGES.EVENT_O.src,
+        alt: 'Gathering 13',
+        title: 'Community Gathering',
+      },
+      {
+        src: IMAGES.EVENT_P.src,
+        alt: 'Gathering 14',
+        title: 'Community Gathering',
+      },
+      {
+        src: IMAGES.EVENT_Q.src,
+        alt: 'Gathering 15',
+        title: 'Community Gathering',
+      },
+      {
+        src: IMAGES.EVENT_R.src,
+        alt: 'Gathering 16',
+        title: 'Community Gathering',
       },
     ],
   },
@@ -220,20 +246,20 @@ export default function Events() {
     );
 
   const communityGalleries = [
-    {
-      title: t('gallery1Title'),
-      description: t('gallery1Description'),
-      images: COMMUNITY_GALLERIES[0].images,
-    },
-    {
-      title: t('gallery2Title'),
-      description: t('gallery2Description'),
-      images: COMMUNITY_GALLERIES[1].images,
-    },
+    // {
+    //   title: t('gallery1Title'),
+    //   description: t('gallery1Description'),
+    //   images: COMMUNITY_GALLERIES[0].images,
+    // },
+    // {
+    //   title: t('gallery2Title'),
+    //   description: t('gallery2Description'),
+    //   images: COMMUNITY_GALLERIES[1].images,
+    // },
     {
       title: t('gallery3Title'),
       description: t('gallery3Description'),
-      images: COMMUNITY_GALLERIES[2].images,
+      images: COMMUNITY_GALLERIES[0].images,
     },
   ];
 
@@ -248,9 +274,10 @@ export default function Events() {
           backgroundImage: `url('${HERO_BG}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
         }}
       >
-        <div className='absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50' />
+        <div className='absolute inset-0 bg-gradient-to-b from-accent/40 via-primary/30 to-transparent' />
 
         <div className='relative z-10 container text-center px-4 py-20'>
           <div className='max-w-3xl mx-auto animate-fade-in-up'>
@@ -270,7 +297,7 @@ export default function Events() {
           </div>
         </div>
 
-        <div className='absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent' />
+        <div className='absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-accent/40 to-transparent' />
       </section>
 
       {/* ==================== UPCOMING EVENTS SECTION ==================== */}
