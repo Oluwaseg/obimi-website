@@ -37,6 +37,10 @@ import magazine from '../public/assets/magazine/cover1.png';
 import magazine2 from '../public/assets/magazine/cover2.png';
 import magazine3 from '../public/assets/magazine/cover3.jpeg';
 
+// product images
+import bag from '../public/assets/shop/bag.jpg';
+import bag1 from '../public/assets/shop/bag1.jpg';
+
 export const IMAGES = {
   PRIMARY_LOGO: primary_logo,
   SECONDARY_LOGO: secondary_logo,
@@ -67,4 +71,6 @@ export const IMAGES = {
   MAGAZINE: magazine,
   MAGAZINE_2: magazine2,
   MAGAZINE_3: magazine3,
+  BAG: bag,
+  BAG_1: bag1,
 };

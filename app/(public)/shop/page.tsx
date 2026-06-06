@@ -1,5 +1,6 @@
 'use client';
 
+import { IMAGES } from '@/constants/image';
 import {
   ArrowRight,
   CheckCircle2,
@@ -43,8 +44,7 @@ export default function ShopMainPage() {
       id: 'tote-bag',
       name: 'Obimi Tote Bag',
       desc: 'A durable, eco-friendly bag for your everyday essentials.',
-      image:
-        'https://blackwomenrisinguk.org/wp-content/uploads/2025/06/04-BWR-Tshirt.png',
+      image: IMAGES.BAG,
       tag: 'Eco-friendly',
     },
     {
